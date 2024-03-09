@@ -1,0 +1,6 @@
+C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\DataAccess\bin\Debug\DataAccess.dll
+C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\DataAccess\bin\Debug\DataAccess.pdb
+C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\DataAccess\obj\Debug\DataAccess.dll
+C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\DataAccess\obj\Debug\DataAccess.pdb
