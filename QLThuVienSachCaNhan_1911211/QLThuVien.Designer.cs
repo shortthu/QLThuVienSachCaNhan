@@ -34,6 +34,14 @@
             this.tBorrowed = new System.Windows.Forms.TabPage();
             this.tBorrowing = new System.Windows.Forms.TabPage();
             this.tAllBooks = new System.Windows.Forms.TabPage();
+            this.lvBook = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dgvAllBooks = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,14 +76,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lvBook = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tCategory.SuspendLayout();
             this.tAllBooks.SuspendLayout();
@@ -104,7 +107,7 @@
             this.tCategory.Location = new System.Drawing.Point(4, 22);
             this.tCategory.Name = "tCategory";
             this.tCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.tCategory.Size = new System.Drawing.Size(998, 242);
+            this.tCategory.Size = new System.Drawing.Size(998, 463);
             this.tCategory.TabIndex = 0;
             this.tCategory.Text = "Theo thể loại";
             this.tCategory.UseVisualStyleBackColor = true;
@@ -120,7 +123,7 @@
             // 
             this.tBorrowed.Location = new System.Drawing.Point(4, 22);
             this.tBorrowed.Name = "tBorrowed";
-            this.tBorrowed.Size = new System.Drawing.Size(998, 242);
+            this.tBorrowed.Size = new System.Drawing.Size(998, 463);
             this.tBorrowed.TabIndex = 2;
             this.tBorrowed.Text = "Sách cho mượn";
             this.tBorrowed.UseVisualStyleBackColor = true;
@@ -129,7 +132,7 @@
             // 
             this.tBorrowing.Location = new System.Drawing.Point(4, 22);
             this.tBorrowing.Name = "tBorrowing";
-            this.tBorrowing.Size = new System.Drawing.Size(998, 242);
+            this.tBorrowing.Size = new System.Drawing.Size(998, 463);
             this.tBorrowing.TabIndex = 3;
             this.tBorrowing.Text = "Sách mượn";
             this.tBorrowing.UseVisualStyleBackColor = true;
@@ -145,6 +148,58 @@
             this.tAllBooks.TabIndex = 1;
             this.tAllBooks.Text = "Tất cả sách";
             this.tAllBooks.UseVisualStyleBackColor = true;
+            // 
+            // lvBook
+            // 
+            this.lvBook.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader8,
+            this.columnHeader10,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader9,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.lvBook.FullRowSelect = true;
+            this.lvBook.GridLines = true;
+            this.lvBook.HideSelection = false;
+            this.lvBook.Location = new System.Drawing.Point(6, 6);
+            this.lvBook.MultiSelect = false;
+            this.lvBook.Name = "lvBook";
+            this.lvBook.Size = new System.Drawing.Size(986, 215);
+            this.lvBook.TabIndex = 1;
+            this.lvBook.UseCompatibleStateImageBehavior = false;
+            this.lvBook.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "STT";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Tên sách";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Thể loại";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Tác giả";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Nhà xuất bản";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Vị trí";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Ghi chú";
             // 
             // dgvAllBooks
             // 
@@ -458,54 +513,17 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Thể loại";
             // 
-            // lvBook
+            // columnHeader8
             // 
-            this.lvBook.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-            this.lvBook.FullRowSelect = true;
-            this.lvBook.GridLines = true;
-            this.lvBook.HideSelection = false;
-            this.lvBook.Location = new System.Drawing.Point(6, 6);
-            this.lvBook.MultiSelect = false;
-            this.lvBook.Name = "lvBook";
-            this.lvBook.Size = new System.Drawing.Size(986, 215);
-            this.lvBook.TabIndex = 1;
-            this.lvBook.UseCompatibleStateImageBehavior = false;
-            this.lvBook.View = System.Windows.Forms.View.Details;
+            this.columnHeader8.Text = "Loại sách";
             // 
-            // columnHeader1
+            // columnHeader9
             // 
-            this.columnHeader1.Text = "STT";
+            this.columnHeader9.Text = "Năm xuất bản";
             // 
-            // columnHeader2
+            // columnHeader10
             // 
-            this.columnHeader2.Text = "Tên sách";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Thể loại";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Tác giả";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Nhà xuất bản";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Vị trí";
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Ghi chú";
+            this.columnHeader10.Text = "Trạng thái";
             // 
             // QLThuVien
             // 
@@ -582,6 +600,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
     }
 }
 

@@ -17,6 +17,8 @@ namespace QLThuVienSachCaNhan_1911211
         List<Author> authorList = new List<Author>();
         List<Category> categoryList = new List<Category>();
 
+        List<string> bookType = new List<string>();
+
         Book selectedBook = new Book();
 
         public QLThuVien()
@@ -75,12 +77,25 @@ namespace QLThuVienSachCaNhan_1911211
             {
                 ListViewItem item = lvBook.Items.Add(count.ToString());
                 item.SubItems.Add(book.TenSach);
+                string type;
+                if (book.LoaiSach == 0)
+                    type = "Sách đơn";
+                else type = "Sách bộ";
+                item.SubItems.Add(type);
+                string status;
+                if (book.TenTrangThai == 0)
+                    status = "Lưu trữ";
+                else if (book.TenTrangThai == 1)
+                    status = "Cho mượn";
+                else status = "Sách mượn";
+                item.SubItems.Add(status);
                 string categoryName = categoryList.Find(x => x.ID == book.ID_TheLoai).TenTheLoai;
                 item.SubItems.Add(categoryName);
                 string authorName = authorList.Find(x => x.ID == book.ID_TacGia).TenTacGia;
                 item.SubItems.Add(authorName);
                 string publisherName = publisherList.Find(x => x.ID == book.ID_NhaXuatBan).TenNhaXuatBan;
                 item.SubItems.Add(publisherName);
+                item.SubItems.Add(book.NamXuatBan);
                 item.SubItems.Add(book.ViTri);
                 item.SubItems.Add(book.GhiChu);
                 count++;
