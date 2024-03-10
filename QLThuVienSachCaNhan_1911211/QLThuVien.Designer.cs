@@ -37,9 +37,12 @@
             this.lvBook = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dgvAllBooks = new System.Windows.Forms.DataGridView();
@@ -76,9 +79,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tCategory.SuspendLayout();
             this.tAllBooks.SuspendLayout();
@@ -172,6 +172,7 @@
             this.lvBook.TabIndex = 1;
             this.lvBook.UseCompatibleStateImageBehavior = false;
             this.lvBook.View = System.Windows.Forms.View.Details;
+            this.lvBook.SelectedIndexChanged += new System.EventHandler(this.lvBook_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -180,6 +181,14 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Tên sách";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Loại sách";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Trạng thái";
             // 
             // columnHeader3
             // 
@@ -192,6 +201,10 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Nhà xuất bản";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Năm xuất bản";
             // 
             // columnHeader6
             // 
@@ -512,18 +525,6 @@
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Thể loại";
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Loại sách";
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Năm xuất bản";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Trạng thái";
             // 
             // QLThuVien
             // 

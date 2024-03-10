@@ -299,5 +299,25 @@ namespace QLThuVienSachCaNhan_1911211
                 MessageBox.Show(ex.Message, "Error");
             }
         }
+
+        private void lvBook_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvBook.SelectedItems.Count == 0)
+                return;
+
+            int currentIndex = Convert.ToInt32(lvBook.SelectedItems[0].Text) - 1;
+            //MessageBox.Show(currentIndex);
+
+            Book currentBook = booksList[currentIndex];
+            tbID.Text = currentBook.ID.ToString();
+            _ = (currentBook.LoaiSach == 0) ? rbSingleVolume.Checked = true : rbSeries.Checked = true;
+            tbBookName.Text = currentBook.TenSach;
+            cbCategory.SelectedValue = currentBook.ID_TheLoai;
+            cbAuthor.SelectedValue = currentBook.ID_TacGia;
+            mtbPublishedYear.Text = currentBook.NamXuatBan;
+            cbPublisher.SelectedValue = currentBook.ID_NhaXuatBan;
+            tbLocation.Text = currentBook.ViTri;
+            tbNotes.Text = currentBook.GhiChu;
+        }
     }
 }
