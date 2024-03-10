@@ -43,6 +43,7 @@ namespace QLThuVienSachCaNhan_1911211
             cbPublisher.DataSource = publisherList;
             cbPublisher.DisplayMember = "TenNhaXuatBan";
             cbPublisher.ValueMember = "ID";
+            cbPublisher.Text = "";
         }
 
         private void LoadAuthor()
@@ -53,6 +54,7 @@ namespace QLThuVienSachCaNhan_1911211
             cbAuthor.DataSource = authorList;
             cbAuthor.DisplayMember = "TenTacGia";
             cbAuthor.ValueMember = "ID";
+            cbAuthor.Text = "";
         }
 
         private void LoadCategory()
@@ -63,6 +65,7 @@ namespace QLThuVienSachCaNhan_1911211
             cbCategory.DataSource = categoryList;
             cbCategory.DisplayMember = "TenTheLoai";
             cbCategory.ValueMember = "ID";
+            cbCategory.Text = "";
         }
 
         public void LoadBook()
@@ -318,6 +321,11 @@ namespace QLThuVienSachCaNhan_1911211
             cbPublisher.SelectedValue = currentBook.ID_NhaXuatBan;
             tbLocation.Text = currentBook.ViTri;
             tbNotes.Text = currentBook.GhiChu;
+        }
+
+        private void bSaveBook_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

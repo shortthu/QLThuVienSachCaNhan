@@ -30,7 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tCategory = new System.Windows.Forms.TabPage();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.tBorrowed = new System.Windows.Forms.TabPage();
             this.tBorrowing = new System.Windows.Forms.TabPage();
             this.tAllBooks = new System.Windows.Forms.TabPage();
@@ -56,11 +55,10 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bAddBook = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbNotes = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bSaveBook = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbNotes = new System.Windows.Forms.TextBox();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.mtbPublishedYear = new System.Windows.Forms.MaskedTextBox();
@@ -79,12 +77,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.bNew = new System.Windows.Forms.Button();
+            this.bEditCategory = new System.Windows.Forms.Button();
+            this.bEditAuthor = new System.Windows.Forms.Button();
+            this.bEditPublisher = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.tCategory.SuspendLayout();
             this.tAllBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllBooks)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -95,35 +94,27 @@
             this.tabControl1.Controls.Add(this.tBorrowed);
             this.tabControl1.Controls.Add(this.tBorrowing);
             this.tabControl1.Controls.Add(this.tAllBooks);
-            this.tabControl1.Location = new System.Drawing.Point(12, 334);
+            this.tabControl1.Location = new System.Drawing.Point(501, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1006, 489);
+            this.tabControl1.Size = new System.Drawing.Size(767, 453);
             this.tabControl1.TabIndex = 0;
             // 
             // tCategory
             // 
-            this.tCategory.Controls.Add(this.treeView1);
             this.tCategory.Location = new System.Drawing.Point(4, 22);
             this.tCategory.Name = "tCategory";
             this.tCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.tCategory.Size = new System.Drawing.Size(998, 463);
+            this.tCategory.Size = new System.Drawing.Size(759, 427);
             this.tCategory.TabIndex = 0;
             this.tCategory.Text = "Theo thể loại";
             this.tCategory.UseVisualStyleBackColor = true;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(6, 6);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(436, 230);
-            this.treeView1.TabIndex = 0;
             // 
             // tBorrowed
             // 
             this.tBorrowed.Location = new System.Drawing.Point(4, 22);
             this.tBorrowed.Name = "tBorrowed";
-            this.tBorrowed.Size = new System.Drawing.Size(998, 463);
+            this.tBorrowed.Size = new System.Drawing.Size(759, 427);
             this.tBorrowed.TabIndex = 2;
             this.tBorrowed.Text = "Sách cho mượn";
             this.tBorrowed.UseVisualStyleBackColor = true;
@@ -132,7 +123,7 @@
             // 
             this.tBorrowing.Location = new System.Drawing.Point(4, 22);
             this.tBorrowing.Name = "tBorrowing";
-            this.tBorrowing.Size = new System.Drawing.Size(998, 463);
+            this.tBorrowing.Size = new System.Drawing.Size(759, 427);
             this.tBorrowing.TabIndex = 3;
             this.tBorrowing.Text = "Sách mượn";
             this.tBorrowing.UseVisualStyleBackColor = true;
@@ -144,7 +135,7 @@
             this.tAllBooks.Location = new System.Drawing.Point(4, 22);
             this.tAllBooks.Name = "tAllBooks";
             this.tAllBooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tAllBooks.Size = new System.Drawing.Size(998, 463);
+            this.tAllBooks.Size = new System.Drawing.Size(759, 427);
             this.tAllBooks.TabIndex = 1;
             this.tAllBooks.Text = "Tất cả sách";
             this.tAllBooks.UseVisualStyleBackColor = true;
@@ -168,7 +159,7 @@
             this.lvBook.Location = new System.Drawing.Point(6, 6);
             this.lvBook.MultiSelect = false;
             this.lvBook.Name = "lvBook";
-            this.lvBook.Size = new System.Drawing.Size(986, 215);
+            this.lvBook.Size = new System.Drawing.Size(745, 215);
             this.lvBook.TabIndex = 1;
             this.lvBook.UseCompatibleStateImageBehavior = false;
             this.lvBook.View = System.Windows.Forms.View.Details;
@@ -235,7 +226,7 @@
             this.dgvAllBooks.MultiSelect = false;
             this.dgvAllBooks.Name = "dgvAllBooks";
             this.dgvAllBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAllBooks.Size = new System.Drawing.Size(986, 230);
+            this.dgvAllBooks.Size = new System.Drawing.Size(198, 117);
             this.dgvAllBooks.TabIndex = 0;
             // 
             // Column1
@@ -298,48 +289,15 @@
             this.Column10.HeaderText = "Ghi chú";
             this.Column10.Name = "Column10";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.bAddBook);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1002, 316);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thêm sách";
-            // 
-            // bAddBook
-            // 
-            this.bAddBook.Location = new System.Drawing.Point(921, 287);
-            this.bAddBook.Name = "bAddBook";
-            this.bAddBook.Size = new System.Drawing.Size(75, 23);
-            this.bAddBook.TabIndex = 0;
-            this.bAddBook.Text = "Thêm";
-            this.bAddBook.UseVisualStyleBackColor = true;
-            this.bAddBook.Click += new System.EventHandler(this.bAddBook_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.tbNotes);
-            this.groupBox3.Location = new System.Drawing.Point(452, 26);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(544, 255);
-            this.groupBox3.TabIndex = 31;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Ghi chú";
-            // 
-            // tbNotes
-            // 
-            this.tbNotes.Location = new System.Drawing.Point(6, 18);
-            this.tbNotes.Multiline = true;
-            this.tbNotes.Name = "tbNotes";
-            this.tbNotes.Size = new System.Drawing.Size(532, 231);
-            this.tbNotes.TabIndex = 0;
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.bEditPublisher);
+            this.groupBox2.Controls.Add(this.bEditAuthor);
+            this.groupBox2.Controls.Add(this.bEditCategory);
+            this.groupBox2.Controls.Add(this.bNew);
+            this.groupBox2.Controls.Add(this.bSaveBook);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.tbNotes);
             this.groupBox2.Controls.Add(this.tbID);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.mtbPublishedYear);
@@ -356,12 +314,39 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(6, 26);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(440, 255);
+            this.groupBox2.Size = new System.Drawing.Size(483, 453);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thông tin chung";
+            this.groupBox2.Text = "Thêm/Sửa";
+            // 
+            // bSaveBook
+            // 
+            this.bSaveBook.Location = new System.Drawing.Point(359, 372);
+            this.bSaveBook.Name = "bSaveBook";
+            this.bSaveBook.Size = new System.Drawing.Size(75, 23);
+            this.bSaveBook.TabIndex = 0;
+            this.bSaveBook.Text = "Lưu";
+            this.bSaveBook.UseVisualStyleBackColor = true;
+            this.bSaveBook.Click += new System.EventHandler(this.bSaveBook_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 236);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "Ghi chú";
+            // 
+            // tbNotes
+            // 
+            this.tbNotes.Location = new System.Drawing.Point(143, 233);
+            this.tbNotes.Multiline = true;
+            this.tbNotes.Name = "tbNotes";
+            this.tbNotes.Size = new System.Drawing.Size(291, 133);
+            this.tbNotes.TabIndex = 0;
             // 
             // tbID
             // 
@@ -411,7 +396,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 49);
+            this.label7.Location = new System.Drawing.Point(6, 49);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 13);
             this.label7.TabIndex = 33;
@@ -484,7 +469,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 184);
+            this.label3.Location = new System.Drawing.Point(6, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 23;
@@ -502,7 +487,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 132);
+            this.label4.Location = new System.Drawing.Point(6, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 21;
@@ -526,23 +511,55 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Thể loại";
             // 
+            // bNew
+            // 
+            this.bNew.Location = new System.Drawing.Point(278, 372);
+            this.bNew.Name = "bNew";
+            this.bNew.Size = new System.Drawing.Size(75, 23);
+            this.bNew.TabIndex = 37;
+            this.bNew.Text = "Mới";
+            this.bNew.UseVisualStyleBackColor = true;
+            // 
+            // bEditCategory
+            // 
+            this.bEditCategory.Location = new System.Drawing.Point(440, 100);
+            this.bEditCategory.Name = "bEditCategory";
+            this.bEditCategory.Size = new System.Drawing.Size(35, 23);
+            this.bEditCategory.TabIndex = 38;
+            this.bEditCategory.Text = "Sửa";
+            this.bEditCategory.UseVisualStyleBackColor = true;
+            // 
+            // bEditAuthor
+            // 
+            this.bEditAuthor.Location = new System.Drawing.Point(440, 126);
+            this.bEditAuthor.Name = "bEditAuthor";
+            this.bEditAuthor.Size = new System.Drawing.Size(35, 23);
+            this.bEditAuthor.TabIndex = 39;
+            this.bEditAuthor.Text = "Sửa";
+            this.bEditAuthor.UseVisualStyleBackColor = true;
+            // 
+            // bEditPublisher
+            // 
+            this.bEditPublisher.Location = new System.Drawing.Point(440, 178);
+            this.bEditPublisher.Name = "bEditPublisher";
+            this.bEditPublisher.Size = new System.Drawing.Size(35, 23);
+            this.bEditPublisher.TabIndex = 40;
+            this.bEditPublisher.Text = "Sửa";
+            this.bEditPublisher.UseVisualStyleBackColor = true;
+            // 
             // QLThuVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 862);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1289, 482);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "QLThuVien";
             this.Text = "Quản lý thư viện sách cá nhân";
             this.Load += new System.EventHandler(this.QLThuVien_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tCategory.ResumeLayout(false);
             this.tAllBooks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllBooks)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -558,28 +575,7 @@
         private System.Windows.Forms.TabPage tBorrowed;
         private System.Windows.Forms.TabPage tBorrowing;
         private System.Windows.Forms.TabPage tAllBooks;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox tbNotes;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cbCategory;
-        private System.Windows.Forms.TextBox tbBookName;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton rbSingleVolume;
-        private System.Windows.Forms.RadioButton rbSeries;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbPublisher;
-        private System.Windows.Forms.ComboBox cbAuthor;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbLocation;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button bAddBook;
         private System.Windows.Forms.DataGridView dgvAllBooks;
-        private System.Windows.Forms.MaskedTextBox mtbPublishedYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -590,9 +586,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TextBox tbID;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListView lvBook;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -604,6 +597,32 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button bSaveBook;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbNotes;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox mtbPublishedYear;
+        private System.Windows.Forms.ComboBox cbPublisher;
+        private System.Windows.Forms.ComboBox cbAuthor;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbLocation;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.TextBox tbBookName;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbSingleVolume;
+        private System.Windows.Forms.RadioButton rbSeries;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button bNew;
+        private System.Windows.Forms.Button bEditCategory;
+        private System.Windows.Forms.Button bEditAuthor;
+        private System.Windows.Forms.Button bEditPublisher;
     }
 }
 
