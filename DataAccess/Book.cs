@@ -10,13 +10,13 @@ namespace DataAccess
     {
         public int ID { get; set; }
         public int LoaiSach { get; set; }
-        public int ID_TheLoai { get; set; }
+        public int? ID_TheLoai { get; set; }
         public string TenSach { get; set; }
-        public int ID_TacGia { get; set; }
+        public int? ID_TacGia { get; set; }
         public string NamXuatBan { get; set; }
-        public int ID_NhaXuatBan { get; set; }
+        public int? ID_NhaXuatBan { get; set; }
         public string ViTri { get; set; }
-        public int TenTrangThai { get; set; }
+        public int? TenTrangThai { get; set; }
         public string GhiChu { get; set; }
     }
 }

@@ -6,11 +6,10 @@ C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuV
 C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\bin\Debug\BusinessLogic.pdb
 C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\bin\Debug\DataAccess.pdb
 C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVienSachCaNhan.csproj.AssemblyReference.cache
-C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVienSachCaNhan.csproj.SuggestedBindingRedirects.cache
 C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVienSachCaNhan_1911211.QLThuVien.resources
 C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVienSachCaNhan_1911211.Properties.Resources.resources
 C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVienSachCaNhan.csproj.GenerateResource.cache
 C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVienSachCaNhan.csproj.CoreCompileInputs.cache
-C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVienSachCaNhan.csproj.CopyComplete
 C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVienSachCaNhan_1911211.exe
 C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVienSachCaNhan_1911211.pdb
+C:\Personal Data\Development (Not WSL)\LTCSDL\QLThuVienSachCaNhan_1911211\QLThuVienSachCaNhan_1911211\obj\Debug\QLThuVie.2785DA07.Up2Date

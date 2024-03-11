@@ -56,6 +56,10 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bEditPublisher = new System.Windows.Forms.Button();
+            this.bEditAuthor = new System.Windows.Forms.Button();
+            this.bEditCategory = new System.Windows.Forms.Button();
+            this.bNew = new System.Windows.Forms.Button();
             this.bSaveBook = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tbNotes = new System.Windows.Forms.TextBox();
@@ -69,7 +73,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.tbBookName = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pTypes = new System.Windows.Forms.Panel();
             this.rbSingleVolume = new System.Windows.Forms.RadioButton();
             this.rbSeries = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
@@ -77,15 +81,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.bNew = new System.Windows.Forms.Button();
-            this.bEditCategory = new System.Windows.Forms.Button();
-            this.bEditAuthor = new System.Windows.Forms.Button();
-            this.bEditPublisher = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tAllBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllBooks)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pTypes.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -308,7 +308,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.cbCategory);
             this.groupBox2.Controls.Add(this.tbBookName);
-            this.groupBox2.Controls.Add(this.panel1);
+            this.groupBox2.Controls.Add(this.pTypes);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
@@ -320,6 +320,43 @@
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thêm/Sửa";
+            // 
+            // bEditPublisher
+            // 
+            this.bEditPublisher.Location = new System.Drawing.Point(440, 178);
+            this.bEditPublisher.Name = "bEditPublisher";
+            this.bEditPublisher.Size = new System.Drawing.Size(35, 23);
+            this.bEditPublisher.TabIndex = 40;
+            this.bEditPublisher.Text = "Sửa";
+            this.bEditPublisher.UseVisualStyleBackColor = true;
+            // 
+            // bEditAuthor
+            // 
+            this.bEditAuthor.Location = new System.Drawing.Point(440, 126);
+            this.bEditAuthor.Name = "bEditAuthor";
+            this.bEditAuthor.Size = new System.Drawing.Size(35, 23);
+            this.bEditAuthor.TabIndex = 39;
+            this.bEditAuthor.Text = "Sửa";
+            this.bEditAuthor.UseVisualStyleBackColor = true;
+            // 
+            // bEditCategory
+            // 
+            this.bEditCategory.Location = new System.Drawing.Point(440, 100);
+            this.bEditCategory.Name = "bEditCategory";
+            this.bEditCategory.Size = new System.Drawing.Size(35, 23);
+            this.bEditCategory.TabIndex = 38;
+            this.bEditCategory.Text = "Sửa";
+            this.bEditCategory.UseVisualStyleBackColor = true;
+            // 
+            // bNew
+            // 
+            this.bNew.Location = new System.Drawing.Point(278, 372);
+            this.bNew.Name = "bNew";
+            this.bNew.Size = new System.Drawing.Size(75, 23);
+            this.bNew.TabIndex = 37;
+            this.bNew.Text = "Mới";
+            this.bNew.UseVisualStyleBackColor = true;
+            this.bNew.Click += new System.EventHandler(this.bNew_Click);
             // 
             // bSaveBook
             // 
@@ -435,18 +472,19 @@
             this.tbBookName.Size = new System.Drawing.Size(291, 20);
             this.tbBookName.TabIndex = 0;
             // 
-            // panel1
+            // pTypes
             // 
-            this.panel1.Controls.Add(this.rbSingleVolume);
-            this.panel1.Controls.Add(this.rbSeries);
-            this.panel1.Location = new System.Drawing.Point(143, 44);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(155, 23);
-            this.panel1.TabIndex = 24;
+            this.pTypes.Controls.Add(this.rbSingleVolume);
+            this.pTypes.Controls.Add(this.rbSeries);
+            this.pTypes.Location = new System.Drawing.Point(143, 44);
+            this.pTypes.Name = "pTypes";
+            this.pTypes.Size = new System.Drawing.Size(155, 23);
+            this.pTypes.TabIndex = 24;
             // 
             // rbSingleVolume
             // 
             this.rbSingleVolume.AutoSize = true;
+            this.rbSingleVolume.Checked = true;
             this.rbSingleVolume.Location = new System.Drawing.Point(3, 3);
             this.rbSingleVolume.Name = "rbSingleVolume";
             this.rbSingleVolume.Size = new System.Drawing.Size(72, 17);
@@ -511,42 +549,6 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Thể loại";
             // 
-            // bNew
-            // 
-            this.bNew.Location = new System.Drawing.Point(278, 372);
-            this.bNew.Name = "bNew";
-            this.bNew.Size = new System.Drawing.Size(75, 23);
-            this.bNew.TabIndex = 37;
-            this.bNew.Text = "Mới";
-            this.bNew.UseVisualStyleBackColor = true;
-            // 
-            // bEditCategory
-            // 
-            this.bEditCategory.Location = new System.Drawing.Point(440, 100);
-            this.bEditCategory.Name = "bEditCategory";
-            this.bEditCategory.Size = new System.Drawing.Size(35, 23);
-            this.bEditCategory.TabIndex = 38;
-            this.bEditCategory.Text = "Sửa";
-            this.bEditCategory.UseVisualStyleBackColor = true;
-            // 
-            // bEditAuthor
-            // 
-            this.bEditAuthor.Location = new System.Drawing.Point(440, 126);
-            this.bEditAuthor.Name = "bEditAuthor";
-            this.bEditAuthor.Size = new System.Drawing.Size(35, 23);
-            this.bEditAuthor.TabIndex = 39;
-            this.bEditAuthor.Text = "Sửa";
-            this.bEditAuthor.UseVisualStyleBackColor = true;
-            // 
-            // bEditPublisher
-            // 
-            this.bEditPublisher.Location = new System.Drawing.Point(440, 178);
-            this.bEditPublisher.Name = "bEditPublisher";
-            this.bEditPublisher.Size = new System.Drawing.Size(35, 23);
-            this.bEditPublisher.TabIndex = 40;
-            this.bEditPublisher.Text = "Sửa";
-            this.bEditPublisher.UseVisualStyleBackColor = true;
-            // 
             // QLThuVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -562,8 +564,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllBooks)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pTypes.ResumeLayout(false);
+            this.pTypes.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -611,7 +613,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.TextBox tbBookName;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pTypes;
         private System.Windows.Forms.RadioButton rbSingleVolume;
         private System.Windows.Forms.RadioButton rbSeries;
         private System.Windows.Forms.Label label3;

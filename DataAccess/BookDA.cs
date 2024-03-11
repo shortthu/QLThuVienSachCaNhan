@@ -28,11 +28,20 @@ namespace DataAccess
                 book.LoaiSach = Convert.ToInt32(reader["LoaiSach"]);
                 book.ID_TheLoai = Convert.ToInt32(reader["ID_TheLoai"]);
                 book.TenSach = reader["TenSach"].ToString();
-                book.ID_TacGia = Convert.ToInt32(Convert.IsDBNull(reader["ID_TacGia"]) ? null : reader["ID_TacGia"]);
+                if (Convert.IsDBNull(reader["ID_TacGia"]))
+                    book.ID_TacGia = null;
+                else
+                    book.ID_TacGia = Convert.ToInt32(reader["ID_TacGia"]);
                 book.NamXuatBan = reader["NamXuatBan"].ToString();
-                book.ID_NhaXuatBan = Convert.ToInt32(Convert.IsDBNull(reader["ID_NhaXuatBan"]) ? null : reader["ID_NhaXuatBan"]);
+                if (Convert.IsDBNull(reader["ID_NhaXuatBan"]))
+                    book.ID_NhaXuatBan = null;
+                else
+                    book.ID_NhaXuatBan = Convert.ToInt32(reader["ID_NhaXuatBan"]);
                 book.ViTri = reader["ViTri"].ToString();
-                book.TenTrangThai = Convert.ToInt32(Convert.IsDBNull(reader["TenTrangThai"]) ? null : reader["TenTrangThai"]);
+                if (Convert.IsDBNull(reader["TenTrangThai"]))
+                    book.TenTrangThai = null;
+                else
+                    book.TenTrangThai = Convert.ToInt32(reader["TenTrangThai"]);
                 book.GhiChu = reader["GhiChu"].ToString();
                 list.Add(book);
             }
@@ -49,7 +58,7 @@ namespace DataAccess
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = Utilities.Book_InsertUpdateDelete;
 
-            SqlParameter IDPara = new SqlParameter("ID", SqlDbType.Int);
+            SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
             IDPara.Direction = ParameterDirection.InputOutput;
 
             cmd.Parameters.Add(IDPara).Value = book.ID;

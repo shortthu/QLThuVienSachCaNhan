@@ -41,7 +41,7 @@ namespace DataAccess
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = Utilities.Author_InsertUpdateDelete;
 
-            SqlParameter IDPara = new SqlParameter("ID", SqlDbType.Int);
+            SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
             IDPara.Direction = ParameterDirection.InputOutput;
 
             cmd.Parameters.Add(IDPara).Value = author.ID;

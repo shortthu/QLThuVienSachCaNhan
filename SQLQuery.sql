@@ -53,12 +53,12 @@ CREATE PROCEDURE [dbo].[Book_InsertUpdateDelete]
 	@LoaiSach int,
 	@ID_TheLoai int,
 	@TenSach nvarchar(100),
-	@ID_TacGia int,
-	@NamXuatBan nchar(4),
-	@ID_NhaXuatBan int,
-	@ViTri nvarchar(50),
-	@TenTrangThai smallint,
-	@GhiChu ntext,
+	@ID_TacGia int = null,
+	@NamXuatBan nchar(4) = null,
+	@ID_NhaXuatBan int = null,
+	@ViTri nvarchar(50) = null,
+	@TenTrangThai smallint = null,
+	@GhiChu ntext = null,
 	@Action int
 AS
 -- Thêm
