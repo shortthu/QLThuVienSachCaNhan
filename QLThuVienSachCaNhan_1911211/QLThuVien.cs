@@ -31,7 +31,7 @@ namespace QLThuVienSachCaNhan_1911211
             LoadPublisher();
             LoadAuthor();
             LoadCategory();
-            LoadBook(lvBook);
+            ReloadAllLists();
         }
 
         // Utils
@@ -39,6 +39,11 @@ namespace QLThuVienSachCaNhan_1911211
         private int GetBookType()
         {
             return rbSingleVolume.Checked ? 0 : 1;
+        }
+
+        private void ReloadAllLists()
+        {
+            LoadBook(lvBook);
         }
 
         // Load funcs
@@ -76,7 +81,7 @@ namespace QLThuVienSachCaNhan_1911211
             cbCategory.Text = null;
         }
 
-        public void LoadBook(ListView bookListView)
+        private void LoadBook(ListView bookListView)
         {
             BookBL bookBL = new BookBL();
             booksList = bookBL.GetAll();
@@ -114,104 +119,7 @@ namespace QLThuVienSachCaNhan_1911211
         }
 
         // Add funcs
-
-        //public string ThemTheLoai()
-        //{
-        //    try
-        //    {
-        //        string categoryID = "";
-
-        //        SqlConnection conn = new SqlConnection(Utilities.ConnectionString);
-
-        //        SqlCommand cmd = conn.CreateCommand();
-        //        cmd.CommandText = "EXECUTE InsertCategory @id OUTPUT, @tenTheLoai";
-
-        //        cmd.Parameters.Add("@id", SqlDbType.Int);
-        //        cmd.Parameters.Add("@tenTheLoai", SqlDbType.NVarChar, 50);
-
-        //        cmd.Parameters["@id"].Direction = ParameterDirection.Output;
-
-        //        cmd.Parameters["@tenTheLoai"].Value = cbCategory.Text;
-
-        //        conn.Open();
-
-        //        int numRowAffected = cmd.ExecuteNonQuery();
-
-        //        if (numRowAffected > 0)
-        //        {
-        //            categoryID = cmd.Parameters["@id"].Value.ToString();
-        //            MessageBox.Show($"Đã thêm thể loại mới. ID = {categoryID}");
-        //            this.ResetText();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Không thể thêm thể loại.");
-        //        }
-
-        //        conn.Close();
-        //        conn.Dispose();
-
-        //        return categoryID;
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        return ex.Message;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return ex.Message;
-        //    }
-        //}
-
-        //public string ThemTacGia()
-        //{
-        //    try
-        //    {
-        //        string authorID = "";
-
-        //        SqlConnection conn = new SqlConnection(Utilities.ConnectionString);
-
-        //        SqlCommand cmd = conn.CreateCommand();
-        //        cmd.CommandText = "EXECUTE InsertAuthor @id OUTPUT, @tenTacGia";
-
-        //        cmd.Parameters.Add("@id", SqlDbType.Int);
-        //        cmd.Parameters.Add("@tenTacGia", SqlDbType.NVarChar, 50);
-
-        //        cmd.Parameters["@id"].Direction = ParameterDirection.Output;
-
-        //        cmd.Parameters["@tenTacGia"].Value = cbAuthor.Text;
-
-        //        conn.Open();
-
-        //        int numRowAffected = cmd.ExecuteNonQuery();
-
-        //        if (numRowAffected > 0)
-        //        {
-        //            authorID = cmd.Parameters["@id"].Value.ToString();
-        //            MessageBox.Show($"Đã thêm tác giả mới. ID = {authorID}");
-        //            this.ResetText();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Không thể thêm tác giả.");
-        //        }
-
-        //        conn.Close();
-        //        conn.Dispose();
-
-        //        return authorID;
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        return ex.Message;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return ex.Message;
-        //    }
-        //}
-
-        public int InsertMinorProperty(int property)
+        private int InsertMinorProperty(int property)
         {
             // 0 = Category; 1 = Author; 2 = Publisher
 
@@ -239,7 +147,62 @@ namespace QLThuVienSachCaNhan_1911211
             return -1;
         }
 
-        public int InsertBook()
+        private Book GetFormsData()
+        {
+            Book book = new Book();
+            book.ID = 0;
+
+            book.LoaiSach = GetBookType();
+            book.TenSach = tbBookName.Text;
+            book.NamXuatBan = mtbPublishedYear.Text;
+            book.ViTri = tbLocation.Text;
+            book.GhiChu = tbNotes.Text;
+            book.TenTrangThai = 0;
+            if (cbCategory.SelectedValue != null)
+                book.ID_TheLoai = Convert.ToInt32(cbCategory.SelectedValue);
+            else
+            {
+                int result = InsertMinorProperty(0);
+                if (result > 0)
+                {
+                    MessageBox.Show($"Đã thêm thể loại, ID = {result}");
+                    book.ID_TheLoai = result;
+                    LoadCategory();
+                }
+                else MessageBox.Show("Không thể thêm thể loại");
+            }
+            if (cbAuthor.SelectedValue != null)
+                book.ID_TacGia = Convert.ToInt32(cbAuthor.SelectedValue);
+            else if (cbAuthor.Text != "")
+            {
+                int result = InsertMinorProperty(1);
+                if (result > 0)
+                {
+                    MessageBox.Show($"Đã thêm tác giả, ID = {result}");
+                    book.ID_TacGia = result;
+                    LoadAuthor();
+                }
+                else MessageBox.Show("Không thể thêm tác giả");
+            }
+            else book.ID_TacGia = null;
+            if (cbPublisher.SelectedValue != null)
+                book.ID_NhaXuatBan = Convert.ToInt32(cbPublisher.SelectedValue);
+            else if (cbPublisher.Text != "")
+            {
+                int result = InsertMinorProperty(2);
+                if (result > 0)
+                {
+                    MessageBox.Show($"Đã thêm nhà xuất bản, ID = {result}");
+                    book.ID_NhaXuatBan = result;
+                    LoadPublisher();
+                }
+                else MessageBox.Show("Không thể thêm nhà xuất bản");
+            }
+            else book.ID_NhaXuatBan = null;
+            return book;
+        }
+
+        private int InsertBook()
         {
             Book newBook = new Book();
             newBook.ID = 0;
@@ -300,90 +263,32 @@ namespace QLThuVienSachCaNhan_1911211
             return -1;
         }
 
+        private void DeleteBook()
+        {
+            if (MessageBox.Show("Bạn có muốn xoá sách này?", "Thông báo",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                BookBL bookBL = new BookBL();
+                if (bookBL.Delete(selectedBook) > 0)
+                {
+                    MessageBox.Show("Xoá thành công.");
+                    ReloadAllLists();
+                }
+                else MessageBox.Show("Xoá không thành công.");
+            }
+        }
+
+        private int UpdateBook()
+        {
+            Book tempBook = selectedBook;
+            if (cbCategory.Text == "" || tbBookName.Text == "" || (!rbSingleVolume.Checked && !rbSeries.Checked))
+                MessageBox.Show("Chưa nhập dữ liệu vài ô cần thiết. Vui lòng nhập lại");
+            else
+            {
+
+            }
+        }
         // Events
-
-        //private void bAddBook_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        SqlConnection conn = new SqlConnection(Utilities.ConnectionString);
-
-        //        SqlCommand cmd = conn.CreateCommand();
-        //        cmd.CommandText = "EXECUTE InsertBook @id OUTPUT, @loaiSach, @id_theLoai, @tenSach, @id_tacGia, " +
-        //            "@namXuatBan, @id_nhaXuatBan, @viTri, @tenTrangThai, @ghiChu";
-
-        //        cmd.Parameters.Add("@id", SqlDbType.Int);
-        //        cmd.Parameters.Add("@loaiSach", SqlDbType.Int);
-        //        cmd.Parameters.Add("@id_theLoai", SqlDbType.Int);
-        //        cmd.Parameters.Add("@tenSach", SqlDbType.NVarChar, 100);
-        //        cmd.Parameters.Add("@id_tacGia", SqlDbType.Int);
-        //        cmd.Parameters.Add("@namXuatBan", SqlDbType.NChar, 4);
-        //        cmd.Parameters.Add("@id_nhaXuatBan", SqlDbType.Int);
-        //        cmd.Parameters.Add("@viTri", SqlDbType.NVarChar, 50);
-        //        cmd.Parameters.Add("@tenTrangThai", SqlDbType.SmallInt);
-        //        cmd.Parameters.Add("@ghiChu", SqlDbType.NText);
-
-        //        cmd.Parameters["@id"].Direction = ParameterDirection.Output;
-
-        //        cmd.Parameters["@loaiSach"].Value = rbSingleVolume.Checked ? 0 : 1;
-
-        //        if (cbCategory.SelectedValue != null)
-        //            cmd.Parameters["@id_theLoai"].Value = cbCategory.SelectedValue;
-        //        else
-        //        {
-        //            string theLoai = ThemTheLoai();
-        //            if (theLoai.All(char.IsDigit))
-        //                cmd.Parameters["@id_theLoai"].Value = Convert.ToInt32(theLoai);
-        //            else MessageBox.Show(theLoai, "Error");
-        //        }
-
-        //        cmd.Parameters["@tenSach"].Value = tbBookName.Text;
-
-        //        if (cbAuthor.SelectedValue != null)
-        //            cmd.Parameters["@id_tacGia"].Value = cbAuthor.SelectedValue;
-        //        else
-        //        {
-        //            string tacGia = ThemTacGia();
-        //            if (tacGia.All(char.IsDigit))
-        //                cmd.Parameters["@id_tacGia"].Value = Convert.ToInt32(tacGia);
-        //            else MessageBox.Show(tacGia, "Error");
-        //        }
-
-        //        cmd.Parameters["@namXuatBan"].Value = mtbPublishedYear.Text;
-        //        cmd.Parameters["@id_nhaXuatBan"].Value = cbPublisher.SelectedValue;
-        //        cmd.Parameters["@viTri"].Value = tbLocation.Text;
-        //        cmd.Parameters["@tenTrangThai"].Value = 0;
-        //        cmd.Parameters["@ghiChu"].Value = tbNotes.Text;
-
-        //        conn.Open();
-
-        //        int numRowAffected = cmd.ExecuteNonQuery();
-
-        //        if (numRowAffected > 0)
-        //        {
-        //            string bookID = cmd.Parameters["@id"].Value.ToString();
-        //            MessageBox.Show($"Đã thêm sách/bộ sách mới. ID = {bookID}");
-        //            this.ResetText();
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Không thể thêm sách.");
-        //        }
-
-        //        conn.Close();
-        //        conn.Dispose();
-
-        //        TaiTatCaSach();
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "SQL Error");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Error");
-        //    }
-        //}
 
         private void lvBook_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -393,16 +298,16 @@ namespace QLThuVienSachCaNhan_1911211
             int currentIndex = Convert.ToInt32(lvBook.SelectedItems[0].Text) - 1;
             //MessageBox.Show(currentIndex);
 
-            Book currentBook = booksList[currentIndex];
-            tbID.Text = currentBook.ID.ToString();
-            _ = (currentBook.LoaiSach == 0) ? rbSingleVolume.Checked = true : rbSeries.Checked = true;
-            tbBookName.Text = currentBook.TenSach;
-            cbCategory.SelectedValue = currentBook.ID_TheLoai;
-            if (currentBook.ID_TacGia != null) cbAuthor.SelectedValue = currentBook.ID_TacGia;
-            mtbPublishedYear.Text = currentBook.NamXuatBan;
-            if (currentBook.ID_NhaXuatBan != null) cbPublisher.SelectedValue = currentBook.ID_NhaXuatBan;
-            tbLocation.Text = currentBook.ViTri;
-            tbNotes.Text = currentBook.GhiChu;
+            selectedBook = booksList[currentIndex];
+            tbID.Text = selectedBook.ID.ToString();
+            _ = (selectedBook.LoaiSach == 0) ? rbSingleVolume.Checked = true : rbSeries.Checked = true;
+            tbBookName.Text = selectedBook.TenSach;
+            cbCategory.SelectedValue = selectedBook.ID_TheLoai;
+            if (selectedBook.ID_TacGia != null) cbAuthor.SelectedValue = selectedBook.ID_TacGia;
+            mtbPublishedYear.Text = selectedBook.NamXuatBan;
+            if (selectedBook.ID_NhaXuatBan != null) cbPublisher.SelectedValue = selectedBook.ID_NhaXuatBan;
+            tbLocation.Text = selectedBook.ViTri;
+            tbNotes.Text = selectedBook.GhiChu;
         }
 
         private void bSaveBook_Click(object sender, EventArgs e)
@@ -413,7 +318,7 @@ namespace QLThuVienSachCaNhan_1911211
                 if (result > 0)
                 {
                     MessageBox.Show($"Thêm sách thành công. ID = {result}");
-                    LoadBook(lvBook);
+                    ReloadAllLists();
                 }
                 else MessageBox.Show("Thêm dữ liệu không thành công. Vui lòng kiểm tra lại.");
             }
@@ -421,7 +326,15 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void bNew_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Convert.ToString(cbCategory.SelectedValue));
+            tbID.Text = null;
+            rbSingleVolume.Checked = true;
+            tbBookName.Text = null;
+            cbCategory.Text = null;
+            cbAuthor.Text = null;
+            mtbPublishedYear.Text = null;
+            cbPublisher.Text = null;
+            tbLocation.Text = null;
+            tbNotes.Text = null;
         }
     }
 }
