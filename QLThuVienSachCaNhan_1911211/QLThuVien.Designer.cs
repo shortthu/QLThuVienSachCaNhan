@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tCategory = new System.Windows.Forms.TabPage();
             this.tBorrowed = new System.Windows.Forms.TabPage();
@@ -70,10 +71,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.cmBookItemRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeBookStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrowedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrowingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.availableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbSearchAll = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tAllBooks.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pTypes.SuspendLayout();
+            this.cmBookItemRightClick.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -121,6 +131,8 @@
             // 
             // tAllBooks
             // 
+            this.tAllBooks.Controls.Add(this.tbSearchAll);
+            this.tAllBooks.Controls.Add(this.label10);
             this.tAllBooks.Controls.Add(this.lvBook);
             this.tAllBooks.Location = new System.Drawing.Point(4, 22);
             this.tAllBooks.Name = "tAllBooks";
@@ -149,14 +161,15 @@
             this.lvBook.FullRowSelect = true;
             this.lvBook.GridLines = true;
             this.lvBook.HideSelection = false;
-            this.lvBook.Location = new System.Drawing.Point(6, 6);
+            this.lvBook.Location = new System.Drawing.Point(6, 32);
             this.lvBook.MultiSelect = false;
             this.lvBook.Name = "lvBook";
-            this.lvBook.Size = new System.Drawing.Size(626, 376);
+            this.lvBook.Size = new System.Drawing.Size(626, 350);
             this.lvBook.TabIndex = 1;
             this.lvBook.UseCompatibleStateImageBehavior = false;
             this.lvBook.View = System.Windows.Forms.View.Details;
             this.lvBook.SelectedIndexChanged += new System.EventHandler(this.lvBook_SelectedIndexChanged);
+            this.lvBook.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvBook_MouseClick);
             // 
             // columnHeader1
             // 
@@ -466,6 +479,67 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Thể loại";
             // 
+            // cmBookItemRightClick
+            // 
+            this.cmBookItemRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteBookToolStripMenuItem,
+            this.changeBookStatusToolStripMenuItem});
+            this.cmBookItemRightClick.Name = "cmBookItemRightClick";
+            this.cmBookItemRightClick.Size = new System.Drawing.Size(168, 48);
+            // 
+            // deleteBookToolStripMenuItem
+            // 
+            this.deleteBookToolStripMenuItem.Name = "deleteBookToolStripMenuItem";
+            this.deleteBookToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.deleteBookToolStripMenuItem.Text = "Xoá sách";
+            this.deleteBookToolStripMenuItem.Click += new System.EventHandler(this.deleteBookToolStripMenuItem_Click);
+            // 
+            // changeBookStatusToolStripMenuItem
+            // 
+            this.changeBookStatusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.borrowedToolStripMenuItem,
+            this.borrowingToolStripMenuItem,
+            this.availableToolStripMenuItem});
+            this.changeBookStatusToolStripMenuItem.Name = "changeBookStatusToolStripMenuItem";
+            this.changeBookStatusToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.changeBookStatusToolStripMenuItem.Text = "Đổi trạng thái là...";
+            // 
+            // borrowedToolStripMenuItem
+            // 
+            this.borrowedToolStripMenuItem.Name = "borrowedToolStripMenuItem";
+            this.borrowedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrowedToolStripMenuItem.Text = "Sách cho mượn";
+            // 
+            // borrowingToolStripMenuItem
+            // 
+            this.borrowingToolStripMenuItem.Name = "borrowingToolStripMenuItem";
+            this.borrowingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrowingToolStripMenuItem.Text = "Sách mượn";
+            // 
+            // availableToolStripMenuItem
+            // 
+            this.availableToolStripMenuItem.Name = "availableToolStripMenuItem";
+            this.availableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.availableToolStripMenuItem.Text = "Sách có sẵn";
+            // 
+            // tbSearchAll
+            // 
+            this.tbSearchAll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSearchAll.Location = new System.Drawing.Point(61, 6);
+            this.tbSearchAll.Name = "tbSearchAll";
+            this.tbSearchAll.Size = new System.Drawing.Size(571, 20);
+            this.tbSearchAll.TabIndex = 41;
+            this.tbSearchAll.TextChanged += new System.EventHandler(this.tbSearchAll_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Tìm kiếm";
+            // 
             // QLThuVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,10 +553,12 @@
             this.Load += new System.EventHandler(this.QLThuVien_Load);
             this.tabControl1.ResumeLayout(false);
             this.tAllBooks.ResumeLayout(false);
+            this.tAllBooks.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.pTypes.ResumeLayout(false);
             this.pTypes.PerformLayout();
+            this.cmBookItemRightClick.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -531,6 +607,14 @@
         private System.Windows.Forms.Button bEditCategory;
         private System.Windows.Forms.Button bEditAuthor;
         private System.Windows.Forms.Button bEditPublisher;
+        private System.Windows.Forms.ContextMenuStrip cmBookItemRightClick;
+        private System.Windows.Forms.ToolStripMenuItem deleteBookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeBookStatusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrowedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrowingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem availableToolStripMenuItem;
+        private System.Windows.Forms.TextBox tbSearchAll;
+        private System.Windows.Forms.Label label10;
     }
 }
 
