@@ -231,11 +231,6 @@ namespace QLThuVienSachCaNhan_1911211
             return booksList;
         }
 
-        private void LoadBook()
-        {
-
-        }
-
         // Add funcs
         private int InsertMinorProperty(int property)
         {
@@ -380,6 +375,17 @@ namespace QLThuVienSachCaNhan_1911211
                 int selectedCategoryID = Convert.ToInt32(lbCategory.SelectedValue);
                 booksByCategoryList = LoadBook(lvBookCategory, 2, selectedCategoryID.ToString());
             }
+        }
+
+        private void lvBookCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvBookCategory.SelectedItems.Count == 0) return;
+
+            int currentIndex = Convert.ToInt32(lvBookCategory.SelectedItems[0].Text) - 1;
+            //MessageBox.Show(currentIndex);
+
+            selectedBook = booksByCategoryList[currentIndex];
+            SetFormsData();
         }
     }
 }

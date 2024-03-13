@@ -31,6 +31,18 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tCategory = new System.Windows.Forms.TabPage();
+            this.lvBookCategory = new System.Windows.Forms.ListView();
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lbCategory = new System.Windows.Forms.ListBox();
             this.tBorrowed = new System.Windows.Forms.TabPage();
             this.tBorrowing = new System.Windows.Forms.TabPage();
             this.tAllBooks = new System.Windows.Forms.TabPage();
@@ -79,18 +91,6 @@
             this.borrowedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.availableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbCategory = new System.Windows.Forms.ListBox();
-            this.lvBookCategory = new System.Windows.Forms.ListView();
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tCategory.SuspendLayout();
             this.tAllBooks.SuspendLayout();
@@ -125,6 +125,85 @@
             this.tCategory.TabIndex = 0;
             this.tCategory.Text = "Theo thể loại";
             this.tCategory.UseVisualStyleBackColor = true;
+            // 
+            // lvBookCategory
+            // 
+            this.lvBookCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvBookCategory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15,
+            this.columnHeader16,
+            this.columnHeader17,
+            this.columnHeader18,
+            this.columnHeader19,
+            this.columnHeader20});
+            this.lvBookCategory.FullRowSelect = true;
+            this.lvBookCategory.GridLines = true;
+            this.lvBookCategory.HideSelection = false;
+            this.lvBookCategory.Location = new System.Drawing.Point(164, 6);
+            this.lvBookCategory.MultiSelect = false;
+            this.lvBookCategory.Name = "lvBookCategory";
+            this.lvBookCategory.Size = new System.Drawing.Size(472, 382);
+            this.lvBookCategory.TabIndex = 2;
+            this.lvBookCategory.UseCompatibleStateImageBehavior = false;
+            this.lvBookCategory.View = System.Windows.Forms.View.Details;
+            this.lvBookCategory.SelectedIndexChanged += new System.EventHandler(this.lvBookCategory_SelectedIndexChanged);
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "STT";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Tên sách";
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Loại sách";
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Trạng thái";
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Thể loại";
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Tác giả";
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "Nhà xuất bản";
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "Năm xuất bản";
+            // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "Vị trí";
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Ghi chú";
+            // 
+            // lbCategory
+            // 
+            this.lbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbCategory.FormattingEnabled = true;
+            this.lbCategory.Location = new System.Drawing.Point(6, 6);
+            this.lbCategory.Name = "lbCategory";
+            this.lbCategory.Size = new System.Drawing.Size(152, 381);
+            this.lbCategory.TabIndex = 0;
+            this.lbCategory.SelectedIndexChanged += new System.EventHandler(this.lbCategory_SelectedIndexChanged);
             // 
             // tBorrowed
             // 
@@ -561,84 +640,6 @@
             this.availableToolStripMenuItem.Name = "availableToolStripMenuItem";
             this.availableToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.availableToolStripMenuItem.Text = "Sách có sẵn";
-            // 
-            // lbCategory
-            // 
-            this.lbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbCategory.FormattingEnabled = true;
-            this.lbCategory.Location = new System.Drawing.Point(6, 6);
-            this.lbCategory.Name = "lbCategory";
-            this.lbCategory.Size = new System.Drawing.Size(152, 381);
-            this.lbCategory.TabIndex = 0;
-            this.lbCategory.SelectedIndexChanged += new System.EventHandler(this.lbCategory_SelectedIndexChanged);
-            // 
-            // lvBookCategory
-            // 
-            this.lvBookCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvBookCategory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15,
-            this.columnHeader16,
-            this.columnHeader17,
-            this.columnHeader18,
-            this.columnHeader19,
-            this.columnHeader20});
-            this.lvBookCategory.FullRowSelect = true;
-            this.lvBookCategory.GridLines = true;
-            this.lvBookCategory.HideSelection = false;
-            this.lvBookCategory.Location = new System.Drawing.Point(164, 6);
-            this.lvBookCategory.MultiSelect = false;
-            this.lvBookCategory.Name = "lvBookCategory";
-            this.lvBookCategory.Size = new System.Drawing.Size(472, 382);
-            this.lvBookCategory.TabIndex = 2;
-            this.lvBookCategory.UseCompatibleStateImageBehavior = false;
-            this.lvBookCategory.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "STT";
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Tên sách";
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "Loại sách";
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Trạng thái";
-            // 
-            // columnHeader15
-            // 
-            this.columnHeader15.Text = "Thể loại";
-            // 
-            // columnHeader16
-            // 
-            this.columnHeader16.Text = "Tác giả";
-            // 
-            // columnHeader17
-            // 
-            this.columnHeader17.Text = "Nhà xuất bản";
-            // 
-            // columnHeader18
-            // 
-            this.columnHeader18.Text = "Năm xuất bản";
-            // 
-            // columnHeader19
-            // 
-            this.columnHeader19.Text = "Vị trí";
-            // 
-            // columnHeader20
-            // 
-            this.columnHeader20.Text = "Ghi chú";
             // 
             // QLThuVien
             // 
