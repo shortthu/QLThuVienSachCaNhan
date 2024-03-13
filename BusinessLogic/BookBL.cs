@@ -35,9 +35,20 @@ namespace BusinessLogic
                 if (book.ID.ToString().Contains(key)
                     || book.TenSach.Contains(key)
                     || book.NamXuatBan.ToString().Contains(key)
+                    || book.ViTri.Contains(key)
                     || book.GhiChu.Contains(key))
                     result.Add(book);
             }
+            return result;
+        }
+
+        public List<Book> FilterBookByCategory(int category)
+        {
+            List<Book> allBooks = GetAll();
+            List<Book> result = new List<Book>();
+            foreach (var book in allBooks)
+                if (book.ID_TheLoai == category)
+                    result.Add(book);
             return result;
         }
 

@@ -15,7 +15,10 @@ namespace QLThuVienSachCaNhan_1911211
     public partial class QLThuVien : Form
     {
         List<Publisher> publisherList = new List<Publisher>();
-        List<Book> booksList = new List<Book>();
+        List<Book> allBooksList = new List<Book>();
+        List<Book> booksByCategoryList = new List<Book>();
+        List<Book> borrowedBooksList = new List<Book>();
+        List<Book> borrowingBooksList = new List<Book>();
         List<Author> authorList = new List<Author>();
         List<Category> categoryList = new List<Category>();
         Book selectedBook = new Book();
@@ -27,9 +30,6 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void QLThuVien_Load(object sender, EventArgs e)
         {
-            LoadPublisher();
-            LoadAuthor();
-            LoadCategory();
             ReloadAllLists();
         }
 
@@ -42,7 +42,10 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void ReloadAllLists()
         {
-            LoadBook(lvBook, 0, ""); // Load all books
+            LoadPublisher();
+            LoadAuthor();
+            LoadCategory();
+            allBooksList = LoadBook(lvBook, 0, ""); // Load all books
         }
 
         private void ResetAllFields()
@@ -123,6 +126,19 @@ namespace QLThuVienSachCaNhan_1911211
             return book;
         }
 
+        private void SetFormsData()
+        {
+            tbID.Text = selectedBook.ID.ToString();
+            _ = (selectedBook.LoaiSach == 0) ? rbSingleVolume.Checked = true : rbSeries.Checked = true;
+            tbBookName.Text = selectedBook.TenSach;
+            cbCategory.SelectedValue = selectedBook.ID_TheLoai;
+            if (selectedBook.ID_TacGia != null) cbAuthor.SelectedValue = selectedBook.ID_TacGia;
+            mtbPublishedYear.Text = selectedBook.NamXuatBan;
+            if (selectedBook.ID_NhaXuatBan != null) cbPublisher.SelectedValue = selectedBook.ID_NhaXuatBan;
+            tbLocation.Text = selectedBook.ViTri;
+            tbNotes.Text = selectedBook.GhiChu;
+        }
+
         // Load funcs
 
         private void LoadPublisher()
@@ -156,11 +172,17 @@ namespace QLThuVienSachCaNhan_1911211
             cbCategory.DisplayMember = "TenTheLoai";
             cbCategory.ValueMember = "ID";
             cbCategory.Text = null;
+
+            lbCategory.DataSource = categoryList.ToList();
+            lbCategory.DisplayMember = "TenTheLoai";
+            lbCategory.ValueMember = "ID";
+            lbCategory.ClearSelected();
         }
 
-        private void LoadBook(ListView bookListView, int func, string key)
+        private List<Book> LoadBook(ListView bookListView, int func, string key)
         {
             BookBL bookBL = new BookBL();
+            List<Book> booksList = new List<Book>();
             // Get all: func = 0; find: func = 1
             switch (func)
             {
@@ -169,6 +191,9 @@ namespace QLThuVienSachCaNhan_1911211
                     break;
                 case 1:
                     booksList = bookBL.Find(key);
+                    break;
+                case 2:
+                    booksList = bookBL.FilterBookByCategory(Convert.ToInt32(key));
                     break;
             }
 
@@ -202,6 +227,13 @@ namespace QLThuVienSachCaNhan_1911211
                 item.SubItems.Add(book.GhiChu);
                 count++;
             }
+
+            return booksList;
+        }
+
+        private void LoadBook()
+        {
+
         }
 
         // Add funcs
@@ -232,6 +264,7 @@ namespace QLThuVienSachCaNhan_1911211
             }
             return -1;
         }
+
 
         private int InsertBook()
         {
@@ -282,16 +315,8 @@ namespace QLThuVienSachCaNhan_1911211
             int currentIndex = Convert.ToInt32(lvBook.SelectedItems[0].Text) - 1;
             //MessageBox.Show(currentIndex);
 
-            selectedBook = booksList[currentIndex];
-            tbID.Text = selectedBook.ID.ToString();
-            _ = (selectedBook.LoaiSach == 0) ? rbSingleVolume.Checked = true : rbSeries.Checked = true;
-            tbBookName.Text = selectedBook.TenSach;
-            cbCategory.SelectedValue = selectedBook.ID_TheLoai;
-            if (selectedBook.ID_TacGia != null) cbAuthor.SelectedValue = selectedBook.ID_TacGia;
-            mtbPublishedYear.Text = selectedBook.NamXuatBan;
-            if (selectedBook.ID_NhaXuatBan != null) cbPublisher.SelectedValue = selectedBook.ID_NhaXuatBan;
-            tbLocation.Text = selectedBook.ViTri;
-            tbNotes.Text = selectedBook.GhiChu;
+            selectedBook = allBooksList[currentIndex];
+            SetFormsData();
         }
 
         private void bSaveBook_Click(object sender, EventArgs e)
@@ -343,7 +368,18 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void tbSearchAll_TextChanged(object sender, EventArgs e)
         {
-            LoadBook(lvBook, 1, tbSearchAll.Text);
+            allBooksList = LoadBook(lvBook, 1, tbSearchAll.Text);
+        }
+
+        private void lbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbCategory.SelectedItems.Count == 0)
+                return;
+            if (int.TryParse(lbCategory.SelectedValue.ToString(), out _))
+            {
+                int selectedCategoryID = Convert.ToInt32(lbCategory.SelectedValue);
+                booksByCategoryList = LoadBook(lvBookCategory, 2, selectedCategoryID.ToString());
+            }
         }
     }
 }
