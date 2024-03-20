@@ -40,7 +40,7 @@ namespace QLThuVienSachCaNhan_1911211
             return rbSingleVolume.Checked ? 0 : 1;
         }
 
-        private void ReloadAllLists()
+        public void ReloadAllLists()
         {
             LoadPublisher();
             LoadAuthor();
@@ -141,7 +141,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         // Load funcs
 
-        private void LoadPublisher()
+        public void LoadPublisher()
         {
             PublisherBL publisherBL = new PublisherBL();
             publisherList = publisherBL.GetAll();
@@ -152,7 +152,7 @@ namespace QLThuVienSachCaNhan_1911211
             cbPublisher.Text = null;
         }
 
-        private void LoadAuthor()
+        public void LoadAuthor()
         {
             AuthorBL authorBL = new AuthorBL();
             authorList = authorBL.GetAll();
@@ -163,7 +163,7 @@ namespace QLThuVienSachCaNhan_1911211
             cbAuthor.Text = null;
         }
 
-        private void LoadCategory()
+        public void LoadCategory()
         {
             CategoryBL categoryBL = new CategoryBL();
             categoryList = categoryBL.GetAll();
@@ -386,6 +386,24 @@ namespace QLThuVienSachCaNhan_1911211
 
             selectedBook = booksByCategoryList[currentIndex];
             SetFormsData();
+        }
+
+        private void bEditCategory_Click(object sender, EventArgs e)
+        {
+            OtherStuffManagement categoryManagement = new OtherStuffManagement(0);
+            categoryManagement.Show();
+        }
+
+        private void bEditAuthor_Click(object sender, EventArgs e)
+        {
+            OtherStuffManagement authorManagement = new OtherStuffManagement(1);
+            authorManagement.Show();
+        }
+
+        private void bEditPublisher_Click(object sender, EventArgs e)
+        {
+            OtherStuffManagement publisherManagement = new OtherStuffManagement(2);
+            publisherManagement.Show();
         }
     }
 }

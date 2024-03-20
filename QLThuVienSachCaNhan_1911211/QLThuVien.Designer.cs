@@ -367,6 +367,7 @@
             this.bEditPublisher.TabIndex = 40;
             this.bEditPublisher.Text = "Sửa";
             this.bEditPublisher.UseVisualStyleBackColor = true;
+            this.bEditPublisher.Click += new System.EventHandler(this.bEditPublisher_Click);
             // 
             // bEditAuthor
             // 
@@ -376,6 +377,7 @@
             this.bEditAuthor.TabIndex = 39;
             this.bEditAuthor.Text = "Sửa";
             this.bEditAuthor.UseVisualStyleBackColor = true;
+            this.bEditAuthor.Click += new System.EventHandler(this.bEditAuthor_Click);
             // 
             // bEditCategory
             // 
@@ -385,6 +387,7 @@
             this.bEditCategory.TabIndex = 38;
             this.bEditCategory.Text = "Sửa";
             this.bEditCategory.UseVisualStyleBackColor = true;
+            this.bEditCategory.Click += new System.EventHandler(this.bEditCategory_Click);
             // 
             // bNew
             // 
