@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -31,6 +32,7 @@ namespace QLThuVienSachCaNhan_1911211
         private void QLThuVien_Load(object sender, EventArgs e)
         {
             ReloadAllLists();
+            gbBorrowerInfo.Visible = false;
         }
 
         // Utils
@@ -404,6 +406,27 @@ namespace QLThuVienSachCaNhan_1911211
         {
             OtherStuffManagement publisherManagement = new OtherStuffManagement(2);
             publisherManagement.Show();
+        }
+
+        private void ShowBorrowInfo()
+        {
+            gbBorrowerInfo.Visible = true;
+            if (tbNotes.Bounds.IntersectsWith(gbBorrowerInfo.Bounds))
+                tbNotes.Size = new Size(tbNotes.Width, tbNotes.Height - gbBorrowerInfo.Height);
+        }
+
+        private void HideBorrowInfo()
+        {
+            gbBorrowerInfo.Visible = false;
+            if (!tbNotes.Bounds.IntersectsWith(gbBorrowerInfo.Bounds))
+                tbNotes.Size = new Size(tbNotes.Width, tbNotes.Height + gbBorrowerInfo.Height);
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((tabControl1.SelectedIndex == 1 || tabControl1.SelectedIndex == 2))
+                ShowBorrowInfo();
+            else HideBorrowInfo();
         }
     }
 }

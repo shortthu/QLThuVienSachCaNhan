@@ -43,6 +43,8 @@
             // 
             // lbList
             // 
+            this.lbList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbList.FormattingEnabled = true;
             this.lbList.Location = new System.Drawing.Point(12, 37);
             this.lbList.Name = "lbList";
@@ -71,6 +73,8 @@
             // 
             // tbID
             // 
+            this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbID.Location = new System.Drawing.Point(329, 34);
             this.tbID.Name = "tbID";
@@ -80,6 +84,8 @@
             // 
             // tbProp1
             // 
+            this.tbProp1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbProp1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbProp1.Location = new System.Drawing.Point(329, 60);
             this.tbProp1.Name = "tbProp1";
@@ -97,6 +103,7 @@
             // 
             // bSave
             // 
+            this.bSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bSave.Location = new System.Drawing.Point(469, 226);
             this.bSave.Name = "bSave";
             this.bSave.Size = new System.Drawing.Size(75, 23);
@@ -107,6 +114,7 @@
             // 
             // bDelete
             // 
+            this.bDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bDelete.ForeColor = System.Drawing.Color.Red;
             this.bDelete.Location = new System.Drawing.Point(388, 226);
             this.bDelete.Name = "bDelete";
@@ -118,6 +126,8 @@
             // 
             // tbProp2
             // 
+            this.tbProp2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbProp2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbProp2.Location = new System.Drawing.Point(329, 86);
             this.tbProp2.Name = "tbProp2";
@@ -135,6 +145,7 @@
             // 
             // bNew
             // 
+            this.bNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bNew.Location = new System.Drawing.Point(227, 226);
             this.bNew.Name = "bNew";
             this.bNew.Size = new System.Drawing.Size(75, 23);
@@ -159,6 +170,7 @@
             this.Controls.Add(this.lID);
             this.Controls.Add(this.lTitle);
             this.Controls.Add(this.lbList);
+            this.MinimumSize = new System.Drawing.Size(572, 300);
             this.Name = "OtherStuffManagement";
             this.Text = "Quản lý";
             this.Load += new System.EventHandler(this.OtherStuffManagement_Load);
