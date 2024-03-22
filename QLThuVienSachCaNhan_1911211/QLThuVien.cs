@@ -246,11 +246,24 @@ namespace QLThuVienSachCaNhan_1911211
                 else type = "Sách bộ";
                 item.SubItems.Add(type);
                 string status;
-                if (book.TrangThai == 0)
-                    status = "Đang có sẵn";
-                else if (book.TrangThai == 1)
-                    status = "Cho mượn";
-                else status = "Đang mượn";
+                switch (book.TrangThai)
+                {
+                    case 0:
+                        status = "Đang có sẵn";
+                        break;
+                    case 1:
+                        status = "Cho mượn";
+                        break;
+                    case 2:
+                        status = "Đang mượn";
+                        break;
+                    case 3:
+                        status = "Đã trả";
+                        break;
+                    default:
+                        status = "Unknown";
+                        break;
+                }
                 item.SubItems.Add(status);
                 string categoryName = categoryList.Find(x => x.ID == book.ID_TheLoai).TenTheLoai;
                 item.SubItems.Add(categoryName);
