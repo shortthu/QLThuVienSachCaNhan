@@ -52,6 +52,26 @@ namespace BusinessLogic
             return result;
         }
 
+        public List<Book> FindBorrowed()
+        {
+            List<Book> allBooks = GetAll();
+            List<Book> result = new List<Book>();
+            foreach (var book in allBooks)
+                if (book.TrangThai == 1)
+                    result.Add(book);
+            return result;
+        }
+
+        public List<Book> FindBorrowing()
+        {
+            List<Book> allBooks = GetAll();
+            List<Book> result = new List<Book>();
+            foreach (var book in allBooks)
+                if (book.TrangThai == 2)
+                    result.Add(book);
+            return result;
+        }
+
         public int Insert(Book book)
         {
             return bookDA.Insert_Update_Delete(book, 0);

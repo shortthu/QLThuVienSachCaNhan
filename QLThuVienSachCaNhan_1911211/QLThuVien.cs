@@ -22,6 +22,7 @@ namespace QLThuVienSachCaNhan_1911211
         List<Book> borrowingBooksList = new List<Book>();
         List<Author> authorList = new List<Author>();
         List<Category> categoryList = new List<Category>();
+        List<Borrow> borrowList = new List<Borrow>();
         Book selectedBook = new Book();
 
         public QLThuVien()
@@ -32,7 +33,6 @@ namespace QLThuVienSachCaNhan_1911211
         private void QLThuVien_Load(object sender, EventArgs e)
         {
             ReloadAllLists();
-            gbBorrowerInfo.Visible = false;
         }
 
         // Utils
@@ -42,12 +42,20 @@ namespace QLThuVienSachCaNhan_1911211
             return rbSingleVolume.Checked ? 0 : 1;
         }
 
+        private int GetStatus()
+        {
+            return rbAvailable.Checked ? 0 : (rbBorrowed.Checked ? 1 : 2);
+        }
+
         public void ReloadAllLists()
         {
             LoadPublisher();
             LoadAuthor();
             LoadCategory();
+            LoadBorrow();
             allBooksList = LoadBook(lvBook, 0, ""); // Load all books
+            borrowedBooksList = LoadBook(lvBorrowed, 3, null);
+            borrowingBooksList = LoadBook(lvBorrowing, 4, null);
         }
 
         private void ResetAllFields()
@@ -61,6 +69,8 @@ namespace QLThuVienSachCaNhan_1911211
             cbPublisher.Text = null;
             tbLocation.Text = null;
             tbNotes.Text = null;
+            rbAvailable.Checked = true;
+            cbName.SelectedIndex = 0;
         }
 
         private Book GetFormsData(int func)
@@ -82,7 +92,9 @@ namespace QLThuVienSachCaNhan_1911211
             book.NamXuatBan = mtbPublishedYear.Text;
             book.ViTri = tbLocation.Text;
             book.GhiChu = tbNotes.Text;
-            book.TrangThai = 0;
+            book.TrangThai = GetStatus();
+            if (book.TrangThai > 0)
+                book.ID_Muon = Convert.ToInt32(cbName.SelectedValue);
             if (cbCategory.SelectedValue != null)
                 book.ID_TheLoai = Convert.ToInt32(cbCategory.SelectedValue);
             else
@@ -139,6 +151,11 @@ namespace QLThuVienSachCaNhan_1911211
             if (selectedBook.ID_NhaXuatBan != null) cbPublisher.SelectedValue = selectedBook.ID_NhaXuatBan;
             tbLocation.Text = selectedBook.ViTri;
             tbNotes.Text = selectedBook.GhiChu;
+            _ = (selectedBook.TrangThai == 0) ? rbAvailable.Checked = true
+              : (selectedBook.TrangThai == 1 ? rbBorrowed.Checked = true : rbBorrowing.Checked = true);
+            if (selectedBook.TrangThai > 0) cbName.SelectedValue = selectedBook.ID_Muon;
+            //if (int.TryParse(cbName.SelectedValue.ToString(), out _))
+            tbPhoneNum.Text = borrowList.Find(x => x.ID == Convert.ToInt32(cbName.SelectedValue)).SoDienThoai;
         }
 
         // Load funcs
@@ -181,11 +198,22 @@ namespace QLThuVienSachCaNhan_1911211
             lbCategory.ClearSelected();
         }
 
+        private void LoadBorrow()
+        {
+            BorrowBL borrowBL = new BorrowBL();
+            borrowList = borrowBL.GetAll();
+
+            cbName.DataSource = borrowList;
+            cbName.DisplayMember = "Ten";
+            cbName.ValueMember = "ID";
+        }
+
         private List<Book> LoadBook(ListView bookListView, int func, string key)
         {
             BookBL bookBL = new BookBL();
             List<Book> booksList = new List<Book>();
-            // Get all: func = 0; find: func = 1
+            // func = 0: Get all; func = 1: find; func = 2: filter by category;
+            // func = 3 
             switch (func)
             {
                 case 0:
@@ -196,6 +224,12 @@ namespace QLThuVienSachCaNhan_1911211
                     break;
                 case 2:
                     booksList = bookBL.FilterBookByCategory(Convert.ToInt32(key));
+                    break;
+                case 3:
+                    booksList = bookBL.FindBorrowed();
+                    break;
+                case 4:
+                    booksList = bookBL.FindBorrowing();
                     break;
             }
 
@@ -216,7 +250,7 @@ namespace QLThuVienSachCaNhan_1911211
                     status = "Đang có sẵn";
                 else if (book.TrangThai == 1)
                     status = "Cho mượn";
-                else status = "Sách mượn";
+                else status = "Đang mượn";
                 item.SubItems.Add(status);
                 string categoryName = categoryList.Find(x => x.ID == book.ID_TheLoai).TenTheLoai;
                 item.SubItems.Add(categoryName);
@@ -227,6 +261,10 @@ namespace QLThuVienSachCaNhan_1911211
                 item.SubItems.Add(book.NamXuatBan);
                 item.SubItems.Add(book.ViTri);
                 item.SubItems.Add(book.GhiChu);
+                string borrowName = (book.ID_Muon != null) ? borrowList.Find(x => x.ID == book.ID_Muon).Ten : null;
+                item.SubItems.Add(borrowName);
+                string borrowPhoneNum = (book.ID_Muon != null) ? borrowList.Find(x => x.ID == book.ID_Muon).SoDienThoai : null;
+                item.SubItems.Add(borrowPhoneNum);
                 count++;
             }
 
@@ -408,25 +446,52 @@ namespace QLThuVienSachCaNhan_1911211
             publisherManagement.Show();
         }
 
-        private void ShowBorrowInfo()
+        private void rbAvailable_CheckedChanged(object sender, EventArgs e)
         {
-            gbBorrowerInfo.Visible = true;
-            if (tbNotes.Bounds.IntersectsWith(gbBorrowerInfo.Bounds))
-                tbNotes.Size = new Size(tbNotes.Width, tbNotes.Height - gbBorrowerInfo.Height);
+            if (rbAvailable.Checked)
+            {
+                cbName.Enabled = false;
+                cbName.Text = string.Empty;
+                tbPhoneNum.Text = string.Empty;
+            }
+            else
+            {
+                cbName.Enabled = true;
+                cbName.Text = string.Empty;
+                tbPhoneNum.Text = string.Empty;
+            }
         }
 
-        private void HideBorrowInfo()
+        private void cbName_SelectedValueChanged(object sender, EventArgs e)
         {
-            gbBorrowerInfo.Visible = false;
-            if (!tbNotes.Bounds.IntersectsWith(gbBorrowerInfo.Bounds))
-                tbNotes.Size = new Size(tbNotes.Width, tbNotes.Height + gbBorrowerInfo.Height);
+            if (int.TryParse(cbName.SelectedValue.ToString(), out _))
+                tbPhoneNum.Text = borrowList.Find(x => x.ID == Convert.ToInt32(cbName.SelectedValue)).SoDienThoai;
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void bEditBorrow_Click(object sender, EventArgs e)
         {
-            if ((tabControl1.SelectedIndex == 1 || tabControl1.SelectedIndex == 2))
-                ShowBorrowInfo();
-            else HideBorrowInfo();
+            OtherStuffManagement borrowManagement = new OtherStuffManagement(3);
+            borrowManagement.Show();
+        }
+
+        private void lvBorrowed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvBorrowed.SelectedItems.Count == 0) return;
+
+            int currentIndex = Convert.ToInt32(lvBorrowed.SelectedItems[0].Text) - 1;
+
+            selectedBook = borrowedBooksList[currentIndex];
+            SetFormsData();
+        }
+
+        private void lvBorrowing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvBorrowing.SelectedItems.Count == 0) return;
+
+            int currentIndex = Convert.ToInt32(lvBorrowing.SelectedItems[0].Text) - 1;
+
+            selectedBook = borrowingBooksList[currentIndex];
+            SetFormsData();
         }
     }
 }

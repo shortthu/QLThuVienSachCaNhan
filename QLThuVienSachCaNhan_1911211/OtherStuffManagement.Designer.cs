@@ -104,7 +104,7 @@
             // bSave
             // 
             this.bSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSave.Location = new System.Drawing.Point(469, 226);
+            this.bSave.Location = new System.Drawing.Point(389, 226);
             this.bSave.Name = "bSave";
             this.bSave.Size = new System.Drawing.Size(75, 23);
             this.bSave.TabIndex = 7;
@@ -116,7 +116,7 @@
             // 
             this.bDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bDelete.ForeColor = System.Drawing.Color.Red;
-            this.bDelete.Location = new System.Drawing.Point(388, 226);
+            this.bDelete.Location = new System.Drawing.Point(308, 226);
             this.bDelete.Name = "bDelete";
             this.bDelete.Size = new System.Drawing.Size(75, 23);
             this.bDelete.TabIndex = 8;
