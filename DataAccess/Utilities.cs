@@ -23,5 +23,8 @@ namespace DataAccess
 
         public static string Category_GetAll = "Category_GetAll";
         public static string Category_InsertUpdateDelete = "Category_InsertUpdateDelete";
+
+        public static string Borrow_GetAll = "Borrow_GetAll";
+        public static string Borrow_InsertUpdateDelete = "Borrow_InsertUpdateDelete";
     }
 }

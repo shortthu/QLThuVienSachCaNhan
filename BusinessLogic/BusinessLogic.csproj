@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookBL.cs" />
+    <Compile Include="BorrowBL.cs" />
     <Compile Include="PublisherBL.cs" />
     <Compile Include="CategoryBL.cs" />
     <Compile Include="AuthorBL.cs" />
