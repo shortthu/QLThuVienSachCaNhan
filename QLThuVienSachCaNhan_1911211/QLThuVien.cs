@@ -95,6 +95,7 @@ namespace QLThuVienSachCaNhan_1911211
             book.TrangThai = GetStatus();
             if (book.TrangThai > 0)
                 book.ID_Muon = Convert.ToInt32(cbName.SelectedValue);
+            else book.ID_Muon = null;
             if (cbCategory.SelectedValue != null)
                 book.ID_TheLoai = Convert.ToInt32(cbCategory.SelectedValue);
             else
@@ -388,6 +389,7 @@ namespace QLThuVienSachCaNhan_1911211
                 {
                     MessageBox.Show($"Thêm sách thành công. ID = {result}");
                     ReloadAllLists();
+                    ResetAllFields();
                 }
                 else MessageBox.Show("Thêm dữ liệu không thành công. Vui lòng kiểm tra lại.");
             }
@@ -398,6 +400,7 @@ namespace QLThuVienSachCaNhan_1911211
                 {
                     MessageBox.Show($"Chỉnh sửa ID {result} thành công.");
                     ReloadAllLists();
+                    ResetAllFields();
                 }
                 else MessageBox.Show("Sửa dữ liệu không thành công. Vui lòng kiểm tra lại.");
             }

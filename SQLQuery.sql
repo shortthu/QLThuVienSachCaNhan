@@ -74,7 +74,7 @@ CREATE PROCEDURE [dbo].[Book_InsertUpdateDelete]
 	@ViTri nvarchar(50) = null,
 	@TrangThai smallint = null,
 	@GhiChu ntext = null,
-	@ID_Muon int,
+	@ID_Muon int = null,
 	@Action int
 AS
 -- Thêm
