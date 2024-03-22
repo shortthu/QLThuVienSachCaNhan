@@ -146,16 +146,27 @@ namespace QLThuVienSachCaNhan_1911211
             _ = (selectedBook.LoaiSach == 0) ? rbSingleVolume.Checked = true : rbSeries.Checked = true;
             tbBookName.Text = selectedBook.TenSach;
             cbCategory.SelectedValue = selectedBook.ID_TheLoai;
-            if (selectedBook.ID_TacGia != null) cbAuthor.SelectedValue = selectedBook.ID_TacGia;
+            if (selectedBook.ID_TacGia != null)
+                cbAuthor.SelectedValue = selectedBook.ID_TacGia;
             mtbPublishedYear.Text = selectedBook.NamXuatBan;
-            if (selectedBook.ID_NhaXuatBan != null) cbPublisher.SelectedValue = selectedBook.ID_NhaXuatBan;
+            if (selectedBook.ID_NhaXuatBan != null)
+                cbPublisher.SelectedValue = selectedBook.ID_NhaXuatBan;
             tbLocation.Text = selectedBook.ViTri;
             tbNotes.Text = selectedBook.GhiChu;
             _ = (selectedBook.TrangThai == 0) ? rbAvailable.Checked = true
               : (selectedBook.TrangThai == 1 ? rbBorrowed.Checked = true : rbBorrowing.Checked = true);
-            if (selectedBook.TrangThai > 0) cbName.SelectedValue = selectedBook.ID_Muon;
+            if (selectedBook.TrangThai > 0)
+                cbName.SelectedValue = selectedBook.ID_Muon;
             //if (int.TryParse(cbName.SelectedValue.ToString(), out _))
             tbPhoneNum.Text = borrowList.Find(x => x.ID == Convert.ToInt32(cbName.SelectedValue)).SoDienThoai;
+        }
+
+        private void ResizeListViewColumns(ListView lv)
+        {
+            foreach (ColumnHeader column in lv.Columns)
+            {
+                column.Width = -2;
+            }
         }
 
         // Load funcs
@@ -234,6 +245,7 @@ namespace QLThuVienSachCaNhan_1911211
             }
 
             int count = 1;
+            ResizeListViewColumns(bookListView);
             bookListView.Items.Clear();
 
             foreach (var book in booksList)
