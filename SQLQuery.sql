@@ -53,7 +53,7 @@ END
 GO
 
 -- SÁCH
-CREATE PROCEDURE [dbo].[Book_InsertUpdateDelete]
+ALTER PROCEDURE [dbo].[Book_InsertUpdateDelete]
 	@ID int output,
 	@LoaiSach int,
 	@ID_TheLoai int,
@@ -62,8 +62,9 @@ CREATE PROCEDURE [dbo].[Book_InsertUpdateDelete]
 	@NamXuatBan nchar(4) = null,
 	@ID_NhaXuatBan int = null,
 	@ViTri nvarchar(50) = null,
-	@TenTrangThai smallint = null,
+	@TrangThai smallint = null,
 	@GhiChu ntext = null,
+	@ID_Muon int,
 	@Action int
 AS
 -- Thêm
@@ -71,9 +72,9 @@ IF @Action = 0
 BEGIN
 	INSERT INTO [Sach]
 	([LoaiSach], [ID_TheLoai], [TenSach], [ID_TacGia], 
-	[NamXuatBan], [ID_NhaXuatBan], [ViTri], [TenTrangThai], [GhiChu])
+	[NamXuatBan], [ID_NhaXuatBan], [ViTri], [TrangThai], [GhiChu], [ID_Muon])
 	VALUES (@LoaiSach, @ID_TheLoai, @TenSach, @ID_TacGia, 
-	@NamXuatBan, @ID_NhaXuatBan, @ViTri, @TenTrangThai, @GhiChu)
+	@NamXuatBan, @ID_NhaXuatBan, @ViTri, @TrangThai, @GhiChu, @ID_Muon)
 
 	SELECT @ID = SCOPE_IDENTITY();
 END
@@ -83,7 +84,7 @@ BEGIN
 	UPDATE [Sach] 
 	SET [LoaiSach] = @LoaiSach, [ID_TheLoai] = @ID_TheLoai, [TenSach] = @TenSach,
 	[ID_TacGia] = @ID_TacGia, [NamXuatBan] = @NamXuatBan, [ID_NhaXuatBan] = @ID_NhaXuatBan,
-	[ViTri] = @ViTri, [TenTrangThai] = @TenTrangThai, [GhiChu] = @GhiChu
+	[ViTri] = @ViTri, [TrangThai] = @TrangThai, [GhiChu] = @GhiChu, [ID_Muon] = @ID_Muon
 	WHERE ID = @ID
 END
 -- Xoá
