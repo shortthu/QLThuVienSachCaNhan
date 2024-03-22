@@ -479,14 +479,10 @@ namespace QLThuVienSachCaNhan_1911211
             if (rbAvailable.Checked)
             {
                 cbName.Enabled = false;
-                cbName.Text = string.Empty;
-                tbPhoneNum.Text = string.Empty;
             }
             else
             {
                 cbName.Enabled = true;
-                cbName.Text = string.Empty;
-                tbPhoneNum.Text = string.Empty;
             }
         }
 
