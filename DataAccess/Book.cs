@@ -18,5 +18,6 @@ namespace DataAccess
         public string ViTri { get; set; }
         public int? TrangThai { get; set; }
         public string GhiChu { get; set; }
+        public int? ID_Muon { get; set; }
     }
 }

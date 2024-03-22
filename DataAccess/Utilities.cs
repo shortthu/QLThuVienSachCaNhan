@@ -17,6 +17,8 @@ namespace DataAccess
 
         public static string Book_GetAll = "Book_GetAll";
         public static string Book_InsertUpdateDelete = "Book_InsertUpdateDelete";
+        public static string Book_GetAllPresent = "Book_GetAllPresent";
+        public static string Book_GetAllHistory = "Book_GetAllHistory";
 
         public static string Author_GetAll = "Author_GetAll";
         public static string Author_InsertUpdateDelete = "Author_InsertUpdateDelete";

@@ -10,14 +10,25 @@ namespace DataAccess
 {
     public class BookDA
     {
-        public List<Book> GetAll()
+        public List<Book> GetAll(int func)
         {
             SqlConnection sqlConn = new SqlConnection(Utilities.ConnectionString);
             sqlConn.Open();
 
             SqlCommand cmd = sqlConn.CreateCommand();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = Utilities.Book_GetAll;
+            switch (func)
+            {
+                case 0:
+                    cmd.CommandText = Utilities.Book_GetAll;
+                    break;
+                case 1:
+                    cmd.CommandText = Utilities.Book_GetAllPresent;
+                    break;
+                case 2:
+                    cmd.CommandText = Utilities.Book_GetAllHistory;
+                    break;
+            }
 
             SqlDataReader reader = cmd.ExecuteReader();
             List<Book> list = new List<Book>();
@@ -43,6 +54,10 @@ namespace DataAccess
                 else
                     book.TrangThai = Convert.ToInt32(reader["TrangThai"]);
                 book.GhiChu = reader["GhiChu"].ToString();
+                if (Convert.IsDBNull(reader["ID_Muon"]))
+                    book.ID_Muon = null;
+                else
+                    book.ID_Muon = Convert.ToInt32(reader["ID_Muon"]);
                 list.Add(book);
             }
             sqlConn.Close();
@@ -51,31 +66,36 @@ namespace DataAccess
 
         public int Insert_Update_Delete(Book book, int action)
         {
-            SqlConnection sqlConn = new SqlConnection(Utilities.ConnectionString);
-            sqlConn.Open();
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(Utilities.ConnectionString);
+                sqlConn.Open();
 
-            SqlCommand cmd = sqlConn.CreateCommand();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = Utilities.Book_InsertUpdateDelete;
+                SqlCommand cmd = sqlConn.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = Utilities.Book_InsertUpdateDelete;
 
-            SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
-            IDPara.Direction = ParameterDirection.InputOutput;
+                SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
+                IDPara.Direction = ParameterDirection.InputOutput;
 
-            cmd.Parameters.Add(IDPara).Value = book.ID;
-            cmd.Parameters.Add("@LoaiSach", SqlDbType.Int).Value = book.LoaiSach;
-            cmd.Parameters.Add("@ID_TheLoai", SqlDbType.Int).Value = book.ID_TheLoai;
-            cmd.Parameters.Add("@TenSach", SqlDbType.NVarChar, 100).Value = book.TenSach;
-            cmd.Parameters.Add("@ID_TacGia", SqlDbType.Int).Value = book.ID_TacGia;
-            cmd.Parameters.Add("@NamXuatBan", SqlDbType.NChar, 4).Value = book.NamXuatBan;
-            cmd.Parameters.Add("@ID_NhaXuatBan", SqlDbType.Int).Value = book.ID_NhaXuatBan;
-            cmd.Parameters.Add("@ViTri", SqlDbType.NVarChar, 50).Value = book.ViTri;
-            cmd.Parameters.Add("@TrangThai", SqlDbType.SmallInt).Value = book.TrangThai;
-            cmd.Parameters.Add("@ghiChu", SqlDbType.NText).Value = book.GhiChu;
-            cmd.Parameters.Add("@Action", SqlDbType.Int).Value = action;
+                cmd.Parameters.Add(IDPara).Value = book.ID;
+                cmd.Parameters.Add("@LoaiSach", SqlDbType.Int).Value = book.LoaiSach;
+                cmd.Parameters.Add("@ID_TheLoai", SqlDbType.Int).Value = book.ID_TheLoai;
+                cmd.Parameters.Add("@TenSach", SqlDbType.NVarChar, 100).Value = book.TenSach;
+                cmd.Parameters.Add("@ID_TacGia", SqlDbType.Int).Value = book.ID_TacGia;
+                cmd.Parameters.Add("@NamXuatBan", SqlDbType.NChar, 4).Value = book.NamXuatBan;
+                cmd.Parameters.Add("@ID_NhaXuatBan", SqlDbType.Int).Value = book.ID_NhaXuatBan;
+                cmd.Parameters.Add("@ViTri", SqlDbType.NVarChar, 50).Value = book.ViTri;
+                cmd.Parameters.Add("@TrangThai", SqlDbType.SmallInt).Value = book.TrangThai;
+                cmd.Parameters.Add("@ghiChu", SqlDbType.NText).Value = book.GhiChu;
+                cmd.Parameters.Add("@ID_Muon", SqlDbType.Int).Value = book.ID_Muon;
+                cmd.Parameters.Add("@Action", SqlDbType.Int).Value = action;
 
-            int result = cmd.ExecuteNonQuery();
-            if (result > 0)
-                return (int)cmd.Parameters["@ID"].Value;
+                int result = cmd.ExecuteNonQuery();
+                if (result > 0)
+                    return (int)cmd.Parameters["@ID"].Value;
+            }
+            catch { return -2; }
             return 0;
         }
     }

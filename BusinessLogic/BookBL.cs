@@ -13,7 +13,7 @@ namespace BusinessLogic
 
         public List<Book> GetAll()
         {
-            return bookDA.GetAll();
+            return bookDA.GetAll(1);
         }
 
         public Book GetByID(int ID)

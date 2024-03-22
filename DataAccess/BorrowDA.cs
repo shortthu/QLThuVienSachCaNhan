@@ -27,7 +27,6 @@ namespace DataAccess
                 borrow.ID = Convert.ToInt32(reader["ID"]);
                 borrow.Ten = reader["Ten"].ToString();
                 borrow.SoDienThoai = reader["SoDienThoai"].ToString();
-                borrow.TrangThai = Convert.ToInt32(reader["TrangThai"]);
                 list.Add(borrow);
             }
             sqlConn.Close();
@@ -36,24 +35,28 @@ namespace DataAccess
 
         public int Insert_Update_Delete(Borrow borrow, int action)
         {
-            SqlConnection sqlConn = new SqlConnection(Utilities.ConnectionString);
-            sqlConn.Open();
+            try
+            {
 
-            SqlCommand cmd = sqlConn.CreateCommand();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = Utilities.Borrow_InsertUpdateDelete;
+                SqlConnection sqlConn = new SqlConnection(Utilities.ConnectionString);
+                sqlConn.Open();
 
-            SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
-            IDPara.Direction = ParameterDirection.InputOutput;
+                SqlCommand cmd = sqlConn.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = Utilities.Borrow_InsertUpdateDelete;
 
-            cmd.Parameters.Add(IDPara).Value = borrow.ID;
-            cmd.Parameters.Add("@Ten", SqlDbType.NVarChar, 50).Value = borrow.Ten;
-            cmd.Parameters.Add("@SoDienThoai", SqlDbType.NChar, 10).Value = borrow.SoDienThoai;
-            cmd.Parameters.Add("@TrangThai", SqlDbType.SmallInt).Value = borrow.TrangThai;
+                SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
+                IDPara.Direction = ParameterDirection.InputOutput;
 
-            int result = cmd.ExecuteNonQuery();
-            if (result > 0)
-                return (int)cmd.Parameters["@ID"].Value;
+                cmd.Parameters.Add(IDPara).Value = borrow.ID;
+                cmd.Parameters.Add("@Ten", SqlDbType.NVarChar, 50).Value = borrow.Ten;
+                cmd.Parameters.Add("@SoDienThoai", SqlDbType.NChar, 10).Value = borrow.SoDienThoai;
+
+                int result = cmd.ExecuteNonQuery();
+                if (result > 0)
+                    return (int)cmd.Parameters["@ID"].Value;
+            }
+            catch { return -2; }
             return 0;
         }
     }

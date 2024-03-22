@@ -34,23 +34,27 @@ namespace DataAccess
 
         public int Insert_Update_Delete(Category category, int action)
         {
-            SqlConnection sqlConn = new SqlConnection(Utilities.ConnectionString);
-            sqlConn.Open();
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(Utilities.ConnectionString);
+                sqlConn.Open();
 
-            SqlCommand cmd = sqlConn.CreateCommand();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = Utilities.Category_InsertUpdateDelete;
+                SqlCommand cmd = sqlConn.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = Utilities.Category_InsertUpdateDelete;
 
-            SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
-            IDPara.Direction = ParameterDirection.InputOutput;
+                SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
+                IDPara.Direction = ParameterDirection.InputOutput;
 
-            cmd.Parameters.Add(IDPara).Value = category.ID;
-            cmd.Parameters.Add("@TenTheLoai", SqlDbType.NVarChar, 50).Value = category.TenTheLoai;
-            cmd.Parameters.Add("@Action", SqlDbType.Int).Value = action;
+                cmd.Parameters.Add(IDPara).Value = category.ID;
+                cmd.Parameters.Add("@TenTheLoai", SqlDbType.NVarChar, 50).Value = category.TenTheLoai;
+                cmd.Parameters.Add("@Action", SqlDbType.Int).Value = action;
 
-            int result = cmd.ExecuteNonQuery();
-            if (result > 0)
-                return (int)cmd.Parameters["@ID"].Value;
+                int result = cmd.ExecuteNonQuery();
+                if (result > 0)
+                    return (int)cmd.Parameters["@ID"].Value;
+            }
+            catch { return -2; }
             return 0;
         }
     }

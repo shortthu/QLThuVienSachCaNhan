@@ -9,6 +9,16 @@ AS
 SELECT * FROM Sach
 GO
 
+CREATE PROCEDURE [dbo].[Book_GetAllPresent]
+AS
+SELECT * FROM Sach WHERE TrangThai < 3
+GO
+
+CREATE PROCEDURE [dbo].[Book_GetAllHistory]
+AS
+SELECT * FROM Sach WHERE TrangThai = 3
+GO
+
 CREATE PROCEDURE [dbo].[Author_GetAll]
 AS
 SELECT * FROM TacGia
@@ -53,7 +63,7 @@ END
 GO
 
 -- SÁCH
-ALTER PROCEDURE [dbo].[Book_InsertUpdateDelete]
+CREATE PROCEDURE [dbo].[Book_InsertUpdateDelete]
 	@ID int output,
 	@LoaiSach int,
 	@ID_TheLoai int,
