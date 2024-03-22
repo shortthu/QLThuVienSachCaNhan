@@ -38,10 +38,10 @@ namespace DataAccess
                 else
                     book.ID_NhaXuatBan = Convert.ToInt32(reader["ID_NhaXuatBan"]);
                 book.ViTri = reader["ViTri"].ToString();
-                if (Convert.IsDBNull(reader["TenTrangThai"]))
-                    book.TenTrangThai = null;
+                if (Convert.IsDBNull(reader["TrangThai"]))
+                    book.TrangThai = null;
                 else
-                    book.TenTrangThai = Convert.ToInt32(reader["TenTrangThai"]);
+                    book.TrangThai = Convert.ToInt32(reader["TrangThai"]);
                 book.GhiChu = reader["GhiChu"].ToString();
                 list.Add(book);
             }
@@ -69,7 +69,7 @@ namespace DataAccess
             cmd.Parameters.Add("@NamXuatBan", SqlDbType.NChar, 4).Value = book.NamXuatBan;
             cmd.Parameters.Add("@ID_NhaXuatBan", SqlDbType.Int).Value = book.ID_NhaXuatBan;
             cmd.Parameters.Add("@ViTri", SqlDbType.NVarChar, 50).Value = book.ViTri;
-            cmd.Parameters.Add("@TenTrangThai", SqlDbType.SmallInt).Value = book.TenTrangThai;
+            cmd.Parameters.Add("@TrangThai", SqlDbType.SmallInt).Value = book.TrangThai;
             cmd.Parameters.Add("@ghiChu", SqlDbType.NText).Value = book.GhiChu;
             cmd.Parameters.Add("@Action", SqlDbType.Int).Value = action;
 

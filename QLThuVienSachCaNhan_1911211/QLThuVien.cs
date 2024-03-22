@@ -82,7 +82,7 @@ namespace QLThuVienSachCaNhan_1911211
             book.NamXuatBan = mtbPublishedYear.Text;
             book.ViTri = tbLocation.Text;
             book.GhiChu = tbNotes.Text;
-            book.TenTrangThai = 0;
+            book.TrangThai = 0;
             if (cbCategory.SelectedValue != null)
                 book.ID_TheLoai = Convert.ToInt32(cbCategory.SelectedValue);
             else
@@ -212,9 +212,9 @@ namespace QLThuVienSachCaNhan_1911211
                 else type = "Sách bộ";
                 item.SubItems.Add(type);
                 string status;
-                if (book.TenTrangThai == 0)
+                if (book.TrangThai == 0)
                     status = "Đang có sẵn";
-                else if (book.TenTrangThai == 1)
+                else if (book.TrangThai == 1)
                     status = "Cho mượn";
                 else status = "Sách mượn";
                 item.SubItems.Add(status);

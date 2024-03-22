@@ -16,7 +16,7 @@ namespace DataAccess
         public string NamXuatBan { get; set; }
         public int? ID_NhaXuatBan { get; set; }
         public string ViTri { get; set; }
-        public int? TenTrangThai { get; set; }
+        public int? TrangThai { get; set; }
         public string GhiChu { get; set; }
     }
 }
