@@ -162,22 +162,20 @@ CREATE PROCEDURE [dbo].[Borrow_InsertUpdateDelete]
 	@ID int output,
 	@Ten nvarchar(50),
 	@SoDienThoai nchar(10),
-	@TrangThai smallint,
 	@Action int
 AS
 -- Thêm
 IF @Action = 0
 BEGIN
-	INSERT INTO [Muon] ([Ten], [SoDienThoai], [TrangThai])
-	VALUES (@Ten, @SoDienThoai, @TrangThai)
+	INSERT INTO [Muon] ([Ten], [SoDienThoai])
+	VALUES (@Ten, @SoDienThoai)
 
 	SELECT @ID = SCOPE_IDENTITY();
 END
 -- Sửa
 ELSE IF @Action = 1
 BEGIN
-	UPDATE [Muon] SET [Ten] = @Ten, [SoDienThoai] = @SoDienThoai,
-	[TrangThai] = @TrangThai
+	UPDATE [Muon] SET [Ten] = @Ten, [SoDienThoai] = @SoDienThoai
 	WHERE ID = @ID
 END
 -- Xoá

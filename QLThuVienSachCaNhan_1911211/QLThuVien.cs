@@ -366,6 +366,7 @@ namespace QLThuVienSachCaNhan_1911211
             }
             return -1;
         }
+
         // Events
 
         private void lvBook_SelectedIndexChanged(object sender, EventArgs e)

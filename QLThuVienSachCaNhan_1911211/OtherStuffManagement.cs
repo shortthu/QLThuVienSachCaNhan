@@ -22,6 +22,8 @@ namespace QLThuVienSachCaNhan_1911211
         Author selectedAuthor;
         List<Publisher> publisherList = new List<Publisher>();
         Publisher selectedPublisher;
+        List<Borrow> borrowList = new List<Borrow>();
+        Borrow selectedBorrow;
 
         QLThuVien mainForm = (QLThuVien)Application.OpenForms["QLThuVien"];
 
@@ -87,6 +89,17 @@ namespace QLThuVienSachCaNhan_1911211
 
                     HideExtraControls();
                     break;
+                case 3:
+                    BorrowBL borrowBL = new BorrowBL();
+                    borrowList = borrowBL.GetAll();
+
+                    lTitle.Text = "Quản lý người mượn/cho mượn";
+                    label2.Text = "Tên";
+                    label3.Text = "Số điện thoại";
+                    lbList.DataSource = borrowList;
+                    lbList.DisplayMember = "Ten";
+                    lbList.ValueMember = "ID";
+                    break;
             }
         }
 
@@ -106,24 +119,16 @@ namespace QLThuVienSachCaNhan_1911211
                     tbID.Text = selectedPublisher.ID.ToString();
                     tbProp1.Text = selectedPublisher.TenNhaXuatBan.ToString();
                     break;
+                case 3:
+                    tbID.Text = selectedBorrow.ID.ToString();
+                    tbProp1.Text = selectedBorrow.Ten.ToString();
+                    tbProp2.Text = selectedBorrow.SoDienThoai.ToString();
+                    break;
             }
         }
 
         private void ReloadDataOnMainForm()
         {
-            //switch (function)
-            //{
-            //    case 0:
-            //        mainForm.LoadCategory();
-            //        break;
-            //    case 1:
-            //        mainForm.LoadAuthor();
-            //        break;
-            //    case 2:
-            //        mainForm.LoadPublisher();
-            //        break;
-            //}
-
             mainForm.ReloadAllLists();
         }
 
@@ -158,6 +163,15 @@ namespace QLThuVienSachCaNhan_1911211
                         newPublisher.TenNhaXuatBan = tbProp1.Text;
                         PublisherBL publisherBL = new PublisherBL();
                         result = publisherBL.Insert(newPublisher);
+                        ReloadDataOnMainForm();
+                        return result;
+                    case 3:
+                        Borrow newBorrow = new Borrow();
+                        newBorrow.ID = 0;
+                        newBorrow.Ten = tbProp1.Text;
+                        newBorrow.SoDienThoai = tbProp2.Text;
+                        BorrowBL borrowBL = new BorrowBL();
+                        result = borrowBL.Insert(newBorrow);
                         ReloadDataOnMainForm();
                         return result;
                 }
@@ -196,6 +210,15 @@ namespace QLThuVienSachCaNhan_1911211
                         publisher.ID = selectedPublisher.ID;
                         publisher.TenNhaXuatBan = tbProp1.Text;
                         result = publisherBL.Update(publisher);
+                        ReloadDataOnMainForm();
+                        return result;
+                    case 3:
+                        BorrowBL borrowBL = new BorrowBL();
+                        Borrow borrow = new Borrow();
+                        borrow.ID = selectedBorrow.ID;
+                        borrow.Ten = tbProp1.Text;
+                        borrow.SoDienThoai = tbProp2.Text;
+                        result = borrowBL.Update(borrow);
                         ReloadDataOnMainForm();
                         return result;
                 }
@@ -240,6 +263,16 @@ namespace QLThuVienSachCaNhan_1911211
                         }
                         else MessageBox.Show("Xoá không thành công.");
                         break;
+                    case 3:
+                        BorrowBL borrowBL = new BorrowBL();
+                        if (borrowBL.Delete(selectedBorrow) > 0)
+                        {
+                            MessageBox.Show("Xoá thành công.");
+                            LoadData();
+                            ClearAllControls();
+                        }
+                        else MessageBox.Show("Xoá không thành công.");
+                        break;
                 }
                 ReloadDataOnMainForm();
             }
@@ -269,6 +302,10 @@ namespace QLThuVienSachCaNhan_1911211
                         break;
                     case 2:
                         selectedPublisher = publisherList[currentIndex];
+                        LoadDataToControls();
+                        break;
+                    case 3:
+                        selectedBorrow = borrowList[currentIndex];
                         LoadDataToControls();
                         break;
                 }
