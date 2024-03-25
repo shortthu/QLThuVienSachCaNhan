@@ -79,6 +79,7 @@
             this.columnHeader40 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader43 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader44 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tAvailableBooks = new System.Windows.Forms.TabPage();
             this.tAllBooks = new System.Windows.Forms.TabPage();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tbSearchAll = new System.Windows.Forms.TextBox();
@@ -99,16 +100,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bNew = new System.Windows.Forms.Button();
             this.bSaveBook = new System.Windows.Forms.Button();
-            this.gbBorrowInfo = new System.Windows.Forms.GroupBox();
-            this.rbBorrowing = new System.Windows.Forms.RadioButton();
-            this.rbBorrowed = new System.Windows.Forms.RadioButton();
-            this.rbAvailable = new System.Windows.Forms.RadioButton();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cbName = new System.Windows.Forms.ComboBox();
-            this.bEditBorrow = new System.Windows.Forms.Button();
-            this.tbPhoneNum = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.bEditPublisher = new System.Windows.Forms.Button();
             this.bEditAuthor = new System.Windows.Forms.Button();
             this.bEditCategory = new System.Windows.Forms.Button();
@@ -134,18 +125,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmBookItemRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeBookStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.availableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tAvailableBooks = new System.Windows.Forms.TabPage();
+            this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tCategory.SuspendLayout();
             this.tBorrowed.SuspendLayout();
             this.tBorrowing.SuspendLayout();
             this.tAllBooks.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.gbBorrowInfo.SuspendLayout();
             this.pTypes.SuspendLayout();
             this.cmBookItemRightClick.SuspendLayout();
             this.SuspendLayout();
@@ -521,6 +509,16 @@
             // 
             this.columnHeader44.Text = "SĐT mượn";
             // 
+            // tAvailableBooks
+            // 
+            this.tAvailableBooks.Location = new System.Drawing.Point(4, 22);
+            this.tAvailableBooks.Name = "tAvailableBooks";
+            this.tAvailableBooks.Padding = new System.Windows.Forms.Padding(3);
+            this.tAvailableBooks.Size = new System.Drawing.Size(835, 470);
+            this.tAvailableBooks.TabIndex = 4;
+            this.tAvailableBooks.Text = "Sách có sẵn";
+            this.tAvailableBooks.UseVisualStyleBackColor = true;
+            // 
             // tAllBooks
             // 
             this.tAllBooks.Controls.Add(this.comboBox1);
@@ -651,7 +649,6 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.bNew);
             this.groupBox2.Controls.Add(this.bSaveBook);
-            this.groupBox2.Controls.Add(this.gbBorrowInfo);
             this.groupBox2.Controls.Add(this.bEditPublisher);
             this.groupBox2.Controls.Add(this.bEditAuthor);
             this.groupBox2.Controls.Add(this.bEditCategory);
@@ -702,117 +699,6 @@
             this.bSaveBook.UseVisualStyleBackColor = true;
             this.bSaveBook.Click += new System.EventHandler(this.bSaveBook_Click);
             // 
-            // gbBorrowInfo
-            // 
-            this.gbBorrowInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.gbBorrowInfo.Controls.Add(this.rbBorrowing);
-            this.gbBorrowInfo.Controls.Add(this.rbBorrowed);
-            this.gbBorrowInfo.Controls.Add(this.rbAvailable);
-            this.gbBorrowInfo.Controls.Add(this.label13);
-            this.gbBorrowInfo.Controls.Add(this.cbName);
-            this.gbBorrowInfo.Controls.Add(this.bEditBorrow);
-            this.gbBorrowInfo.Controls.Add(this.tbPhoneNum);
-            this.gbBorrowInfo.Controls.Add(this.label12);
-            this.gbBorrowInfo.Controls.Add(this.label11);
-            this.gbBorrowInfo.Location = new System.Drawing.Point(9, 356);
-            this.gbBorrowInfo.Name = "gbBorrowInfo";
-            this.gbBorrowInfo.Size = new System.Drawing.Size(474, 105);
-            this.gbBorrowInfo.TabIndex = 3;
-            this.gbBorrowInfo.TabStop = false;
-            this.gbBorrowInfo.Text = "Thông tin mượn";
-            // 
-            // rbBorrowing
-            // 
-            this.rbBorrowing.AutoSize = true;
-            this.rbBorrowing.Location = new System.Drawing.Point(305, 21);
-            this.rbBorrowing.Name = "rbBorrowing";
-            this.rbBorrowing.Size = new System.Drawing.Size(80, 17);
-            this.rbBorrowing.TabIndex = 47;
-            this.rbBorrowing.Text = "Đang mượn";
-            this.rbBorrowing.UseVisualStyleBackColor = true;
-            // 
-            // rbBorrowed
-            // 
-            this.rbBorrowed.AutoSize = true;
-            this.rbBorrowed.Location = new System.Drawing.Point(226, 21);
-            this.rbBorrowed.Name = "rbBorrowed";
-            this.rbBorrowed.Size = new System.Drawing.Size(73, 17);
-            this.rbBorrowed.TabIndex = 46;
-            this.rbBorrowed.Text = "Cho mượn";
-            this.rbBorrowed.UseVisualStyleBackColor = true;
-            // 
-            // rbAvailable
-            // 
-            this.rbAvailable.AutoSize = true;
-            this.rbAvailable.Checked = true;
-            this.rbAvailable.Location = new System.Drawing.Point(134, 21);
-            this.rbAvailable.Name = "rbAvailable";
-            this.rbAvailable.Size = new System.Drawing.Size(86, 17);
-            this.rbAvailable.TabIndex = 45;
-            this.rbAvailable.TabStop = true;
-            this.rbAvailable.Text = "Đang có sẵn";
-            this.rbAvailable.UseVisualStyleBackColor = true;
-            this.rbAvailable.CheckedChanged += new System.EventHandler(this.rbAvailable_CheckedChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 23);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(55, 13);
-            this.label13.TabIndex = 44;
-            this.label13.Text = "Trạng thái";
-            // 
-            // cbName
-            // 
-            this.cbName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbName.Enabled = false;
-            this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(134, 44);
-            this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(291, 21);
-            this.cbName.TabIndex = 41;
-            this.cbName.SelectedValueChanged += new System.EventHandler(this.cbName_SelectedValueChanged);
-            // 
-            // bEditBorrow
-            // 
-            this.bEditBorrow.Location = new System.Drawing.Point(431, 42);
-            this.bEditBorrow.Name = "bEditBorrow";
-            this.bEditBorrow.Size = new System.Drawing.Size(35, 23);
-            this.bEditBorrow.TabIndex = 41;
-            this.bEditBorrow.Text = "Sửa";
-            this.bEditBorrow.UseVisualStyleBackColor = true;
-            this.bEditBorrow.Click += new System.EventHandler(this.bEditBorrow_Click);
-            // 
-            // tbPhoneNum
-            // 
-            this.tbPhoneNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPhoneNum.Location = new System.Drawing.Point(134, 71);
-            this.tbPhoneNum.Name = "tbPhoneNum";
-            this.tbPhoneNum.ReadOnly = true;
-            this.tbPhoneNum.Size = new System.Drawing.Size(291, 20);
-            this.tbPhoneNum.TabIndex = 42;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 73);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 13);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "Số điện thoại";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 47);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(26, 13);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Tên";
-            // 
             // bEditPublisher
             // 
             this.bEditPublisher.Location = new System.Drawing.Point(440, 153);
@@ -860,7 +746,7 @@
             this.tbNotes.Location = new System.Drawing.Point(143, 233);
             this.tbNotes.Multiline = true;
             this.tbNotes.Name = "tbNotes";
-            this.tbNotes.Size = new System.Drawing.Size(291, 117);
+            this.tbNotes.Size = new System.Drawing.Size(291, 228);
             this.tbNotes.TabIndex = 0;
             // 
             // tbID
@@ -1036,9 +922,11 @@
             // 
             this.cmBookItemRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteBookToolStripMenuItem,
-            this.changeBookStatusToolStripMenuItem});
+            this.borrowedToolStripMenuItem,
+            this.borrowingToolStripMenuItem,
+            this.returnBookToolStripMenuItem});
             this.cmBookItemRightClick.Name = "cmBookItemRightClick";
-            this.cmBookItemRightClick.Size = new System.Drawing.Size(181, 70);
+            this.cmBookItemRightClick.Size = new System.Drawing.Size(181, 114);
             // 
             // deleteBookToolStripMenuItem
             // 
@@ -1047,46 +935,25 @@
             this.deleteBookToolStripMenuItem.Text = "Xoá sách";
             this.deleteBookToolStripMenuItem.Click += new System.EventHandler(this.deleteBookToolStripMenuItem_Click);
             // 
-            // changeBookStatusToolStripMenuItem
-            // 
-            this.changeBookStatusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.borrowedToolStripMenuItem,
-            this.borrowingToolStripMenuItem,
-            this.availableToolStripMenuItem});
-            this.changeBookStatusToolStripMenuItem.Name = "changeBookStatusToolStripMenuItem";
-            this.changeBookStatusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.changeBookStatusToolStripMenuItem.Text = "Đổi trạng thái là...";
-            // 
             // borrowedToolStripMenuItem
             // 
             this.borrowedToolStripMenuItem.Name = "borrowedToolStripMenuItem";
             this.borrowedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.borrowedToolStripMenuItem.Text = "Sách cho mượn";
-            this.borrowedToolStripMenuItem.Click += new System.EventHandler(this.borrowedToolStripMenuItem_Click);
+            this.borrowedToolStripMenuItem.Text = "Cho mượn sách";
+            this.borrowedToolStripMenuItem.Click += new System.EventHandler(this.borrowedToolStripMenuItem_Click_1);
             // 
             // borrowingToolStripMenuItem
             // 
             this.borrowingToolStripMenuItem.Name = "borrowingToolStripMenuItem";
             this.borrowingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.borrowingToolStripMenuItem.Text = "Sách mượn";
-            this.borrowingToolStripMenuItem.Click += new System.EventHandler(this.borrowingToolStripMenuItem_Click);
+            this.borrowingToolStripMenuItem.Text = "Mượn sách";
+            this.borrowingToolStripMenuItem.Click += new System.EventHandler(this.borrowingToolStripMenuItem_Click_1);
             // 
-            // availableToolStripMenuItem
+            // returnBookToolStripMenuItem
             // 
-            this.availableToolStripMenuItem.Name = "availableToolStripMenuItem";
-            this.availableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.availableToolStripMenuItem.Text = "Sách có sẵn";
-            this.availableToolStripMenuItem.Click += new System.EventHandler(this.availableToolStripMenuItem_Click);
-            // 
-            // tAvailableBooks
-            // 
-            this.tAvailableBooks.Location = new System.Drawing.Point(4, 22);
-            this.tAvailableBooks.Name = "tAvailableBooks";
-            this.tAvailableBooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tAvailableBooks.Size = new System.Drawing.Size(835, 470);
-            this.tAvailableBooks.TabIndex = 4;
-            this.tAvailableBooks.Text = "Sách có sẵn";
-            this.tAvailableBooks.UseVisualStyleBackColor = true;
+            this.returnBookToolStripMenuItem.Name = "returnBookToolStripMenuItem";
+            this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.returnBookToolStripMenuItem.Text = "Trả sách";
             // 
             // QLThuVien
             // 
@@ -1109,8 +976,6 @@
             this.tAllBooks.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.gbBorrowInfo.ResumeLayout(false);
-            this.gbBorrowInfo.PerformLayout();
             this.pTypes.ResumeLayout(false);
             this.pTypes.PerformLayout();
             this.cmBookItemRightClick.ResumeLayout(false);
@@ -1164,10 +1029,6 @@
         private System.Windows.Forms.Button bEditPublisher;
         private System.Windows.Forms.ContextMenuStrip cmBookItemRightClick;
         private System.Windows.Forms.ToolStripMenuItem deleteBookToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem changeBookStatusToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem borrowedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem borrowingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem availableToolStripMenuItem;
         private System.Windows.Forms.TextBox tbSearchAll;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox lbCategory;
@@ -1182,16 +1043,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader18;
         private System.Windows.Forms.ColumnHeader columnHeader19;
         private System.Windows.Forms.ColumnHeader columnHeader20;
-        private System.Windows.Forms.GroupBox gbBorrowInfo;
-        private System.Windows.Forms.ComboBox cbName;
-        private System.Windows.Forms.Button bEditBorrow;
-        private System.Windows.Forms.TextBox tbPhoneNum;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RadioButton rbAvailable;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.RadioButton rbBorrowed;
-        private System.Windows.Forms.RadioButton rbBorrowing;
         private System.Windows.Forms.ColumnHeader columnHeader41;
         private System.Windows.Forms.ColumnHeader columnHeader42;
         private System.Windows.Forms.ListView lvBorrowed;
@@ -1230,6 +1081,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TabPage tAvailableBooks;
+        private System.Windows.Forms.ToolStripMenuItem borrowedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrowingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
     }
 }
 
