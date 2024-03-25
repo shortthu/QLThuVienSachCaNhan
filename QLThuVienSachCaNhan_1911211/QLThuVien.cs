@@ -208,6 +208,18 @@ namespace QLThuVienSachCaNhan_1911211
             return bookList;
         }
 
+        private void LoadManagementForm(int function)
+        {
+            OtherStuffManagement otherStuffManagement = new OtherStuffManagement(function);
+            otherStuffManagement.Show();
+        }
+
+        private void LoadBorrowForm(int function)
+        {
+            BorrowDialogue borrowDialogue = new BorrowDialogue(function, selectedBook);
+            borrowDialogue.Show();
+        }
+
         // Load funcs
 
         public void LoadPublisher()
@@ -334,7 +346,7 @@ namespace QLThuVienSachCaNhan_1911211
             return booksList;
         }
 
-        // Add funcs
+        // Insert funcs
         private int InsertMinorProperty(int property)
         {
             // 0 = Category; 1 = Author; 2 = Publisher
@@ -468,26 +480,17 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void bEditCategory_Click(object sender, EventArgs e)
         {
-            OtherStuffManagement categoryManagement = new OtherStuffManagement(0);
-            categoryManagement.Show();
+            LoadManagementForm(0);
         }
 
         private void bEditAuthor_Click(object sender, EventArgs e)
         {
-            OtherStuffManagement authorManagement = new OtherStuffManagement(1);
-            authorManagement.Show();
+            LoadManagementForm(1);
         }
 
         private void bEditPublisher_Click(object sender, EventArgs e)
         {
-            OtherStuffManagement publisherManagement = new OtherStuffManagement(2);
-            publisherManagement.Show();
-        }
-
-        private void bEditBorrow_Click(object sender, EventArgs e)
-        {
-            OtherStuffManagement borrowManagement = new OtherStuffManagement(3);
-            borrowManagement.Show();
+            LoadManagementForm(2);
         }
 
         private void lvBorrowed_SelectedIndexChanged(object sender, EventArgs e)
@@ -502,14 +505,12 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void borrowedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BorrowDialogue borrowDialogue = new BorrowDialogue(0, selectedBook);
-            borrowDialogue.Show();
+            LoadBorrowForm(0);
         }
 
         private void borrowingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BorrowDialogue borrowDialogue = new BorrowDialogue(1, selectedBook);
-            borrowDialogue.Show();
+            LoadBorrowForm(1);
         }
 
         //private int SetBookToAvailable()
@@ -540,18 +541,6 @@ namespace QLThuVienSachCaNhan_1911211
 
         }
 
-        private void borrowedToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            BorrowDialogue borrowDialogue = new BorrowDialogue(0, selectedBook);
-            borrowDialogue.Show();
-        }
-
-        private void borrowingToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            BorrowDialogue borrowDialogue = new BorrowDialogue(1, selectedBook);
-            borrowDialogue.Show();
-        }
-
         private void lvBookCategory_MouseClick(object sender, MouseEventArgs e)
         {
             ShowContextMenu(lvBookCategory, e);
@@ -575,6 +564,16 @@ namespace QLThuVienSachCaNhan_1911211
         private void lvAvailable_MouseClick(object sender, MouseEventArgs e)
         {
             ShowContextMenu(lvAvailable, e);
+        }
+
+        private void bBorrower2_Click(object sender, EventArgs e)
+        {
+            LoadManagementForm(3);
+        }
+
+        private void bBorrower_Click(object sender, EventArgs e)
+        {
+            LoadManagementForm(3);
         }
     }
 }
