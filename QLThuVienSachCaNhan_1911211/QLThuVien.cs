@@ -328,7 +328,6 @@ namespace QLThuVienSachCaNhan_1911211
             }
 
             int count = 1;
-            ResizeListViewColumns(bookListView);
             bookListView.Items.Clear();
 
             foreach (var book in booksList)
@@ -376,6 +375,7 @@ namespace QLThuVienSachCaNhan_1911211
                 count++;
             }
 
+            ResizeListViewColumns(bookListView);
             return booksList;
         }
 
@@ -545,29 +545,6 @@ namespace QLThuVienSachCaNhan_1911211
         {
             LoadBorrowForm(1);
         }
-
-        //private int SetBookToAvailable()
-        //{
-        //    Book book = new Book();
-        //    BookBL bookBL = new BookBL();
-        //    book = selectedBook;
-        //    book.TrangThai = 0;
-        //    book.ID_Muon = null;
-
-        //    return bookBL.Update(book);
-        //}
-
-        //private void availableToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    int result = SetBookToAvailable();
-        //    if (result > 0)
-        //    {
-        //        MessageBox.Show($"Thành công.");
-        //        ReloadAllLists();
-        //        ResetAllFields();
-        //    }
-        //    else MessageBox.Show("Sửa dữ liệu không thành công. Vui lòng kiểm tra lại.");
-        //}
 
         private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
         {

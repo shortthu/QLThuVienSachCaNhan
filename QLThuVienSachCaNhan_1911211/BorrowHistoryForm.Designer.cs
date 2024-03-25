@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Label1 = new System.Windows.Forms.Label();
-            this.lvBorrowed = new System.Windows.Forms.ListView();
+            this.lvHistory = new System.Windows.Forms.ListView();
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,28 +48,28 @@
             this.Label1.TabIndex = 2;
             this.Label1.Text = "Lịch sử mượn";
             // 
-            // lvBorrowed
+            // lvHistory
             // 
-            this.lvBorrowed.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvBorrowed.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader21,
             this.columnHeader22,
             this.columnHeader23,
             this.columnHeader24,
             this.columnHeader25,
             this.columnHeader26});
-            this.lvBorrowed.FullRowSelect = true;
-            this.lvBorrowed.GridLines = true;
-            this.lvBorrowed.HideSelection = false;
-            this.lvBorrowed.Location = new System.Drawing.Point(17, 37);
-            this.lvBorrowed.MultiSelect = false;
-            this.lvBorrowed.Name = "lvBorrowed";
-            this.lvBorrowed.Size = new System.Drawing.Size(546, 569);
-            this.lvBorrowed.TabIndex = 3;
-            this.lvBorrowed.UseCompatibleStateImageBehavior = false;
-            this.lvBorrowed.View = System.Windows.Forms.View.Details;
+            this.lvHistory.FullRowSelect = true;
+            this.lvHistory.GridLines = true;
+            this.lvHistory.HideSelection = false;
+            this.lvHistory.Location = new System.Drawing.Point(17, 37);
+            this.lvHistory.MultiSelect = false;
+            this.lvHistory.Name = "lvHistory";
+            this.lvHistory.Size = new System.Drawing.Size(546, 569);
+            this.lvHistory.TabIndex = 3;
+            this.lvHistory.UseCompatibleStateImageBehavior = false;
+            this.lvHistory.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader21
             // 
@@ -100,7 +100,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 618);
-            this.Controls.Add(this.lvBorrowed);
+            this.Controls.Add(this.lvHistory);
             this.Controls.Add(this.Label1);
             this.Name = "BorrowHistoryForm";
             this.Text = "Lịch sử mượn";
@@ -113,7 +113,7 @@
         #endregion
 
         private System.Windows.Forms.Label Label1;
-        private System.Windows.Forms.ListView lvBorrowed;
+        private System.Windows.Forms.ListView lvHistory;
         private System.Windows.Forms.ColumnHeader columnHeader21;
         private System.Windows.Forms.ColumnHeader columnHeader22;
         private System.Windows.Forms.ColumnHeader columnHeader23;

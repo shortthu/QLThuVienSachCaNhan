@@ -26,7 +26,7 @@ namespace DataAccess
                 BorrowHistory borrowHistory = new BorrowHistory();
                 borrowHistory.ID = Convert.ToInt32(reader["ID"]);
                 borrowHistory.ID_Sach = Convert.ToInt32(reader["ID_Sach"]);
-                borrowHistory.ID_Sach = Convert.ToInt32(reader["ID_Muon"]);
+                borrowHistory.ID_Muon = Convert.ToInt32(reader["ID_Muon"]);
                 borrowHistory.HinhThuc = Convert.ToInt32(reader["HinhThuc"]);
                 borrowHistory.ThoiGian = Convert.ToDateTime(reader["ThoiGian"]);
                 list.Add(borrowHistory);
