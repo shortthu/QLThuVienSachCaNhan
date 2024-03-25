@@ -48,6 +48,8 @@
     <Compile Include="BookDA.cs" />
     <Compile Include="Borrow.cs" />
     <Compile Include="BorrowDA.cs" />
+    <Compile Include="BorrowHistory.cs" />
+    <Compile Include="BorrowHistoryDA.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="CategoryDA.cs" />
     <Compile Include="Publisher.cs" />
