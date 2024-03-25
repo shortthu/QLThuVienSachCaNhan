@@ -35,28 +35,28 @@ namespace DataAccess
 
         public int Insert_Update_Delete(Borrow borrow, int action)
         {
-            //try
-            //{
-            SqlConnection sqlConn = new SqlConnection(Utilities.ConnectionString);
-            sqlConn.Open();
+            try
+            {
+                SqlConnection sqlConn = new SqlConnection(Utilities.ConnectionString);
+                sqlConn.Open();
 
-            SqlCommand cmd = sqlConn.CreateCommand();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = Utilities.Borrow_InsertUpdateDelete;
+                SqlCommand cmd = sqlConn.CreateCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = Utilities.Borrow_InsertUpdateDelete;
 
-            SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
-            IDPara.Direction = ParameterDirection.InputOutput;
+                SqlParameter IDPara = new SqlParameter("@ID", SqlDbType.Int);
+                IDPara.Direction = ParameterDirection.InputOutput;
 
-            cmd.Parameters.Add(IDPara).Value = borrow.ID;
-            cmd.Parameters.Add("@Ten", SqlDbType.NVarChar, 50).Value = borrow.Ten;
-            cmd.Parameters.Add("@SoDienThoai", SqlDbType.NChar, 10).Value = borrow.SoDienThoai;
-            cmd.Parameters.Add("@Action", SqlDbType.Int).Value = action;
+                cmd.Parameters.Add(IDPara).Value = borrow.ID;
+                cmd.Parameters.Add("@Ten", SqlDbType.NVarChar, 50).Value = borrow.Ten;
+                cmd.Parameters.Add("@SoDienThoai", SqlDbType.NChar, 10).Value = borrow.SoDienThoai;
+                cmd.Parameters.Add("@Action", SqlDbType.Int).Value = action;
 
-            int result = cmd.ExecuteNonQuery();
-            if (result > 0)
-                return (int)cmd.Parameters["@ID"].Value;
-            //}
-            //catch { return -2; }
+                int result = cmd.ExecuteNonQuery();
+                if (result > 0)
+                    return (int)cmd.Parameters["@ID"].Value;
+            }
+            catch { return -2; }
             return 0;
         }
     }
