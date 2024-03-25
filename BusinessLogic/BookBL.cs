@@ -52,6 +52,16 @@ namespace BusinessLogic
             return result;
         }
 
+        public List<Book> FindAvailable()
+        {
+            List<Book> allBooks = GetAll();
+            List<Book> result = new List<Book>();
+            foreach (var book in allBooks)
+                if (book.TrangThai == 0)
+                    result.Add(book);
+            return result;
+        }
+
         public List<Book> FindBorrowed()
         {
             List<Book> allBooks = GetAll();
@@ -68,6 +78,16 @@ namespace BusinessLogic
             List<Book> result = new List<Book>();
             foreach (var book in allBooks)
                 if (book.TrangThai == 2)
+                    result.Add(book);
+            return result;
+        }
+
+        public List<Book> FindPast()
+        {
+            List<Book> allBooks = GetAll();
+            List<Book> result = new List<Book>();
+            foreach (var book in allBooks)
+                if (book.TrangThai == 3)
                     result.Add(book);
             return result;
         }

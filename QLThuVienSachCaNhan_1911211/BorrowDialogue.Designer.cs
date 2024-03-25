@@ -70,11 +70,11 @@
             // 
             this.tbPhoneNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPhoneNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPhoneNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPhoneNum.Location = new System.Drawing.Point(88, 86);
             this.tbPhoneNum.Name = "tbPhoneNum";
             this.tbPhoneNum.ReadOnly = true;
-            this.tbPhoneNum.Size = new System.Drawing.Size(291, 20);
+            this.tbPhoneNum.Size = new System.Drawing.Size(291, 13);
             this.tbPhoneNum.TabIndex = 47;
             // 
             // label12
@@ -130,11 +130,11 @@
             // 
             this.tbBookID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbBookID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbBookID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbBookID.Location = new System.Drawing.Point(88, 7);
             this.tbBookID.Name = "tbBookID";
             this.tbBookID.ReadOnly = true;
-            this.tbBookID.Size = new System.Drawing.Size(291, 20);
+            this.tbBookID.Size = new System.Drawing.Size(291, 13);
             this.tbBookID.TabIndex = 52;
             // 
             // label2
@@ -150,11 +150,11 @@
             // 
             this.tbBookName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbBookName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbBookName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbBookName.Location = new System.Drawing.Point(88, 33);
             this.tbBookName.Name = "tbBookName";
             this.tbBookName.ReadOnly = true;
-            this.tbBookName.Size = new System.Drawing.Size(291, 20);
+            this.tbBookName.Size = new System.Drawing.Size(291, 13);
             this.tbBookName.TabIndex = 54;
             // 
             // BorrowDialogue

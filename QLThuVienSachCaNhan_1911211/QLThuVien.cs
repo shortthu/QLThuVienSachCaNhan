@@ -20,6 +20,7 @@ namespace QLThuVienSachCaNhan_1911211
         List<Book> booksByCategoryList = new List<Book>();
         List<Book> borrowedBooksList = new List<Book>();
         List<Book> borrowingBooksList = new List<Book>();
+        List<Book> AvailableBooksList = new List<Book>();
         List<Author> authorList = new List<Author>();
         List<Category> categoryList = new List<Category>();
         List<Borrow> borrowList = new List<Borrow>();
@@ -51,9 +52,10 @@ namespace QLThuVienSachCaNhan_1911211
             allBooksList = LoadBook(lvBook, 0, ""); // Load all books
             borrowedBooksList = LoadBook(lvBorrowed, 3, null);
             borrowingBooksList = LoadBook(lvBorrowing, 4, null);
+            AvailableBooksList = LoadBook(lvAvailable, 5, null);
         }
 
-        private void ResetAllFields()
+        public void ResetAllFields()
         {
             tbID.Text = null;
             rbSingleVolume.Checked = true;
@@ -154,6 +156,58 @@ namespace QLThuVienSachCaNhan_1911211
             }
         }
 
+        private void ShowContextMenu(ListView list, MouseEventArgs e)
+        {
+            var focusedItem = list.FocusedItem;
+            if (e.Button == MouseButtons.Right)
+            {
+                if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
+                {
+                    switch (selectedBook.TrangThai)
+                    {
+                        case 0:
+                            borrowedToolStripMenuItem.Visible = true;
+                            borrowingToolStripMenuItem.Visible = true;
+                            returnBookToolStripMenuItem.Visible = false;
+                            break;
+                        case 1:
+                            borrowedToolStripMenuItem.Visible = false;
+                            borrowingToolStripMenuItem.Visible = false;
+                            returnBookToolStripMenuItem.Visible = true;
+                            break;
+                        case 2:
+                            borrowingToolStripMenuItem.Visible = false;
+                            borrowedToolStripMenuItem.Visible = false;
+                            returnBookToolStripMenuItem.Visible = true;
+                            break;
+                    }
+                    cmBookItemRightClick.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void ShowSelectedBook(ListView list, List<Book> bookList)
+        {
+            if (list.SelectedItems.Count == 0) return;
+
+            int currentIndex = Convert.ToInt32(list.SelectedItems[0].Text) - 1;
+
+            selectedBook = bookList[currentIndex];
+            SetFormsData();
+        }
+
+        private List<Book> ShowBooksOnSelectedCategory(ListBox categoryList, ListView bookListView)
+        {
+            List<Book> bookList = new List<Book>();
+            if (categoryList.SelectedItems.Count == 0) return null;
+            if (int.TryParse(categoryList.SelectedValue.ToString(), out _))
+            {
+                int selectedCategoryID = Convert.ToInt32(categoryList.SelectedValue);
+                bookList = LoadBook(bookListView, 2, selectedCategoryID.ToString());
+            }
+            return bookList;
+        }
+
         // Load funcs
 
         public void LoadPublisher()
@@ -205,7 +259,7 @@ namespace QLThuVienSachCaNhan_1911211
             BookBL bookBL = new BookBL();
             List<Book> booksList = new List<Book>();
             // func = 0: Get all; func = 1: find; func = 2: filter by category;
-            // func = 3 
+            // func = 3: borrowed books; func = 4: borrowing books; func = 5: available books
             switch (func)
             {
                 case 0:
@@ -222,6 +276,9 @@ namespace QLThuVienSachCaNhan_1911211
                     break;
                 case 4:
                     booksList = bookBL.FindBorrowing();
+                    break;
+                case 5:
+                    booksList = bookBL.FindAvailable();
                     break;
             }
 
@@ -306,7 +363,6 @@ namespace QLThuVienSachCaNhan_1911211
             return -1;
         }
 
-
         private int InsertBook()
         {
             if (cbCategory.Text == "" || tbBookName.Text == "" || (!rbSingleVolume.Checked && !rbSeries.Checked))
@@ -351,14 +407,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void lvBook_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvBook.SelectedItems.Count == 0)
-                return;
-
-            int currentIndex = Convert.ToInt32(lvBook.SelectedItems[0].Text) - 1;
-            //MessageBox.Show(currentIndex);
-
-            selectedBook = allBooksList[currentIndex];
-            SetFormsData();
+            ShowSelectedBook(lvBook, allBooksList);
         }
 
         private void bSaveBook_Click(object sender, EventArgs e)
@@ -394,33 +443,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void lvBook_MouseClick(object sender, MouseEventArgs e)
         {
-            var focusedItem = lvBook.FocusedItem;
-            var currentIndex = lvBook.FocusedItem.Index;
-            if (e.Button == MouseButtons.Right)
-            {
-                if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
-                {
-                    switch (selectedBook.TrangThai)
-                    {
-                        case 0:
-                            borrowedToolStripMenuItem.Visible = true;
-                            borrowingToolStripMenuItem.Visible = true;
-                            returnBookToolStripMenuItem.Visible = false;
-                            break;
-                        case 1:
-                            borrowedToolStripMenuItem.Visible = false;
-                            borrowingToolStripMenuItem.Visible = false;
-                            returnBookToolStripMenuItem.Visible = true;
-                            break;
-                        case 2:
-                            borrowingToolStripMenuItem.Visible = false;
-                            borrowedToolStripMenuItem.Visible = false;
-                            returnBookToolStripMenuItem.Visible = true;
-                            break;
-                    }
-                    cmBookItemRightClick.Show(Cursor.Position);
-                }
-            }
+            ShowContextMenu(lvBook, e);
         }
 
         private void deleteBookToolStripMenuItem_Click(object sender, EventArgs e)
@@ -435,24 +458,12 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void lbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbCategory.SelectedItems.Count == 0)
-                return;
-            if (int.TryParse(lbCategory.SelectedValue.ToString(), out _))
-            {
-                int selectedCategoryID = Convert.ToInt32(lbCategory.SelectedValue);
-                booksByCategoryList = LoadBook(lvBookCategory, 2, selectedCategoryID.ToString());
-            }
+            booksByCategoryList = ShowBooksOnSelectedCategory(lbCategory, lvBookCategory);
         }
 
         private void lvBookCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvBookCategory.SelectedItems.Count == 0) return;
-
-            int currentIndex = Convert.ToInt32(lvBookCategory.SelectedItems[0].Text) - 1;
-            //MessageBox.Show(currentIndex);
-
-            selectedBook = booksByCategoryList[currentIndex];
-            SetFormsData();
+            ShowSelectedBook(lvBookCategory, booksByCategoryList);
         }
 
         private void bEditCategory_Click(object sender, EventArgs e)
@@ -481,22 +492,12 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void lvBorrowed_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvBorrowed.SelectedItems.Count == 0) return;
-
-            int currentIndex = Convert.ToInt32(lvBorrowed.SelectedItems[0].Text) - 1;
-
-            selectedBook = borrowedBooksList[currentIndex];
-            SetFormsData();
+            ShowSelectedBook(lvBorrowed, borrowedBooksList);
         }
 
         private void lvBorrowing_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvBorrowing.SelectedItems.Count == 0) return;
-
-            int currentIndex = Convert.ToInt32(lvBorrowing.SelectedItems[0].Text) - 1;
-
-            selectedBook = borrowingBooksList[currentIndex];
-            SetFormsData();
+            ShowSelectedBook(lvBorrowing, borrowingBooksList);
         }
 
         private void borrowedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -511,28 +512,28 @@ namespace QLThuVienSachCaNhan_1911211
             borrowDialogue.Show();
         }
 
-        private int SetBookToAvailable()
-        {
-            Book book = new Book();
-            BookBL bookBL = new BookBL();
-            book = selectedBook;
-            book.TrangThai = 0;
-            book.ID_Muon = null;
+        //private int SetBookToAvailable()
+        //{
+        //    Book book = new Book();
+        //    BookBL bookBL = new BookBL();
+        //    book = selectedBook;
+        //    book.TrangThai = 0;
+        //    book.ID_Muon = null;
 
-            return bookBL.Update(book);
-        }
+        //    return bookBL.Update(book);
+        //}
 
-        private void availableToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int result = SetBookToAvailable();
-            if (result > 0)
-            {
-                MessageBox.Show($"Thành công.");
-                ReloadAllLists();
-                ResetAllFields();
-            }
-            else MessageBox.Show("Sửa dữ liệu không thành công. Vui lòng kiểm tra lại.");
-        }
+        //private void availableToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    int result = SetBookToAvailable();
+        //    if (result > 0)
+        //    {
+        //        MessageBox.Show($"Thành công.");
+        //        ReloadAllLists();
+        //        ResetAllFields();
+        //    }
+        //    else MessageBox.Show("Sửa dữ liệu không thành công. Vui lòng kiểm tra lại.");
+        //}
 
         private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -541,14 +542,39 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void borrowedToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            BorrowDialogue borrowDialogue = new BorrowDialogue(1, selectedBook);
+            BorrowDialogue borrowDialogue = new BorrowDialogue(0, selectedBook);
             borrowDialogue.Show();
         }
 
         private void borrowingToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            BorrowDialogue borrowDialogue = new BorrowDialogue(0, selectedBook);
+            BorrowDialogue borrowDialogue = new BorrowDialogue(1, selectedBook);
             borrowDialogue.Show();
+        }
+
+        private void lvBookCategory_MouseClick(object sender, MouseEventArgs e)
+        {
+            ShowContextMenu(lvBookCategory, e);
+        }
+
+        private void lvBorrowed_MouseClick(object sender, MouseEventArgs e)
+        {
+            ShowContextMenu(lvBorrowed, e);
+        }
+
+        private void lvBorrowing_MouseClick(object sender, MouseEventArgs e)
+        {
+            ShowContextMenu(lvBorrowing, e);
+        }
+
+        private void lvAvailable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowSelectedBook(lvAvailable, AvailableBooksList);
+        }
+
+        private void lvAvailable_MouseClick(object sender, MouseEventArgs e)
+        {
+            ShowContextMenu(lvAvailable, e);
         }
     }
 }

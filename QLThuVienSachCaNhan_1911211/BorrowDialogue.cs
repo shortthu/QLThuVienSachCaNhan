@@ -32,6 +32,7 @@ namespace QLThuVienSachCaNhan_1911211
         private void ReloadDataOnMainForm()
         {
             mainForm.ReloadAllLists();
+            mainForm.ResetAllFields();
         }
 
         private void LoadBorrow()
