@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BorrowHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowHistory.Designer.cs">
+      <DependentUpon>BorrowHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BorrowDialogue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowDialogue.Designer.cs">
+      <DependentUpon>BorrowDialogue.cs</DependentUpon>
+    </Compile>
     <Compile Include="OtherStuffManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BorrowDialogue.resx">
+      <DependentUpon>BorrowDialogue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowHistory.resx">
+      <DependentUpon>BorrowHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OtherStuffManagement.resx">
       <DependentUpon>OtherStuffManagement.cs</DependentUpon>
     </EmbeddedResource>

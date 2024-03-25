@@ -34,6 +34,11 @@ AS
 SELECT * FROM Muon
 GO
 
+CREATE PROCEDURE [dbo].[BorrowHistory_GetAll]
+AS
+SELECT * FROM LichSuMuon
+GO
+
 -- Thủ tục thêm, xoá sửa các bảng
 -- NHÀ XUẤT BẢN
 CREATE PROCEDURE [dbo].[Publisher_InsertUpdateDelete]
@@ -185,53 +190,33 @@ BEGIN
 END
 GO
 
---CREATE PROCEDURE [InsertCategory]
---	@ID int output,
---	@TenTheLoai nvarchar(50)
---AS
---INSERT INTO [TheLoai] ([TenTheLoai])
---VALUES (@TenTheLoai)
+CREATE PROCEDURE [dbo].[BorrowHistory_InsertUpdateDelete]
+	@ID int output,
+	@ID_Sach int,
+	@ID_Muon int,
+	@HinhThuc smallint,
+	@ThoiGian datetime,
+	@Action int
+AS
+-- Thêm
+IF @Action = 0
+BEGIN
+	INSERT INTO [LichSuMuon] ([ID_Sach], [ID_Muon], [HinhThuc], [ThoiGian])
+	VALUES (@ID_Sach, @ID_Muon, @HinhThuc, @ThoiGian)
 
---SELECT @ID = SCOPE_IDENTITY();
---GO
+	SELECT @ID = SCOPE_IDENTITY();
+END
+-- Sửa
+ELSE IF @Action = 1
+BEGIN
+	UPDATE [LichSuMuon] SET [ID_Sach] = @ID_Sach, [ID_Muon] = @ID_Muon, [HinhThuc] = @HinhThuc,
+	[ThoiGian] = @ThoiGian
+	WHERE ID = @ID
+END
+-- Xoá
+ELSE IF @Action = 2
+BEGIN
+	DELETE FROM [LichSuMuon] WHERE [ID] = @ID
+END
+GO
 
---CREATE PROCEDURE [InsertAuthor]
---	@ID int output,
---	@TenTacGia nvarchar(50)
---AS
---INSERT INTO [TacGia] ([TenTacGia])
---VALUES (@TenTacGia)
-
---SELECT @ID = SCOPE_IDENTITY();
---GO
-
---CREATE PROCEDURE [InsertPublisher]
---	@ID int output,
---	@TenNhaXuatBan nvarchar(50)
---AS
---INSERT INTO [NhaXuatBan] ([TenNhaXuatBan])
---VALUES (@TenNhaXuatBan)
-
---SELECT @ID = SCOPE_IDENTITY();
---GO
-
---CREATE PROCEDURE [InsertBook]
---	@ID int output,
---	@LoaiSach int,
---	@ID_TheLoai int,
---	@TenSach nvarchar(100),
---	@ID_TacGia int,
---	@NamXuatBan nchar(4),
---	@ID_NhaXuatBan int,
---	@ViTri nvarchar(50),
---	@TenTrangThai smallint,
---	@GhiChu ntext
---AS
---INSERT INTO [Sach]
---([LoaiSach], [ID_TheLoai], [TenSach], [ID_TacGia], [NamXuatBan], [ID_NhaXuatBan], 
---[ViTri], [TenTrangThai], [GhiChu])
---VALUES (@LoaiSach, @ID_TheLoai, @TenSach, @ID_TacGia, @NamXuatBan, @ID_NhaXuatBan, 
---		@ViTri, @TenTrangThai, @GhiChu)
-
---SELECT @ID = SCOPE_IDENTITY();
---GO

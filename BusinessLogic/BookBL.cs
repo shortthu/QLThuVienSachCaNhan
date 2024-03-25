@@ -33,10 +33,10 @@ namespace BusinessLogic
             foreach (var book in allBooks)
             {
                 if (book.ID.ToString().Contains(key)
-                    || book.TenSach.Contains(key)
+                    || StringExtensions.Contains(book.TenSach, key, StringComparison.OrdinalIgnoreCase)
                     || book.NamXuatBan.ToString().Contains(key)
-                    || book.ViTri.Contains(key)
-                    || book.GhiChu.Contains(key))
+                    || StringExtensions.Contains(book.ViTri, key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(book.GhiChu, key, StringComparison.OrdinalIgnoreCase))
                     result.Add(book);
             }
             return result;

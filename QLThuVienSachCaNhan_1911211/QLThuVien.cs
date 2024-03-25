@@ -420,6 +420,24 @@ namespace QLThuVienSachCaNhan_1911211
             {
                 if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
                 {
+                    switch (selectedBook.TrangThai)
+                    {
+                        case 0:
+                            availableToolStripMenuItem.Enabled = false;
+                            borrowedToolStripMenuItem.Enabled = true;
+                            borrowingToolStripMenuItem.Enabled = true;
+                            break;
+                        case 1:
+                            borrowedToolStripMenuItem.Enabled = false;
+                            availableToolStripMenuItem.Enabled = true;
+                            borrowingToolStripMenuItem.Enabled = true;
+                            break;
+                        case 2:
+                            borrowingToolStripMenuItem.Enabled = false;
+                            availableToolStripMenuItem.Enabled = true;
+                            borrowedToolStripMenuItem.Enabled = true;
+                            break;
+                    }
                     cmBookItemRightClick.Show(Cursor.Position);
                 }
             }
@@ -517,6 +535,41 @@ namespace QLThuVienSachCaNhan_1911211
 
             selectedBook = borrowingBooksList[currentIndex];
             SetFormsData();
+        }
+
+        private void borrowedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BorrowDialogue borrowDialogue = new BorrowDialogue(0, selectedBook);
+            borrowDialogue.Show();
+        }
+
+        private void borrowingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BorrowDialogue borrowDialogue = new BorrowDialogue(1, selectedBook);
+            borrowDialogue.Show();
+        }
+
+        private int SetBookToAvailable()
+        {
+            Book book = new Book();
+            BookBL bookBL = new BookBL();
+            book = selectedBook;
+            book.TrangThai = 0;
+            book.ID_Muon = null;
+
+            return bookBL.Update(book);
+        }
+
+        private void availableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int result = SetBookToAvailable();
+            if (result > 0)
+            {
+                MessageBox.Show($"Thành công.");
+                ReloadAllLists();
+                ResetAllFields();
+            }
+            else MessageBox.Show("Sửa dữ liệu không thành công. Vui lòng kiểm tra lại.");
         }
     }
 }
