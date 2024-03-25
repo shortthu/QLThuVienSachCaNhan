@@ -63,6 +63,17 @@ namespace QLThuVienSachCaNhan_1911211
             book = selectedBook;
             book.TrangThai = function + 1;
             book.ID_Muon = Convert.ToInt32(cbName.SelectedValue);
+
+            // Save to history
+            BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
+            BorrowHistory borrowHistory = new BorrowHistory();
+            borrowHistory.ID = 0;
+            borrowHistory.ID_Sach = selectedBook.ID;
+            borrowHistory.ID_Muon = Convert.ToInt32(cbName.SelectedValue);
+            borrowHistory.HinhThuc = function;
+            borrowHistory.ThoiGian = DateTime.Now;
+            borrowHistoryBL.Insert(borrowHistory);
+
             return bookBL.Update(book);
         }
 

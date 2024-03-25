@@ -76,18 +76,18 @@ namespace QLThuVienSachCaNhan_1911211
             {
                 case 0:
                     book.ID = 0;
+                    book.TrangThai = 0;
                     break;
                 case 1:
                     book.ID = selectedBook.ID;
+                    book.TrangThai = selectedBook.TrangThai;
                     break;
             }
-
             book.LoaiSach = GetBookType();
             book.TenSach = tbBookName.Text;
             book.NamXuatBan = mtbPublishedYear.Text;
             book.ViTri = tbLocation.Text;
             book.GhiChu = tbNotes.Text;
-            book.TrangThai = selectedBook.TrangThai;
             if (cbCategory.SelectedValue != null)
                 book.ID_TheLoai = Convert.ToInt32(cbCategory.SelectedValue);
             else
@@ -218,6 +218,39 @@ namespace QLThuVienSachCaNhan_1911211
         {
             BorrowDialogue borrowDialogue = new BorrowDialogue(function, selectedBook);
             borrowDialogue.Show();
+        }
+
+        private void LoadHistoryForm()
+        {
+            BorrowHistoryForm borrowHistoryForm = new BorrowHistoryForm();
+            borrowHistoryForm.Show();
+        }
+
+        private int HandleBookReturn()
+        {
+            BookBL bookBL = new BookBL();
+            Book book = new Book();
+            BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
+            BorrowHistory borrowHistory = new BorrowHistory();
+            book = selectedBook;
+            borrowHistory.ID_Sach = selectedBook.ID;
+            borrowHistory.ID_Muon = (int)selectedBook.ID_Muon;
+            borrowHistory.ThoiGian = DateTime.Now;
+            // 1: Borrowed books -> change TrangThai to 3 & save history HinhThuc = 2
+            // 2: (other ppl) borrowing books -> change TrangThai to 1 & save history HinhThuc = 3
+            switch (selectedBook.TrangThai)
+            {
+                case 1:
+                    book.TrangThai = 3;
+                    borrowHistory.HinhThuc = 2;
+                    break;
+                case 2:
+                    book.TrangThai = 1;
+                    borrowHistory.HinhThuc = 3;
+                    break;
+            }
+            borrowHistoryBL.Insert(borrowHistory);
+            return bookBL.Update(book);
         }
 
         // Load funcs
@@ -538,7 +571,13 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            int result = HandleBookReturn();
+            if (result > 0)
+            {
+                ReloadAllLists();
+                MessageBox.Show("Trả thành công");
+            }
+            else MessageBox.Show("Thao tác không thành công");
         }
 
         private void lvBookCategory_MouseClick(object sender, MouseEventArgs e)
@@ -574,6 +613,16 @@ namespace QLThuVienSachCaNhan_1911211
         private void bBorrower_Click(object sender, EventArgs e)
         {
             LoadManagementForm(3);
+        }
+
+        private void bHistory_Click(object sender, EventArgs e)
+        {
+            LoadHistoryForm();
+        }
+
+        private void bHistory2_Click(object sender, EventArgs e)
+        {
+            LoadHistoryForm();
         }
     }
 }

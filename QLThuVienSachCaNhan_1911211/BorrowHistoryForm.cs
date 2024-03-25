@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace QLThuVienSachCaNhan_1911211
 {
-    public partial class BorrowHistory : Form
+    public partial class BorrowHistoryForm : Form
     {
-        public BorrowHistory()
+        public BorrowHistoryForm()
         {
             InitializeComponent();
+        }
+
+        private void LoadHistory()
+        {
+
+        }
+
+        private void BorrowHistoryForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

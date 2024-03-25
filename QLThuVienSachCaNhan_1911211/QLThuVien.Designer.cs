@@ -59,7 +59,7 @@
             this.bBorrower = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bHistory = new System.Windows.Forms.Button();
             this.lvBorrowed = new System.Windows.Forms.ListView();
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -77,7 +77,7 @@
             this.bBorrower2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bHistory2 = new System.Windows.Forms.Button();
             this.lvBorrowing = new System.Windows.Forms.ListView();
             this.columnHeader31 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader32 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -350,7 +350,7 @@
             this.tBorrowed.Controls.Add(this.bBorrower);
             this.tBorrowed.Controls.Add(this.textBox2);
             this.tBorrowed.Controls.Add(this.label15);
-            this.tBorrowed.Controls.Add(this.button2);
+            this.tBorrowed.Controls.Add(this.bHistory);
             this.tBorrowed.Controls.Add(this.lvBorrowed);
             this.tBorrowed.Location = new System.Drawing.Point(4, 22);
             this.tBorrowed.Name = "tBorrowed";
@@ -389,15 +389,16 @@
             this.label15.TabIndex = 49;
             this.label15.Text = "Tìm kiếm";
             // 
-            // button2
+            // bHistory
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(757, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "Lịch sử";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bHistory.Location = new System.Drawing.Point(757, 3);
+            this.bHistory.Name = "bHistory";
+            this.bHistory.Size = new System.Drawing.Size(75, 23);
+            this.bHistory.TabIndex = 47;
+            this.bHistory.Text = "Lịch sử";
+            this.bHistory.UseVisualStyleBackColor = true;
+            this.bHistory.Click += new System.EventHandler(this.bHistory_Click);
             // 
             // lvBorrowed
             // 
@@ -483,7 +484,7 @@
             this.tBorrowing.Controls.Add(this.bBorrower2);
             this.tBorrowing.Controls.Add(this.textBox1);
             this.tBorrowing.Controls.Add(this.label14);
-            this.tBorrowing.Controls.Add(this.button1);
+            this.tBorrowing.Controls.Add(this.bHistory2);
             this.tBorrowing.Controls.Add(this.lvBorrowing);
             this.tBorrowing.Location = new System.Drawing.Point(4, 22);
             this.tBorrowing.Name = "tBorrowing";
@@ -522,15 +523,16 @@
             this.label14.TabIndex = 45;
             this.label14.Text = "Tìm kiếm";
             // 
-            // button1
+            // bHistory2
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(757, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "Lịch sử";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bHistory2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bHistory2.Location = new System.Drawing.Point(757, 3);
+            this.bHistory2.Name = "bHistory2";
+            this.bHistory2.Size = new System.Drawing.Size(75, 23);
+            this.bHistory2.TabIndex = 41;
+            this.bHistory2.Text = "Lịch sử";
+            this.bHistory2.UseVisualStyleBackColor = true;
+            this.bHistory2.Click += new System.EventHandler(this.bHistory2_Click);
             // 
             // lvBorrowing
             // 
@@ -1011,28 +1013,28 @@
             // deleteBookToolStripMenuItem
             // 
             this.deleteBookToolStripMenuItem.Name = "deleteBookToolStripMenuItem";
-            this.deleteBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteBookToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.deleteBookToolStripMenuItem.Text = "Xoá sách";
             this.deleteBookToolStripMenuItem.Click += new System.EventHandler(this.deleteBookToolStripMenuItem_Click);
             // 
             // borrowedToolStripMenuItem
             // 
             this.borrowedToolStripMenuItem.Name = "borrowedToolStripMenuItem";
-            this.borrowedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrowedToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.borrowedToolStripMenuItem.Text = "Cho mượn sách";
             this.borrowedToolStripMenuItem.Click += new System.EventHandler(this.borrowedToolStripMenuItem_Click);
             // 
             // borrowingToolStripMenuItem
             // 
             this.borrowingToolStripMenuItem.Name = "borrowingToolStripMenuItem";
-            this.borrowingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrowingToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.borrowingToolStripMenuItem.Text = "Mượn sách";
             this.borrowingToolStripMenuItem.Click += new System.EventHandler(this.borrowingToolStripMenuItem_Click);
             // 
             // returnBookToolStripMenuItem
             // 
             this.returnBookToolStripMenuItem.Name = "returnBookToolStripMenuItem";
-            this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.returnBookToolStripMenuItem.Text = "Trả sách";
             this.returnBookToolStripMenuItem.Click += new System.EventHandler(this.returnBookToolStripMenuItem_Click);
             // 
@@ -1193,10 +1195,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader40;
         private System.Windows.Forms.ColumnHeader columnHeader43;
         private System.Windows.Forms.ColumnHeader columnHeader44;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bHistory2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bHistory;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage tAvailableBooks;

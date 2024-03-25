@@ -1,6 +1,6 @@
 ﻿namespace QLThuVienSachCaNhan_1911211
 {
-    partial class BorrowHistory
+    partial class BorrowHistoryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -95,15 +95,16 @@
             // 
             this.columnHeader26.Text = "Ngày";
             // 
-            // BorrowHistory
+            // BorrowHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 618);
             this.Controls.Add(this.lvBorrowed);
             this.Controls.Add(this.Label1);
-            this.Name = "BorrowHistory";
+            this.Name = "BorrowHistoryForm";
             this.Text = "Lịch sử mượn";
+            this.Load += new System.EventHandler(this.BorrowHistoryForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
