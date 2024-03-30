@@ -526,7 +526,7 @@ namespace QLThuVienSachCaNhan_1911211
             LoadManagementForm(2);
         }
 
-        private void lvBorrowed_SelectedIndexChanged(object sender, EventArgs e)
+        private void lvLending_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowSelectedBook(lvLending, lendingBooksList);
         }
@@ -536,7 +536,7 @@ namespace QLThuVienSachCaNhan_1911211
             ShowSelectedBook(lvBorrowing, borrowingBooksList);
         }
 
-        private void borrowedToolStripMenuItem_Click(object sender, EventArgs e)
+        private void lendingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadBorrowForm(0);
         }
@@ -562,7 +562,7 @@ namespace QLThuVienSachCaNhan_1911211
             ShowContextMenu(lvBookCategory, e);
         }
 
-        private void lvBorrowed_MouseClick(object sender, MouseEventArgs e)
+        private void lvLending_MouseClick(object sender, MouseEventArgs e)
         {
             ShowContextMenu(lvLending, e);
         }

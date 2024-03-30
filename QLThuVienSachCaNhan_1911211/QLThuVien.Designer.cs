@@ -466,8 +466,8 @@
             this.lvLending.TabIndex = 2;
             this.lvLending.UseCompatibleStateImageBehavior = false;
             this.lvLending.View = System.Windows.Forms.View.Details;
-            this.lvLending.SelectedIndexChanged += new System.EventHandler(this.lvBorrowed_SelectedIndexChanged);
-            this.lvLending.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvBorrowed_MouseClick);
+            this.lvLending.SelectedIndexChanged += new System.EventHandler(this.lvLending_SelectedIndexChanged);
+            this.lvLending.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvLending_MouseClick);
             // 
             // columnHeader21
             // 
@@ -1046,12 +1046,12 @@
             this.borrowingToolStripMenuItem,
             this.returnBookToolStripMenuItem});
             this.cmBookItemRightClick.Name = "cmBookItemRightClick";
-            this.cmBookItemRightClick.Size = new System.Drawing.Size(181, 114);
+            this.cmBookItemRightClick.Size = new System.Drawing.Size(159, 92);
             // 
             // deleteBookToolStripMenuItem
             // 
             this.deleteBookToolStripMenuItem.Name = "deleteBookToolStripMenuItem";
-            this.deleteBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteBookToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.deleteBookToolStripMenuItem.Text = "Xoá sách";
             this.deleteBookToolStripMenuItem.Click += new System.EventHandler(this.deleteBookToolStripMenuItem_Click);
             // 
@@ -1060,19 +1060,19 @@
             this.lendingToolStripMenuItem.Name = "lendingToolStripMenuItem";
             this.lendingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lendingToolStripMenuItem.Text = "Cho mượn sách";
-            this.lendingToolStripMenuItem.Click += new System.EventHandler(this.borrowedToolStripMenuItem_Click);
+            this.lendingToolStripMenuItem.Click += new System.EventHandler(this.lendingToolStripMenuItem_Click);
             // 
             // borrowingToolStripMenuItem
             // 
             this.borrowingToolStripMenuItem.Name = "borrowingToolStripMenuItem";
-            this.borrowingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrowingToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.borrowingToolStripMenuItem.Text = "Mượn sách";
             this.borrowingToolStripMenuItem.Click += new System.EventHandler(this.borrowingToolStripMenuItem_Click);
             // 
             // returnBookToolStripMenuItem
             // 
             this.returnBookToolStripMenuItem.Name = "returnBookToolStripMenuItem";
-            this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.returnBookToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.returnBookToolStripMenuItem.Text = "Trả sách";
             this.returnBookToolStripMenuItem.Click += new System.EventHandler(this.returnBookToolStripMenuItem_Click);
             // 
