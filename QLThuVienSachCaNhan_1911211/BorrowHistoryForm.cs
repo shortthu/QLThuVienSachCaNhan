@@ -14,6 +14,9 @@ namespace QLThuVienSachCaNhan_1911211
 {
     public partial class BorrowHistoryForm : Form
     {
+        BorrowHistory selectedHistory = new BorrowHistory();
+        BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
+        List<BorrowHistory> borrowHistory = new List<BorrowHistory>();
         public BorrowHistoryForm()
         {
             InitializeComponent();
@@ -29,17 +32,15 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void LoadHistory()
         {
-            BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
-            List<BorrowHistory> borrowHistories = new List<BorrowHistory>();
             BorrowBL borrowBL = new BorrowBL();
             List<Borrow> borrowList = borrowBL.GetAll();
             BookBL bookBL = new BookBL();
             List<Book> bookList = bookBL.GetAll();
 
-            borrowHistories = borrowHistoryBL.GetAll();
+            borrowHistory = borrowHistoryBL.GetAll();
             int count = 1;
             lvHistory.Items.Clear();
-            foreach (var entry in borrowHistories)
+            foreach (var entry in borrowHistory)
             {
                 ListViewItem item = lvHistory.Items.Add(count.ToString());
                 string bookName = bookList.Find(x => x.ID == entry.ID_Sach).TenSach;
@@ -75,9 +76,55 @@ namespace QLThuVienSachCaNhan_1911211
             ResizeListViewColumns(lvHistory);
         }
 
+        private void DeleteHistory()
+        {
+            if (MessageBox.Show("Bạn có muốn xoá?", "Thông báo",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
+                if (borrowHistoryBL.Delete(selectedHistory) > 0)
+                {
+                    MessageBox.Show("Xoá thành công.");
+                    LoadHistory();
+                }
+                else MessageBox.Show("Xoá không thành công.");
+            }
+        }
+
+        private void SelectHistoryEntry(ListView list)
+        {
+            if (list.SelectedItems.Count == 0) return;
+
+            int currentIndex = Convert.ToInt32(list.SelectedItems[0].Text) - 1;
+
+            selectedHistory = borrowHistory[currentIndex];
+        }
+
         private void BorrowHistoryForm_Load(object sender, EventArgs e)
         {
             LoadHistory();
+        }
+
+        private void delHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteHistory();
+        }
+
+        private void lvHistory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectHistoryEntry(lvHistory);
+        }
+
+        private void lvHistory_MouseClick(object sender, MouseEventArgs e)
+        {
+            var focusedItem = lvHistory.FocusedItem;
+            if (e.Button == MouseButtons.Right)
+            {
+                if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
+                {
+                    cmHistoryRightClick.Show(Cursor.Position);
+                }
+            }
         }
     }
 }

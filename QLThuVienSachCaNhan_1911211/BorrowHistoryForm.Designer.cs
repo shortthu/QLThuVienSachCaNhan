@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Label1 = new System.Windows.Forms.Label();
             this.lvHistory = new System.Windows.Forms.ListView();
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -36,6 +37,9 @@
             this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cmHistoryRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.delHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmHistoryRightClick.SuspendLayout();
             this.SuspendLayout();
             // 
             // Label1
@@ -70,6 +74,8 @@
             this.lvHistory.TabIndex = 3;
             this.lvHistory.UseCompatibleStateImageBehavior = false;
             this.lvHistory.View = System.Windows.Forms.View.Details;
+            this.lvHistory.SelectedIndexChanged += new System.EventHandler(this.lvHistory_SelectedIndexChanged);
+            this.lvHistory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvHistory_MouseClick);
             // 
             // columnHeader21
             // 
@@ -95,6 +101,20 @@
             // 
             this.columnHeader26.Text = "Ngày";
             // 
+            // cmHistoryRightClick
+            // 
+            this.cmHistoryRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delHistoryToolStripMenuItem});
+            this.cmHistoryRightClick.Name = "cmHistoryRightClick";
+            this.cmHistoryRightClick.Size = new System.Drawing.Size(181, 48);
+            // 
+            // delHistoryToolStripMenuItem
+            // 
+            this.delHistoryToolStripMenuItem.Name = "delHistoryToolStripMenuItem";
+            this.delHistoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.delHistoryToolStripMenuItem.Text = "Xoá...";
+            this.delHistoryToolStripMenuItem.Click += new System.EventHandler(this.delHistoryToolStripMenuItem_Click);
+            // 
             // BorrowHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -105,6 +125,7 @@
             this.Name = "BorrowHistoryForm";
             this.Text = "Lịch sử mượn";
             this.Load += new System.EventHandler(this.BorrowHistoryForm_Load);
+            this.cmHistoryRightClick.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +141,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader24;
         private System.Windows.Forms.ColumnHeader columnHeader25;
         private System.Windows.Forms.ColumnHeader columnHeader26;
+        private System.Windows.Forms.ContextMenuStrip cmHistoryRightClick;
+        private System.Windows.Forms.ToolStripMenuItem delHistoryToolStripMenuItem;
     }
 }
