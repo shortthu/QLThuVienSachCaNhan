@@ -47,7 +47,7 @@ namespace BusinessLogic
             List<Book> allBooks = GetAll();
             List<Book> result = new List<Book>();
             foreach (var book in allBooks)
-                if (book.ID_TheLoai == category)
+                if (book.ID_TheLoai == category && book.TrangThai < 3)
                     result.Add(book);
             return result;
         }
