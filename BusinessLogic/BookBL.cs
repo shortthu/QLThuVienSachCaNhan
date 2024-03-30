@@ -52,12 +52,12 @@ namespace BusinessLogic
             return result;
         }
 
-        public List<Book> FindAvailable()
+        public List<Book> FindCurrent()
         {
             List<Book> allBooks = GetAll();
             List<Book> result = new List<Book>();
             foreach (var book in allBooks)
-                if (book.TrangThai == 0)
+                if (book.TrangThai < 3)
                     result.Add(book);
             return result;
         }

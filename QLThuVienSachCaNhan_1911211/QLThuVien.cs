@@ -20,7 +20,8 @@ namespace QLThuVienSachCaNhan_1911211
         List<Book> booksByCategoryList = new List<Book>();
         List<Book> lendingBooksList = new List<Book>();
         List<Book> borrowingBooksList = new List<Book>();
-        List<Book> AvailableBooksList = new List<Book>();
+        List<Book> currentBooksList = new List<Book>();
+        List<Book> pastBooksList = new List<Book>();
         List<Author> authorList = new List<Author>();
         List<Category> categoryList = new List<Category>();
         List<Borrow> borrowList = new List<Borrow>();
@@ -52,7 +53,8 @@ namespace QLThuVienSachCaNhan_1911211
             allBooksList = LoadBook(lvBook, 0, ""); // Load all books
             lendingBooksList = LoadBook(lvLending, 3, null);
             borrowingBooksList = LoadBook(lvBorrowing, 4, null);
-            AvailableBooksList = LoadBook(lvAvailable, 5, null);
+            currentBooksList = LoadBook(lvCurrent, 5, null);
+            pastBooksList = LoadBook(lvPast, 6, null);
         }
 
         public void ResetAllFields()
@@ -180,6 +182,11 @@ namespace QLThuVienSachCaNhan_1911211
                             lendingToolStripMenuItem.Visible = false;
                             returnBookToolStripMenuItem.Visible = true;
                             break;
+                        case 3:
+                            borrowingToolStripMenuItem.Visible = false;
+                            lendingToolStripMenuItem.Visible = false;
+                            returnBookToolStripMenuItem.Visible = false;
+                            break;
                     }
                     cmBookItemRightClick.Show(Cursor.Position);
                 }
@@ -304,7 +311,8 @@ namespace QLThuVienSachCaNhan_1911211
             BookBL bookBL = new BookBL();
             List<Book> booksList = new List<Book>();
             // func = 0: Get all; func = 1: find; func = 2: filter by category;
-            // func = 3: lending books; func = 4: borrowing books; func = 5: available books
+            // func = 3: lending books; func = 4: borrowing books;
+            // func = 5: current books; func = 6: past books
             switch (func)
             {
                 case 0:
@@ -323,7 +331,10 @@ namespace QLThuVienSachCaNhan_1911211
                     booksList = bookBL.FindBorrowing();
                     break;
                 case 5:
-                    booksList = bookBL.FindAvailable();
+                    booksList = bookBL.FindCurrent();
+                    break;
+                case 6:
+                    booksList = bookBL.FindPast();
                     break;
             }
 
@@ -572,14 +583,14 @@ namespace QLThuVienSachCaNhan_1911211
             ShowContextMenu(lvBorrowing, e);
         }
 
-        private void lvAvailable_SelectedIndexChanged(object sender, EventArgs e)
+        private void lvCurrent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ShowSelectedBook(lvAvailable, AvailableBooksList);
+            ShowSelectedBook(lvCurrent, currentBooksList);
         }
 
-        private void lvAvailable_MouseClick(object sender, MouseEventArgs e)
+        private void lvCurrent_MouseClick(object sender, MouseEventArgs e)
         {
-            ShowContextMenu(lvAvailable, e);
+            ShowContextMenu(lvCurrent, e);
         }
 
         private void bBorrower2_Click(object sender, EventArgs e)
@@ -600,6 +611,16 @@ namespace QLThuVienSachCaNhan_1911211
         private void bHistory2_Click(object sender, EventArgs e)
         {
             LoadHistoryForm();
+        }
+
+        private void lvPast_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowSelectedBook(lvPast, pastBooksList);
+        }
+
+        private void lvPast_MouseClick(object sender, MouseEventArgs e)
+        {
+            ShowContextMenu(lvPast, e);
         }
     }
 }

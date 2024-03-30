@@ -45,10 +45,10 @@
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbCategory = new System.Windows.Forms.ListBox();
-            this.tAvailableBooks = new System.Windows.Forms.TabPage();
+            this.tCurrentBooks = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.lvAvailable = new System.Windows.Forms.ListView();
+            this.lvCurrent = new System.Windows.Forms.ListView();
             this.columnHeader47 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader48 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader49 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -95,6 +95,22 @@
             this.columnHeader40 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader43 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader44 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tPast = new System.Windows.Forms.TabPage();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lvPast = new System.Windows.Forms.ListView();
+            this.columnHeader57 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader58 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader59 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader60 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader61 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader62 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader63 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader64 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader65 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader66 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader67 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader68 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tAllBooks = new System.Windows.Forms.TabPage();
             this.tbSearchAll = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -144,9 +160,10 @@
             this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tCategory.SuspendLayout();
-            this.tAvailableBooks.SuspendLayout();
+            this.tCurrentBooks.SuspendLayout();
             this.tLending.SuspendLayout();
             this.tBorrowing.SuspendLayout();
+            this.tPast.SuspendLayout();
             this.tAllBooks.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pTypes.SuspendLayout();
@@ -159,9 +176,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tCategory);
-            this.tabControl1.Controls.Add(this.tAvailableBooks);
+            this.tabControl1.Controls.Add(this.tCurrentBooks);
             this.tabControl1.Controls.Add(this.tLending);
             this.tabControl1.Controls.Add(this.tBorrowing);
+            this.tabControl1.Controls.Add(this.tPast);
             this.tabControl1.Controls.Add(this.tAllBooks);
             this.tabControl1.Location = new System.Drawing.Point(510, 12);
             this.tabControl1.Name = "tabControl1";
@@ -180,7 +198,7 @@
             this.tCategory.Padding = new System.Windows.Forms.Padding(3);
             this.tCategory.Size = new System.Drawing.Size(835, 470);
             this.tCategory.TabIndex = 0;
-            this.tCategory.Text = "Theo thể loại";
+            this.tCategory.Text = "Thể loại";
             this.tCategory.UseVisualStyleBackColor = true;
             // 
             // label11
@@ -282,18 +300,18 @@
             this.lbCategory.TabIndex = 0;
             this.lbCategory.SelectedIndexChanged += new System.EventHandler(this.lbCategory_SelectedIndexChanged);
             // 
-            // tAvailableBooks
+            // tCurrentBooks
             // 
-            this.tAvailableBooks.Controls.Add(this.label12);
-            this.tAvailableBooks.Controls.Add(this.textBox4);
-            this.tAvailableBooks.Controls.Add(this.lvAvailable);
-            this.tAvailableBooks.Location = new System.Drawing.Point(4, 22);
-            this.tAvailableBooks.Name = "tAvailableBooks";
-            this.tAvailableBooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tAvailableBooks.Size = new System.Drawing.Size(835, 470);
-            this.tAvailableBooks.TabIndex = 4;
-            this.tAvailableBooks.Text = "Sách có sẵn";
-            this.tAvailableBooks.UseVisualStyleBackColor = true;
+            this.tCurrentBooks.Controls.Add(this.label12);
+            this.tCurrentBooks.Controls.Add(this.textBox4);
+            this.tCurrentBooks.Controls.Add(this.lvCurrent);
+            this.tCurrentBooks.Location = new System.Drawing.Point(4, 22);
+            this.tCurrentBooks.Name = "tCurrentBooks";
+            this.tCurrentBooks.Padding = new System.Windows.Forms.Padding(3);
+            this.tCurrentBooks.Size = new System.Drawing.Size(835, 470);
+            this.tCurrentBooks.TabIndex = 4;
+            this.tCurrentBooks.Text = "Sách hiện có";
+            this.tCurrentBooks.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -314,12 +332,12 @@
             this.textBox4.Size = new System.Drawing.Size(771, 20);
             this.textBox4.TabIndex = 43;
             // 
-            // lvAvailable
+            // lvCurrent
             // 
-            this.lvAvailable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvAvailable.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvCurrent.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader47,
             this.columnHeader48,
             this.columnHeader49,
@@ -330,18 +348,18 @@
             this.columnHeader54,
             this.columnHeader55,
             this.columnHeader56});
-            this.lvAvailable.FullRowSelect = true;
-            this.lvAvailable.GridLines = true;
-            this.lvAvailable.HideSelection = false;
-            this.lvAvailable.Location = new System.Drawing.Point(6, 32);
-            this.lvAvailable.MultiSelect = false;
-            this.lvAvailable.Name = "lvAvailable";
-            this.lvAvailable.Size = new System.Drawing.Size(823, 432);
-            this.lvAvailable.TabIndex = 3;
-            this.lvAvailable.UseCompatibleStateImageBehavior = false;
-            this.lvAvailable.View = System.Windows.Forms.View.Details;
-            this.lvAvailable.SelectedIndexChanged += new System.EventHandler(this.lvAvailable_SelectedIndexChanged);
-            this.lvAvailable.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvAvailable_MouseClick);
+            this.lvCurrent.FullRowSelect = true;
+            this.lvCurrent.GridLines = true;
+            this.lvCurrent.HideSelection = false;
+            this.lvCurrent.Location = new System.Drawing.Point(6, 32);
+            this.lvCurrent.MultiSelect = false;
+            this.lvCurrent.Name = "lvCurrent";
+            this.lvCurrent.Size = new System.Drawing.Size(823, 432);
+            this.lvCurrent.TabIndex = 3;
+            this.lvCurrent.UseCompatibleStateImageBehavior = false;
+            this.lvCurrent.View = System.Windows.Forms.View.Details;
+            this.lvCurrent.SelectedIndexChanged += new System.EventHandler(this.lvCurrent_SelectedIndexChanged);
+            this.lvCurrent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvCurrent_MouseClick);
             // 
             // columnHeader47
             // 
@@ -394,7 +412,7 @@
             this.tLending.Name = "tLending";
             this.tLending.Size = new System.Drawing.Size(835, 470);
             this.tLending.TabIndex = 2;
-            this.tLending.Text = "Sách cho mượn";
+            this.tLending.Text = "Sách đang cho mượn";
             this.tLending.UseVisualStyleBackColor = true;
             // 
             // bBorrower
@@ -528,7 +546,7 @@
             this.tBorrowing.Name = "tBorrowing";
             this.tBorrowing.Size = new System.Drawing.Size(835, 470);
             this.tBorrowing.TabIndex = 3;
-            this.tBorrowing.Text = "Sách mượn";
+            this.tBorrowing.Text = "Sách đang mượn";
             this.tBorrowing.UseVisualStyleBackColor = true;
             // 
             // bBorrower2
@@ -650,6 +668,116 @@
             // columnHeader44
             // 
             this.columnHeader44.Text = "SĐT mượn";
+            // 
+            // tPast
+            // 
+            this.tPast.Controls.Add(this.textBox5);
+            this.tPast.Controls.Add(this.label13);
+            this.tPast.Controls.Add(this.lvPast);
+            this.tPast.Location = new System.Drawing.Point(4, 22);
+            this.tPast.Name = "tPast";
+            this.tPast.Size = new System.Drawing.Size(835, 470);
+            this.tPast.TabIndex = 6;
+            this.tPast.Text = "Sách đã trả";
+            this.tPast.UseVisualStyleBackColor = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox5.Location = new System.Drawing.Point(59, 5);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(771, 20);
+            this.textBox5.TabIndex = 44;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(4, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 13);
+            this.label13.TabIndex = 45;
+            this.label13.Text = "Tìm kiếm";
+            // 
+            // lvPast
+            // 
+            this.lvPast.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvPast.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader57,
+            this.columnHeader58,
+            this.columnHeader59,
+            this.columnHeader60,
+            this.columnHeader61,
+            this.columnHeader62,
+            this.columnHeader63,
+            this.columnHeader64,
+            this.columnHeader65,
+            this.columnHeader66,
+            this.columnHeader67,
+            this.columnHeader68});
+            this.lvPast.FullRowSelect = true;
+            this.lvPast.GridLines = true;
+            this.lvPast.HideSelection = false;
+            this.lvPast.Location = new System.Drawing.Point(7, 31);
+            this.lvPast.MultiSelect = false;
+            this.lvPast.Name = "lvPast";
+            this.lvPast.Size = new System.Drawing.Size(823, 435);
+            this.lvPast.TabIndex = 43;
+            this.lvPast.UseCompatibleStateImageBehavior = false;
+            this.lvPast.View = System.Windows.Forms.View.Details;
+            this.lvPast.SelectedIndexChanged += new System.EventHandler(this.lvPast_SelectedIndexChanged);
+            this.lvPast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvPast_MouseClick);
+            // 
+            // columnHeader57
+            // 
+            this.columnHeader57.Text = "STT";
+            // 
+            // columnHeader58
+            // 
+            this.columnHeader58.Text = "Tên sách";
+            // 
+            // columnHeader59
+            // 
+            this.columnHeader59.Text = "Loại sách";
+            // 
+            // columnHeader60
+            // 
+            this.columnHeader60.Text = "Trạng thái";
+            // 
+            // columnHeader61
+            // 
+            this.columnHeader61.Text = "Thể loại";
+            // 
+            // columnHeader62
+            // 
+            this.columnHeader62.Text = "Tác giả";
+            // 
+            // columnHeader63
+            // 
+            this.columnHeader63.Text = "Nhà xuất bản";
+            // 
+            // columnHeader64
+            // 
+            this.columnHeader64.Text = "Năm xuất bản";
+            // 
+            // columnHeader65
+            // 
+            this.columnHeader65.Text = "Vị trí";
+            // 
+            // columnHeader66
+            // 
+            this.columnHeader66.Text = "Ghi chú";
+            // 
+            // columnHeader67
+            // 
+            this.columnHeader67.Text = "Tên người mượn/cho mượn";
+            // 
+            // columnHeader68
+            // 
+            this.columnHeader68.Text = "SĐT mượn";
             // 
             // tAllBooks
             // 
@@ -1058,7 +1186,7 @@
             // lendingToolStripMenuItem
             // 
             this.lendingToolStripMenuItem.Name = "lendingToolStripMenuItem";
-            this.lendingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lendingToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.lendingToolStripMenuItem.Text = "Cho mượn sách";
             this.lendingToolStripMenuItem.Click += new System.EventHandler(this.lendingToolStripMenuItem_Click);
             // 
@@ -1090,12 +1218,14 @@
             this.tabControl1.ResumeLayout(false);
             this.tCategory.ResumeLayout(false);
             this.tCategory.PerformLayout();
-            this.tAvailableBooks.ResumeLayout(false);
-            this.tAvailableBooks.PerformLayout();
+            this.tCurrentBooks.ResumeLayout(false);
+            this.tCurrentBooks.PerformLayout();
             this.tLending.ResumeLayout(false);
             this.tLending.PerformLayout();
             this.tBorrowing.ResumeLayout(false);
             this.tBorrowing.PerformLayout();
+            this.tPast.ResumeLayout(false);
+            this.tPast.PerformLayout();
             this.tAllBooks.ResumeLayout(false);
             this.tAllBooks.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1201,11 +1331,11 @@
         private System.Windows.Forms.Button bHistory;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TabPage tAvailableBooks;
+        private System.Windows.Forms.TabPage tCurrentBooks;
         private System.Windows.Forms.ToolStripMenuItem lendingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrowingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
-        private System.Windows.Forms.ListView lvAvailable;
+        private System.Windows.Forms.ListView lvCurrent;
         private System.Windows.Forms.ColumnHeader columnHeader47;
         private System.Windows.Forms.ColumnHeader columnHeader48;
         private System.Windows.Forms.ColumnHeader columnHeader49;
@@ -1222,6 +1352,22 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TabPage tPast;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ListView lvPast;
+        private System.Windows.Forms.ColumnHeader columnHeader57;
+        private System.Windows.Forms.ColumnHeader columnHeader58;
+        private System.Windows.Forms.ColumnHeader columnHeader59;
+        private System.Windows.Forms.ColumnHeader columnHeader60;
+        private System.Windows.Forms.ColumnHeader columnHeader61;
+        private System.Windows.Forms.ColumnHeader columnHeader62;
+        private System.Windows.Forms.ColumnHeader columnHeader63;
+        private System.Windows.Forms.ColumnHeader columnHeader64;
+        private System.Windows.Forms.ColumnHeader columnHeader65;
+        private System.Windows.Forms.ColumnHeader columnHeader66;
+        private System.Windows.Forms.ColumnHeader columnHeader67;
+        private System.Windows.Forms.ColumnHeader columnHeader68;
     }
 }
 
