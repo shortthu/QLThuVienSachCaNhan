@@ -20,7 +20,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         QLThuVien mainForm = (QLThuVien)Application.OpenForms["QLThuVien"];
 
-        // func = 0: borrowed; func = 1: borrowing
+        // func = 0: lending; func = 1: borrowing
 
         public BorrowDialogue(int function, Book selectedBook)
         {

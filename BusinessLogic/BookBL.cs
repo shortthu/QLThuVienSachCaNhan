@@ -62,7 +62,7 @@ namespace BusinessLogic
             return result;
         }
 
-        public List<Book> FindBorrowed()
+        public List<Book> FindLending()
         {
             List<Book> allBooks = GetAll();
             List<Book> result = new List<Book>();

@@ -18,7 +18,7 @@ namespace QLThuVienSachCaNhan_1911211
         List<Publisher> publisherList = new List<Publisher>();
         List<Book> allBooksList = new List<Book>();
         List<Book> booksByCategoryList = new List<Book>();
-        List<Book> borrowedBooksList = new List<Book>();
+        List<Book> lendingBooksList = new List<Book>();
         List<Book> borrowingBooksList = new List<Book>();
         List<Book> AvailableBooksList = new List<Book>();
         List<Author> authorList = new List<Author>();
@@ -50,7 +50,7 @@ namespace QLThuVienSachCaNhan_1911211
             LoadCategory();
             LoadBorrow();
             allBooksList = LoadBook(lvBook, 0, ""); // Load all books
-            borrowedBooksList = LoadBook(lvBorrowed, 3, null);
+            lendingBooksList = LoadBook(lvLending, 3, null);
             borrowingBooksList = LoadBook(lvBorrowing, 4, null);
             AvailableBooksList = LoadBook(lvAvailable, 5, null);
         }
@@ -166,18 +166,18 @@ namespace QLThuVienSachCaNhan_1911211
                     switch (selectedBook.TrangThai)
                     {
                         case 0:
-                            borrowedToolStripMenuItem.Visible = true;
+                            lendingToolStripMenuItem.Visible = true;
                             borrowingToolStripMenuItem.Visible = true;
                             returnBookToolStripMenuItem.Visible = false;
                             break;
                         case 1:
-                            borrowedToolStripMenuItem.Visible = false;
+                            lendingToolStripMenuItem.Visible = false;
                             borrowingToolStripMenuItem.Visible = false;
                             returnBookToolStripMenuItem.Visible = true;
                             break;
                         case 2:
                             borrowingToolStripMenuItem.Visible = false;
-                            borrowedToolStripMenuItem.Visible = false;
+                            lendingToolStripMenuItem.Visible = false;
                             returnBookToolStripMenuItem.Visible = true;
                             break;
                     }
@@ -236,7 +236,7 @@ namespace QLThuVienSachCaNhan_1911211
             borrowHistory.ID_Sach = selectedBook.ID;
             borrowHistory.ID_Muon = (int)selectedBook.ID_Muon;
             borrowHistory.ThoiGian = DateTime.Now;
-            // 1: Borrowed books -> change TrangThai to 3 & save history HinhThuc = 2
+            // 1: Lending books -> change TrangThai to 3 & save history HinhThuc = 2
             // 2: (other ppl) borrowing books -> change TrangThai to 1 & save history HinhThuc = 3
             switch (selectedBook.TrangThai)
             {
@@ -304,7 +304,7 @@ namespace QLThuVienSachCaNhan_1911211
             BookBL bookBL = new BookBL();
             List<Book> booksList = new List<Book>();
             // func = 0: Get all; func = 1: find; func = 2: filter by category;
-            // func = 3: borrowed books; func = 4: borrowing books; func = 5: available books
+            // func = 3: lending books; func = 4: borrowing books; func = 5: available books
             switch (func)
             {
                 case 0:
@@ -317,7 +317,7 @@ namespace QLThuVienSachCaNhan_1911211
                     booksList = bookBL.FilterBookByCategory(Convert.ToInt32(key));
                     break;
                 case 3:
-                    booksList = bookBL.FindBorrowed();
+                    booksList = bookBL.FindLending();
                     break;
                 case 4:
                     booksList = bookBL.FindBorrowing();
@@ -528,7 +528,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void lvBorrowed_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ShowSelectedBook(lvBorrowed, borrowedBooksList);
+            ShowSelectedBook(lvLending, lendingBooksList);
         }
 
         private void lvBorrowing_SelectedIndexChanged(object sender, EventArgs e)
@@ -564,7 +564,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void lvBorrowed_MouseClick(object sender, MouseEventArgs e)
         {
-            ShowContextMenu(lvBorrowed, e);
+            ShowContextMenu(lvLending, e);
         }
 
         private void lvBorrowing_MouseClick(object sender, MouseEventArgs e)
