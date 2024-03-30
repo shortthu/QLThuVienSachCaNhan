@@ -522,21 +522,6 @@ namespace QLThuVienSachCaNhan_1911211
             ShowSelectedBook(lvBookCategory, booksByCategoryList);
         }
 
-        private void bEditCategory_Click(object sender, EventArgs e)
-        {
-            LoadManagementForm(0);
-        }
-
-        private void bEditAuthor_Click(object sender, EventArgs e)
-        {
-            LoadManagementForm(1);
-        }
-
-        private void bEditPublisher_Click(object sender, EventArgs e)
-        {
-            LoadManagementForm(2);
-        }
-
         private void lvLending_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowSelectedBook(lvLending, lendingBooksList);
@@ -593,26 +578,6 @@ namespace QLThuVienSachCaNhan_1911211
             ShowContextMenu(lvCurrent, e);
         }
 
-        private void bBorrower2_Click(object sender, EventArgs e)
-        {
-            LoadManagementForm(3);
-        }
-
-        private void bBorrower_Click(object sender, EventArgs e)
-        {
-            LoadManagementForm(3);
-        }
-
-        private void bHistory_Click(object sender, EventArgs e)
-        {
-            LoadHistoryForm();
-        }
-
-        private void bHistory2_Click(object sender, EventArgs e)
-        {
-            LoadHistoryForm();
-        }
-
         private void lvPast_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowSelectedBook(lvPast, pastBooksList);
@@ -621,6 +586,31 @@ namespace QLThuVienSachCaNhan_1911211
         private void lvPast_MouseClick(object sender, MouseEventArgs e)
         {
             ShowContextMenu(lvPast, e);
+        }
+
+        private void borrowHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadHistoryForm();
+        }
+
+        private void categoryManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadManagementForm(0);
+        }
+
+        private void authorManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadManagementForm(1);
+        }
+
+        private void publisherManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadManagementForm(2);
+        }
+
+        private void borrowerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadManagementForm(3);
         }
     }
 }
