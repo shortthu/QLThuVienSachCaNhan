@@ -80,7 +80,7 @@
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(215, 20);
-            this.tbID.TabIndex = 4;
+            this.tbID.TabIndex = 1;
             // 
             // tbProp1
             // 
@@ -90,7 +90,7 @@
             this.tbProp1.Location = new System.Drawing.Point(329, 60);
             this.tbProp1.Name = "tbProp1";
             this.tbProp1.Size = new System.Drawing.Size(215, 20);
-            this.tbProp1.TabIndex = 6;
+            this.tbProp1.TabIndex = 2;
             // 
             // label2
             // 
@@ -107,7 +107,7 @@
             this.bSave.Location = new System.Drawing.Point(389, 226);
             this.bSave.Name = "bSave";
             this.bSave.Size = new System.Drawing.Size(75, 23);
-            this.bSave.TabIndex = 7;
+            this.bSave.TabIndex = 6;
             this.bSave.Text = "Lưu";
             this.bSave.UseVisualStyleBackColor = true;
             this.bSave.Click += new System.EventHandler(this.bSave_Click);
@@ -119,7 +119,7 @@
             this.bDelete.Location = new System.Drawing.Point(308, 226);
             this.bDelete.Name = "bDelete";
             this.bDelete.Size = new System.Drawing.Size(75, 23);
-            this.bDelete.TabIndex = 8;
+            this.bDelete.TabIndex = 5;
             this.bDelete.Text = "Xoá";
             this.bDelete.UseVisualStyleBackColor = true;
             this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
@@ -132,7 +132,7 @@
             this.tbProp2.Location = new System.Drawing.Point(329, 86);
             this.tbProp2.Name = "tbProp2";
             this.tbProp2.Size = new System.Drawing.Size(215, 20);
-            this.tbProp2.TabIndex = 10;
+            this.tbProp2.TabIndex = 3;
             // 
             // label3
             // 
@@ -149,7 +149,7 @@
             this.bNew.Location = new System.Drawing.Point(227, 226);
             this.bNew.Name = "bNew";
             this.bNew.Size = new System.Drawing.Size(75, 23);
-            this.bNew.TabIndex = 11;
+            this.bNew.TabIndex = 4;
             this.bNew.Text = "Mới";
             this.bNew.UseVisualStyleBackColor = true;
             this.bNew.Click += new System.EventHandler(this.bNew_Click);

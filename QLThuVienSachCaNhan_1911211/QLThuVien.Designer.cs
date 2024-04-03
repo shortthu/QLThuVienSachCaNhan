@@ -219,7 +219,7 @@
             this.textBox3.Location = new System.Drawing.Point(219, 6);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(610, 20);
-            this.textBox3.TabIndex = 42;
+            this.textBox3.TabIndex = 1;
             // 
             // lvBookCategory
             // 
@@ -331,7 +331,7 @@
             this.textBox4.Location = new System.Drawing.Point(58, 6);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(771, 20);
-            this.textBox4.TabIndex = 43;
+            this.textBox4.TabIndex = 0;
             // 
             // lvCurrent
             // 
@@ -356,7 +356,7 @@
             this.lvCurrent.MultiSelect = false;
             this.lvCurrent.Name = "lvCurrent";
             this.lvCurrent.Size = new System.Drawing.Size(823, 412);
-            this.lvCurrent.TabIndex = 3;
+            this.lvCurrent.TabIndex = 1;
             this.lvCurrent.UseCompatibleStateImageBehavior = false;
             this.lvCurrent.View = System.Windows.Forms.View.Details;
             this.lvCurrent.SelectedIndexChanged += new System.EventHandler(this.lvCurrent_SelectedIndexChanged);
@@ -422,7 +422,7 @@
             this.textBox2.Location = new System.Drawing.Point(58, 6);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(774, 20);
-            this.textBox2.TabIndex = 48;
+            this.textBox2.TabIndex = 0;
             // 
             // label15
             // 
@@ -458,7 +458,7 @@
             this.lvLending.MultiSelect = false;
             this.lvLending.Name = "lvLending";
             this.lvLending.Size = new System.Drawing.Size(826, 415);
-            this.lvLending.TabIndex = 2;
+            this.lvLending.TabIndex = 1;
             this.lvLending.UseCompatibleStateImageBehavior = false;
             this.lvLending.View = System.Windows.Forms.View.Details;
             this.lvLending.SelectedIndexChanged += new System.EventHandler(this.lvLending_SelectedIndexChanged);
@@ -532,7 +532,7 @@
             this.textBox1.Location = new System.Drawing.Point(58, 6);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(774, 20);
-            this.textBox1.TabIndex = 44;
+            this.textBox1.TabIndex = 0;
             // 
             // label14
             // 
@@ -568,7 +568,7 @@
             this.lvBorrowing.MultiSelect = false;
             this.lvBorrowing.Name = "lvBorrowing";
             this.lvBorrowing.Size = new System.Drawing.Size(826, 415);
-            this.lvBorrowing.TabIndex = 2;
+            this.lvBorrowing.TabIndex = 1;
             this.lvBorrowing.UseCompatibleStateImageBehavior = false;
             this.lvBorrowing.View = System.Windows.Forms.View.Details;
             this.lvBorrowing.SelectedIndexChanged += new System.EventHandler(this.lvBorrowing_SelectedIndexChanged);
@@ -642,7 +642,7 @@
             this.textBox5.Location = new System.Drawing.Point(59, 5);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(771, 20);
-            this.textBox5.TabIndex = 44;
+            this.textBox5.TabIndex = 0;
             // 
             // label13
             // 
@@ -678,7 +678,7 @@
             this.lvPast.MultiSelect = false;
             this.lvPast.Name = "lvPast";
             this.lvPast.Size = new System.Drawing.Size(823, 415);
-            this.lvPast.TabIndex = 43;
+            this.lvPast.TabIndex = 1;
             this.lvPast.UseCompatibleStateImageBehavior = false;
             this.lvPast.View = System.Windows.Forms.View.Details;
             this.lvPast.SelectedIndexChanged += new System.EventHandler(this.lvPast_SelectedIndexChanged);
@@ -753,7 +753,7 @@
             this.tbSearchAll.Location = new System.Drawing.Point(58, 6);
             this.tbSearchAll.Name = "tbSearchAll";
             this.tbSearchAll.Size = new System.Drawing.Size(771, 20);
-            this.tbSearchAll.TabIndex = 41;
+            this.tbSearchAll.TabIndex = 0;
             this.tbSearchAll.TextChanged += new System.EventHandler(this.tbSearchAll_TextChanged);
             // 
             // label10
@@ -878,10 +878,10 @@
             // bNew
             // 
             this.bNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bNew.Location = new System.Drawing.Point(278, 447);
+            this.bNew.Location = new System.Drawing.Point(330, 447);
             this.bNew.Name = "bNew";
             this.bNew.Size = new System.Drawing.Size(75, 23);
-            this.bNew.TabIndex = 37;
+            this.bNew.TabIndex = 8;
             this.bNew.Text = "Mới";
             this.bNew.UseVisualStyleBackColor = true;
             this.bNew.Click += new System.EventHandler(this.bNew_Click);
@@ -889,10 +889,10 @@
             // bSaveBook
             // 
             this.bSaveBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSaveBook.Location = new System.Drawing.Point(359, 447);
+            this.bSaveBook.Location = new System.Drawing.Point(411, 447);
             this.bSaveBook.Name = "bSaveBook";
             this.bSaveBook.Size = new System.Drawing.Size(75, 23);
-            this.bSaveBook.TabIndex = 0;
+            this.bSaveBook.TabIndex = 9;
             this.bSaveBook.Text = "Lưu";
             this.bSaveBook.UseVisualStyleBackColor = true;
             this.bSaveBook.Click += new System.EventHandler(this.bSaveBook_Click);
@@ -915,7 +915,7 @@
             this.tbNotes.Multiline = true;
             this.tbNotes.Name = "tbNotes";
             this.tbNotes.Size = new System.Drawing.Size(343, 208);
-            this.tbNotes.TabIndex = 0;
+            this.tbNotes.TabIndex = 7;
             // 
             // tbID
             // 
@@ -924,7 +924,7 @@
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(343, 20);
-            this.tbID.TabIndex = 34;
+            this.tbID.TabIndex = 0;
             // 
             // label8
             // 
@@ -943,7 +943,7 @@
             this.mtbPublishedYear.Mask = "0000";
             this.mtbPublishedYear.Name = "mtbPublishedYear";
             this.mtbPublishedYear.Size = new System.Drawing.Size(343, 20);
-            this.mtbPublishedYear.TabIndex = 3;
+            this.mtbPublishedYear.TabIndex = 5;
             // 
             // cbPublisher
             // 
@@ -963,7 +963,7 @@
             this.cbAuthor.Location = new System.Drawing.Point(143, 128);
             this.cbAuthor.Name = "cbAuthor";
             this.cbAuthor.Size = new System.Drawing.Size(343, 21);
-            this.cbAuthor.TabIndex = 2;
+            this.cbAuthor.TabIndex = 3;
             // 
             // label7
             // 
@@ -980,7 +980,7 @@
             this.tbLocation.Location = new System.Drawing.Point(143, 207);
             this.tbLocation.Name = "tbLocation";
             this.tbLocation.Size = new System.Drawing.Size(343, 20);
-            this.tbLocation.TabIndex = 5;
+            this.tbLocation.TabIndex = 6;
             // 
             // label6
             // 
@@ -999,7 +999,7 @@
             this.cbCategory.Location = new System.Drawing.Point(143, 102);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(343, 21);
-            this.cbCategory.TabIndex = 1;
+            this.cbCategory.TabIndex = 2;
             // 
             // tbBookName
             // 
@@ -1007,7 +1007,7 @@
             this.tbBookName.Location = new System.Drawing.Point(143, 76);
             this.tbBookName.Name = "tbBookName";
             this.tbBookName.Size = new System.Drawing.Size(343, 20);
-            this.tbBookName.TabIndex = 0;
+            this.tbBookName.TabIndex = 1;
             // 
             // pTypes
             // 
@@ -1192,7 +1192,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1374, 551);
             this.Name = "QLThuVien";
-            this.Text = "Quản lý thư viện sách cá nhân";
+            this.Text = "x";
             this.Load += new System.EventHandler(this.QLThuVien_Load);
             this.tabControl1.ResumeLayout(false);
             this.tCategory.ResumeLayout(false);

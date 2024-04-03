@@ -325,16 +325,16 @@ namespace QLThuVienSachCaNhan_1911211
                     booksList = bookBL.FilterBookByCategory(Convert.ToInt32(key));
                     break;
                 case 3:
-                    booksList = bookBL.FindLending();
+                    booksList = bookBL.FilterLending();
                     break;
                 case 4:
-                    booksList = bookBL.FindBorrowing();
+                    booksList = bookBL.FilterBorrowing();
                     break;
                 case 5:
-                    booksList = bookBL.FindCurrent();
+                    booksList = bookBL.FilterCurrent();
                     break;
                 case 6:
-                    booksList = bookBL.FindPast();
+                    booksList = bookBL.FilterPast();
                     break;
             }
 
@@ -344,12 +344,11 @@ namespace QLThuVienSachCaNhan_1911211
             foreach (var book in booksList)
             {
                 ListViewItem item = bookListView.Items.Add(count.ToString());
-                item.SubItems.Add(book.TenSach);
+
                 string type;
                 if (book.LoaiSach == 0)
                     type = "Sách đơn";
                 else type = "Sách bộ";
-                item.SubItems.Add(type);
                 string status;
                 switch (book.TrangThai)
                 {
@@ -369,19 +368,22 @@ namespace QLThuVienSachCaNhan_1911211
                         status = "Unknown";
                         break;
                 }
-                item.SubItems.Add(status);
                 string categoryName = categoryList.Find(x => x.ID == book.ID_TheLoai).TenTheLoai;
-                item.SubItems.Add(categoryName);
                 string authorName = (book.ID_TacGia != null) ? authorList.Find(x => x.ID == book.ID_TacGia).TenTacGia : null;
-                item.SubItems.Add(authorName);
                 string publisherName = (book.ID_NhaXuatBan != null) ? publisherList.Find(x => x.ID == book.ID_NhaXuatBan).TenNhaXuatBan : null;
+                string borrowName = (book.ID_Muon != null) ? borrowList.Find(x => x.ID == book.ID_Muon).Ten : null;
+                string borrowPhoneNum = (book.ID_Muon != null) ? borrowList.Find(x => x.ID == book.ID_Muon).SoDienThoai : null;
+
+                item.SubItems.Add(book.TenSach);
+                item.SubItems.Add(type);
+                item.SubItems.Add(status);
+                item.SubItems.Add(categoryName);
+                item.SubItems.Add(authorName);
                 item.SubItems.Add(publisherName);
                 item.SubItems.Add(book.NamXuatBan);
                 item.SubItems.Add(book.ViTri);
                 item.SubItems.Add(book.GhiChu);
-                string borrowName = (book.ID_Muon != null) ? borrowList.Find(x => x.ID == book.ID_Muon).Ten : null;
                 item.SubItems.Add(borrowName);
-                string borrowPhoneNum = (book.ID_Muon != null) ? borrowList.Find(x => x.ID == book.ID_Muon).SoDienThoai : null;
                 item.SubItems.Add(borrowPhoneNum);
                 count++;
             }

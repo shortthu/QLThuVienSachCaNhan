@@ -52,7 +52,7 @@ namespace BusinessLogic
             return result;
         }
 
-        public List<Book> FindCurrent()
+        public List<Book> FilterCurrent()
         {
             List<Book> allBooks = GetAll();
             List<Book> result = new List<Book>();
@@ -62,7 +62,7 @@ namespace BusinessLogic
             return result;
         }
 
-        public List<Book> FindLending()
+        public List<Book> FilterLending()
         {
             List<Book> allBooks = GetAll();
             List<Book> result = new List<Book>();
@@ -72,7 +72,7 @@ namespace BusinessLogic
             return result;
         }
 
-        public List<Book> FindBorrowing()
+        public List<Book> FilterBorrowing()
         {
             List<Book> allBooks = GetAll();
             List<Book> result = new List<Book>();
@@ -82,7 +82,7 @@ namespace BusinessLogic
             return result;
         }
 
-        public List<Book> FindPast()
+        public List<Book> FilterPast()
         {
             List<Book> allBooks = GetAll();
             List<Book> result = new List<Book>();

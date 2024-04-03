@@ -52,7 +52,7 @@
             this.cbName.Location = new System.Drawing.Point(88, 59);
             this.cbName.Name = "cbName";
             this.cbName.Size = new System.Drawing.Size(291, 21);
-            this.cbName.TabIndex = 44;
+            this.cbName.TabIndex = 2;
             this.cbName.SelectedValueChanged += new System.EventHandler(this.cbName_SelectedValueChanged);
             // 
             // bEditBorrow
@@ -61,7 +61,7 @@
             this.bEditBorrow.Location = new System.Drawing.Point(15, 112);
             this.bEditBorrow.Name = "bEditBorrow";
             this.bEditBorrow.Size = new System.Drawing.Size(75, 23);
-            this.bEditBorrow.TabIndex = 45;
+            this.bEditBorrow.TabIndex = 4;
             this.bEditBorrow.Text = "Sửa";
             this.bEditBorrow.UseVisualStyleBackColor = true;
             this.bEditBorrow.Click += new System.EventHandler(this.bEditBorrow_Click);
@@ -75,7 +75,7 @@
             this.tbPhoneNum.Name = "tbPhoneNum";
             this.tbPhoneNum.ReadOnly = true;
             this.tbPhoneNum.Size = new System.Drawing.Size(291, 13);
-            this.tbPhoneNum.TabIndex = 47;
+            this.tbPhoneNum.TabIndex = 3;
             // 
             // label12
             // 
@@ -101,7 +101,7 @@
             this.bConfirm.Location = new System.Drawing.Point(304, 112);
             this.bConfirm.Name = "bConfirm";
             this.bConfirm.Size = new System.Drawing.Size(75, 23);
-            this.bConfirm.TabIndex = 49;
+            this.bConfirm.TabIndex = 6;
             this.bConfirm.Text = "OK";
             this.bConfirm.UseVisualStyleBackColor = true;
             this.bConfirm.Click += new System.EventHandler(this.bConfirm_Click);
@@ -112,7 +112,7 @@
             this.bCancel.Location = new System.Drawing.Point(223, 112);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(75, 23);
-            this.bCancel.TabIndex = 50;
+            this.bCancel.TabIndex = 5;
             this.bCancel.Text = "Huỷ";
             this.bCancel.UseVisualStyleBackColor = true;
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
@@ -135,7 +135,7 @@
             this.tbBookID.Name = "tbBookID";
             this.tbBookID.ReadOnly = true;
             this.tbBookID.Size = new System.Drawing.Size(291, 13);
-            this.tbBookID.TabIndex = 52;
+            this.tbBookID.TabIndex = 0;
             // 
             // label2
             // 
@@ -155,7 +155,7 @@
             this.tbBookName.Name = "tbBookName";
             this.tbBookName.ReadOnly = true;
             this.tbBookName.Size = new System.Drawing.Size(291, 13);
-            this.tbBookName.TabIndex = 54;
+            this.tbBookName.TabIndex = 1;
             // 
             // BorrowDialogue
             // 
