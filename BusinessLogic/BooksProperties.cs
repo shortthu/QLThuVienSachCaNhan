@@ -1,14 +1,13 @@
-﻿using BusinessLogic;
-using DataAccess;
+﻿using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QLThuVienSachCaNhan_1911211
+namespace BusinessLogic
 {
-    internal class BooksProperties
+    public class BooksProperties
     {
         public Book book = new Book();
         CategoryBL categoryBL = new CategoryBL();

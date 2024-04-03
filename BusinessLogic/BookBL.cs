@@ -26,20 +26,29 @@ namespace BusinessLogic
             return null;
         }
 
-        public List<Book> Find(string key)
+        public List<Book> Search(List<Book> listToSearch, string key)
         {
-            List<Book> allBooks = GetAll();
-            List<Book> result = new List<Book>();
-            foreach (var book in allBooks)
+            List<Book> searchedBooks = new List<Book>();
+            BooksProperties booksProperties = new BooksProperties();
+
+            foreach (var book in listToSearch)
             {
+                booksProperties.book = book;
                 if (book.ID.ToString().Contains(key)
-                    || StringExtensions.Contains(book.TenSach, key, StringComparison.OrdinalIgnoreCase)
-                    || book.NamXuatBan.ToString().Contains(key)
-                    || StringExtensions.Contains(book.ViTri, key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(book.GhiChu, key, StringComparison.OrdinalIgnoreCase))
-                    result.Add(book);
+                    || StringExtensions.Contains(booksProperties.Name(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.Type(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.Status(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.CategoryName(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.AuthorName(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.PublisherName(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.PublishedYear(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.Location(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.Notes(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.BorrowName(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.BorrowPhoneNum(), key, StringComparison.OrdinalIgnoreCase))
+                    searchedBooks.Add(book);
             }
-            return result;
+            return searchedBooks;
         }
 
         public List<Book> FilterBookByCategory(int category)

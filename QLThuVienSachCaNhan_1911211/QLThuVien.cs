@@ -161,27 +161,8 @@ namespace QLThuVienSachCaNhan_1911211
 
         private List<Book> SearchBook(List<Book> listToSearch, string key)
         {
-            List<Book> searchedBooks = new List<Book>();
-            BooksProperties booksProperties = new BooksProperties();
-
-            foreach (var book in listToSearch)
-            {
-                booksProperties.book = book;
-                if (book.ID.ToString().Contains(key)
-                    || StringExtensions.Contains(booksProperties.Name(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.Type(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.Status(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.CategoryName(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.AuthorName(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.PublisherName(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.PublishedYear(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.Location(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.Notes(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.BorrowName(), key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(booksProperties.BorrowPhoneNum(), key, StringComparison.OrdinalIgnoreCase))
-                    searchedBooks.Add(book);
-            }
-            return searchedBooks;
+            BookBL bookBL = new BookBL();
+            return bookBL.Search(listToSearch, key);
         }
 
         private void ResizeListViewColumns(ListView lv)
