@@ -159,6 +159,23 @@ namespace QLThuVienSachCaNhan_1911211
             tbNotes.Text = selectedBook.GhiChu;
         }
 
+        private List<Book> SearchBook(ListView bookListView, List<Book> listToSearch, string key)
+        {
+            List<Book> searchedBooks = new List<Book>();
+            BooksProperties booksProperties = new BooksProperties();
+            foreach (var book in listToSearch)
+            {
+                booksProperties.book = book;
+                if (book.ID.ToString().Contains(key)
+                    || StringExtensions.Contains(book.TenSach, key, StringComparison.OrdinalIgnoreCase)
+                    || book.NamXuatBan.ToString().Contains(key)
+                    || StringExtensions.Contains(book.ViTri, key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(book.GhiChu, key, StringComparison.OrdinalIgnoreCase))
+                    searchedBooks.Add(book);
+            }
+            return searchedBooks;
+        }
+
         private void ResizeListViewColumns(ListView lv)
         {
             foreach (ColumnHeader column in lv.Columns)
@@ -318,7 +335,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void LoadBook(ListView bookListView, List<Book> booksList)
         {
-            BookBL bookBL = new BookBL();
+            BooksProperties booksProperties = new BooksProperties();
 
             int count = 1;
             bookListView.Items.Clear();
@@ -326,47 +343,19 @@ namespace QLThuVienSachCaNhan_1911211
             foreach (var book in booksList)
             {
                 ListViewItem item = bookListView.Items.Add(count.ToString());
+                booksProperties.book = book;
 
-                string type;
-                if (book.LoaiSach == 0)
-                    type = "Sách đơn";
-                else type = "Sách bộ";
-                string status;
-                switch (book.TrangThai)
-                {
-                    case 0:
-                        status = "Đang có sẵn";
-                        break;
-                    case 1:
-                        status = "Cho mượn";
-                        break;
-                    case 2:
-                        status = "Đang mượn";
-                        break;
-                    case 3:
-                        status = "Đã trả";
-                        break;
-                    default:
-                        status = "Unknown";
-                        break;
-                }
-                string categoryName = categoryList.Find(x => x.ID == book.ID_TheLoai).TenTheLoai;
-                string authorName = (book.ID_TacGia != null) ? authorList.Find(x => x.ID == book.ID_TacGia).TenTacGia : null;
-                string publisherName = (book.ID_NhaXuatBan != null) ? publisherList.Find(x => x.ID == book.ID_NhaXuatBan).TenNhaXuatBan : null;
-                string borrowName = (book.ID_Muon != null) ? borrowList.Find(x => x.ID == book.ID_Muon).Ten : null;
-                string borrowPhoneNum = (book.ID_Muon != null) ? borrowList.Find(x => x.ID == book.ID_Muon).SoDienThoai : null;
-
-                item.SubItems.Add(book.TenSach);
-                item.SubItems.Add(type);
-                item.SubItems.Add(status);
-                item.SubItems.Add(categoryName);
-                item.SubItems.Add(authorName);
-                item.SubItems.Add(publisherName);
-                item.SubItems.Add(book.NamXuatBan);
-                item.SubItems.Add(book.ViTri);
-                item.SubItems.Add(book.GhiChu);
-                item.SubItems.Add(borrowName);
-                item.SubItems.Add(borrowPhoneNum);
+                item.SubItems.Add(booksProperties.Name());
+                item.SubItems.Add(booksProperties.Type());
+                item.SubItems.Add(booksProperties.Status());
+                item.SubItems.Add(booksProperties.CategoryName());
+                item.SubItems.Add(booksProperties.AuthorName());
+                item.SubItems.Add(booksProperties.PublisherName());
+                item.SubItems.Add(booksProperties.PublishedYear());
+                item.SubItems.Add(booksProperties.Location());
+                item.SubItems.Add(booksProperties.Notes());
+                item.SubItems.Add(booksProperties.BorrowName());
+                item.SubItems.Add(booksProperties.BorrowPhoneNum());
                 count++;
             }
 
