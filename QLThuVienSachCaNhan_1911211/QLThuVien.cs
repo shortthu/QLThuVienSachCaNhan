@@ -159,18 +159,26 @@ namespace QLThuVienSachCaNhan_1911211
             tbNotes.Text = selectedBook.GhiChu;
         }
 
-        private List<Book> SearchBook(ListView bookListView, List<Book> listToSearch, string key)
+        private List<Book> SearchBook(List<Book> listToSearch, string key)
         {
             List<Book> searchedBooks = new List<Book>();
             BooksProperties booksProperties = new BooksProperties();
+
             foreach (var book in listToSearch)
             {
                 booksProperties.book = book;
                 if (book.ID.ToString().Contains(key)
-                    || StringExtensions.Contains(book.TenSach, key, StringComparison.OrdinalIgnoreCase)
-                    || book.NamXuatBan.ToString().Contains(key)
-                    || StringExtensions.Contains(book.ViTri, key, StringComparison.OrdinalIgnoreCase)
-                    || StringExtensions.Contains(book.GhiChu, key, StringComparison.OrdinalIgnoreCase))
+                    || StringExtensions.Contains(booksProperties.Name(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.Type(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.Status(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.CategoryName(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.AuthorName(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.PublisherName(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.PublishedYear(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.Location(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.Notes(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.BorrowName(), key, StringComparison.OrdinalIgnoreCase)
+                    || StringExtensions.Contains(booksProperties.BorrowPhoneNum(), key, StringComparison.OrdinalIgnoreCase))
                     searchedBooks.Add(book);
             }
             return searchedBooks;
@@ -263,10 +271,9 @@ namespace QLThuVienSachCaNhan_1911211
         private int HandleBookReturn()
         {
             BookBL bookBL = new BookBL();
-            Book book = new Book();
             BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
             BorrowHistory borrowHistory = new BorrowHistory();
-            book = selectedBook;
+            Book book = selectedBook;
             borrowHistory.ID_Sach = selectedBook.ID;
             borrowHistory.ID_Muon = (int)selectedBook.ID_Muon;
             borrowHistory.ThoiGian = DateTime.Now;
@@ -479,11 +486,6 @@ namespace QLThuVienSachCaNhan_1911211
             DeleteBook();
         }
 
-        private void tbSearchAll_TextChanged(object sender, EventArgs e)
-        {
-            //allBooksList = LoadBook(lvBook, 1, tbSearchAll.Text);
-        }
-
         private void lbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowBooksOnSelectedCategory(lbCategory, lvBookCategory);
@@ -583,6 +585,36 @@ namespace QLThuVienSachCaNhan_1911211
         private void borrowerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadManagementForm(3);
+        }
+
+        private void tbSearchAll_TextChanged(object sender, EventArgs e)
+        {
+            LoadBook(lvBook, SearchBook(allBooksList, tbSearchAll.Text));
+        }
+
+        private void tbSearchPast_TextChanged(object sender, EventArgs e)
+        {
+            LoadBook(lvPast, SearchBook(pastBooksList, tbSearchPast.Text));
+        }
+
+        private void tbSearchBorrowing_TextChanged(object sender, EventArgs e)
+        {
+            LoadBook(lvBorrowing, SearchBook(borrowingBooksList, tbSearchBorrowing.Text));
+        }
+
+        private void tbSearchLending_TextChanged(object sender, EventArgs e)
+        {
+            LoadBook(lvLending, SearchBook(lendingBooksList, tbSearchLending.Text));
+        }
+
+        private void tbSearchCurrent_TextChanged(object sender, EventArgs e)
+        {
+            LoadBook(lvCurrent, SearchBook(currentBooksList, tbSearchCurrent.Text));
+        }
+
+        private void tbSearchWithCategory_TextChanged(object sender, EventArgs e)
+        {
+            LoadBook(lvBookCategory, SearchBook(booksByCategoryList, tbSearchWithCategory.Text));
         }
     }
 }
