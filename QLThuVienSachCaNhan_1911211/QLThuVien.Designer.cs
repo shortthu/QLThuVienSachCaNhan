@@ -1197,7 +1197,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1374, 551);
             this.Name = "QLThuVien";
-            this.Text = "x";
+            this.Text = "Quản lý thư viện sách cá nhân";
             this.Load += new System.EventHandler(this.QLThuVien_Load);
             this.tabControl1.ResumeLayout(false);
             this.tCategory.ResumeLayout(false);
