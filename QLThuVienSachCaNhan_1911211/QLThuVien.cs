@@ -46,15 +46,24 @@ namespace QLThuVienSachCaNhan_1911211
 
         public void ReloadAllLists()
         {
+            BookBL bookBL = new BookBL();
+
             LoadPublisher();
             LoadAuthor();
             LoadCategory();
             LoadBorrow();
-            allBooksList = LoadBook(lvBook, 0, ""); // Load all books
-            lendingBooksList = LoadBook(lvLending, 3, null);
-            borrowingBooksList = LoadBook(lvBorrowing, 4, null);
-            currentBooksList = LoadBook(lvCurrent, 5, null);
-            pastBooksList = LoadBook(lvPast, 6, null);
+
+            allBooksList = bookBL.GetAll();
+            lendingBooksList = bookBL.FilterLending();
+            borrowingBooksList = bookBL.FilterBorrowing();
+            currentBooksList = bookBL.FilterCurrent();
+            pastBooksList = bookBL.FilterPast();
+
+            LoadBook(lvBook, allBooksList);
+            LoadBook(lvLending, lendingBooksList);
+            LoadBook(lvBorrowing, borrowingBooksList);
+            LoadBook(lvCurrent, currentBooksList);
+            LoadBook(lvPast, pastBooksList);
         }
 
         public void ResetAllFields()
@@ -203,16 +212,17 @@ namespace QLThuVienSachCaNhan_1911211
             SetFormsData();
         }
 
-        private List<Book> ShowBooksOnSelectedCategory(ListBox categoryList, ListView bookListView)
+        private void ShowBooksOnSelectedCategory(ListBox categoryList, ListView bookListView)
         {
-            List<Book> bookList = new List<Book>();
-            if (categoryList.SelectedItems.Count == 0) return null;
+            BookBL bookBL = new BookBL();
+
+            if (categoryList.SelectedItems.Count == 0) return;
             if (int.TryParse(categoryList.SelectedValue.ToString(), out _))
             {
                 int selectedCategoryID = Convert.ToInt32(categoryList.SelectedValue);
-                bookList = LoadBook(bookListView, 2, selectedCategoryID.ToString());
+                booksByCategoryList = bookBL.FilterBookByCategory(selectedCategoryID);
+                LoadBook(bookListView, booksByCategoryList);
             }
-            return bookList;
         }
 
         private void LoadManagementForm(int function)
@@ -306,37 +316,9 @@ namespace QLThuVienSachCaNhan_1911211
             borrowList = borrowBL.GetAll();
         }
 
-        private List<Book> LoadBook(ListView bookListView, int func, string key)
+        private void LoadBook(ListView bookListView, List<Book> booksList)
         {
             BookBL bookBL = new BookBL();
-            List<Book> booksList = new List<Book>();
-            // func = 0: Get all; func = 1: find; func = 2: filter by category;
-            // func = 3: lending books; func = 4: borrowing books;
-            // func = 5: current books; func = 6: past books
-            switch (func)
-            {
-                case 0:
-                    booksList = bookBL.GetAll();
-                    break;
-                case 1:
-                    booksList = bookBL.Find(key);
-                    break;
-                case 2:
-                    booksList = bookBL.FilterBookByCategory(Convert.ToInt32(key));
-                    break;
-                case 3:
-                    booksList = bookBL.FilterLending();
-                    break;
-                case 4:
-                    booksList = bookBL.FilterBorrowing();
-                    break;
-                case 5:
-                    booksList = bookBL.FilterCurrent();
-                    break;
-                case 6:
-                    booksList = bookBL.FilterPast();
-                    break;
-            }
 
             int count = 1;
             bookListView.Items.Clear();
@@ -389,7 +371,6 @@ namespace QLThuVienSachCaNhan_1911211
             }
 
             ResizeListViewColumns(bookListView);
-            return booksList;
         }
 
         // Insert funcs
@@ -511,12 +492,12 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void tbSearchAll_TextChanged(object sender, EventArgs e)
         {
-            allBooksList = LoadBook(lvBook, 1, tbSearchAll.Text);
+            //allBooksList = LoadBook(lvBook, 1, tbSearchAll.Text);
         }
 
         private void lbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            booksByCategoryList = ShowBooksOnSelectedCategory(lbCategory, lvBookCategory);
+            ShowBooksOnSelectedCategory(lbCategory, lvBookCategory);
         }
 
         private void lvBookCategory_SelectedIndexChanged(object sender, EventArgs e)
