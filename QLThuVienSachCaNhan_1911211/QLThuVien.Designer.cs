@@ -178,10 +178,10 @@
             this.tabControl1.Controls.Add(this.tBorrowing);
             this.tabControl1.Controls.Add(this.tPast);
             this.tabControl1.Controls.Add(this.tAllBooks);
-            this.tabControl1.Location = new System.Drawing.Point(510, 27);
+            this.tabControl1.Location = new System.Drawing.Point(436, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(843, 476);
+            this.tabControl1.Size = new System.Drawing.Size(917, 476);
             this.tabControl1.TabIndex = 0;
             // 
             // tCategory
@@ -193,7 +193,7 @@
             this.tCategory.Location = new System.Drawing.Point(4, 22);
             this.tCategory.Name = "tCategory";
             this.tCategory.Padding = new System.Windows.Forms.Padding(3);
-            this.tCategory.Size = new System.Drawing.Size(835, 450);
+            this.tCategory.Size = new System.Drawing.Size(909, 450);
             this.tCategory.TabIndex = 0;
             this.tCategory.Text = "Thể loại";
             this.tCategory.UseVisualStyleBackColor = true;
@@ -214,7 +214,7 @@
             this.tbSearchWithCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearchWithCategory.Location = new System.Drawing.Point(219, 6);
             this.tbSearchWithCategory.Name = "tbSearchWithCategory";
-            this.tbSearchWithCategory.Size = new System.Drawing.Size(610, 20);
+            this.tbSearchWithCategory.Size = new System.Drawing.Size(684, 20);
             this.tbSearchWithCategory.TabIndex = 1;
             this.tbSearchWithCategory.TextChanged += new System.EventHandler(this.tbSearchWithCategory_TextChanged);
             // 
@@ -240,7 +240,7 @@
             this.lvBookCategory.Location = new System.Drawing.Point(164, 32);
             this.lvBookCategory.MultiSelect = false;
             this.lvBookCategory.Name = "lvBookCategory";
-            this.lvBookCategory.Size = new System.Drawing.Size(665, 413);
+            this.lvBookCategory.Size = new System.Drawing.Size(739, 413);
             this.lvBookCategory.TabIndex = 2;
             this.lvBookCategory.UseCompatibleStateImageBehavior = false;
             this.lvBookCategory.View = System.Windows.Forms.View.Details;
@@ -306,7 +306,7 @@
             this.tCurrentBooks.Location = new System.Drawing.Point(4, 22);
             this.tCurrentBooks.Name = "tCurrentBooks";
             this.tCurrentBooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tCurrentBooks.Size = new System.Drawing.Size(835, 450);
+            this.tCurrentBooks.Size = new System.Drawing.Size(909, 450);
             this.tCurrentBooks.TabIndex = 4;
             this.tCurrentBooks.Text = "Sách hiện có";
             this.tCurrentBooks.UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@
             this.tbSearchCurrent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearchCurrent.Location = new System.Drawing.Point(58, 6);
             this.tbSearchCurrent.Name = "tbSearchCurrent";
-            this.tbSearchCurrent.Size = new System.Drawing.Size(771, 20);
+            this.tbSearchCurrent.Size = new System.Drawing.Size(845, 20);
             this.tbSearchCurrent.TabIndex = 0;
             this.tbSearchCurrent.TextChanged += new System.EventHandler(this.tbSearchCurrent_TextChanged);
             // 
@@ -353,7 +353,7 @@
             this.lvCurrent.Location = new System.Drawing.Point(6, 32);
             this.lvCurrent.MultiSelect = false;
             this.lvCurrent.Name = "lvCurrent";
-            this.lvCurrent.Size = new System.Drawing.Size(823, 412);
+            this.lvCurrent.Size = new System.Drawing.Size(897, 412);
             this.lvCurrent.TabIndex = 1;
             this.lvCurrent.UseCompatibleStateImageBehavior = false;
             this.lvCurrent.View = System.Windows.Forms.View.Details;
@@ -407,7 +407,7 @@
             this.tLending.Controls.Add(this.lvLending);
             this.tLending.Location = new System.Drawing.Point(4, 22);
             this.tLending.Name = "tLending";
-            this.tLending.Size = new System.Drawing.Size(835, 450);
+            this.tLending.Size = new System.Drawing.Size(909, 450);
             this.tLending.TabIndex = 2;
             this.tLending.Text = "Sách đang cho mượn";
             this.tLending.UseVisualStyleBackColor = true;
@@ -419,7 +419,7 @@
             this.tbSearchLending.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearchLending.Location = new System.Drawing.Point(58, 6);
             this.tbSearchLending.Name = "tbSearchLending";
-            this.tbSearchLending.Size = new System.Drawing.Size(774, 20);
+            this.tbSearchLending.Size = new System.Drawing.Size(848, 20);
             this.tbSearchLending.TabIndex = 0;
             this.tbSearchLending.TextChanged += new System.EventHandler(this.tbSearchLending_TextChanged);
             // 
@@ -456,7 +456,7 @@
             this.lvLending.Location = new System.Drawing.Point(6, 32);
             this.lvLending.MultiSelect = false;
             this.lvLending.Name = "lvLending";
-            this.lvLending.Size = new System.Drawing.Size(826, 415);
+            this.lvLending.Size = new System.Drawing.Size(900, 415);
             this.lvLending.TabIndex = 1;
             this.lvLending.UseCompatibleStateImageBehavior = false;
             this.lvLending.View = System.Windows.Forms.View.Details;
@@ -518,7 +518,7 @@
             this.tBorrowing.Controls.Add(this.lvBorrowing);
             this.tBorrowing.Location = new System.Drawing.Point(4, 22);
             this.tBorrowing.Name = "tBorrowing";
-            this.tBorrowing.Size = new System.Drawing.Size(835, 450);
+            this.tBorrowing.Size = new System.Drawing.Size(909, 450);
             this.tBorrowing.TabIndex = 3;
             this.tBorrowing.Text = "Sách đang mượn";
             this.tBorrowing.UseVisualStyleBackColor = true;
@@ -530,7 +530,7 @@
             this.tbSearchBorrowing.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearchBorrowing.Location = new System.Drawing.Point(58, 6);
             this.tbSearchBorrowing.Name = "tbSearchBorrowing";
-            this.tbSearchBorrowing.Size = new System.Drawing.Size(774, 20);
+            this.tbSearchBorrowing.Size = new System.Drawing.Size(848, 20);
             this.tbSearchBorrowing.TabIndex = 0;
             this.tbSearchBorrowing.TextChanged += new System.EventHandler(this.tbSearchBorrowing_TextChanged);
             // 
@@ -567,7 +567,7 @@
             this.lvBorrowing.Location = new System.Drawing.Point(6, 32);
             this.lvBorrowing.MultiSelect = false;
             this.lvBorrowing.Name = "lvBorrowing";
-            this.lvBorrowing.Size = new System.Drawing.Size(826, 415);
+            this.lvBorrowing.Size = new System.Drawing.Size(900, 415);
             this.lvBorrowing.TabIndex = 1;
             this.lvBorrowing.UseCompatibleStateImageBehavior = false;
             this.lvBorrowing.View = System.Windows.Forms.View.Details;
@@ -629,7 +629,7 @@
             this.tPast.Controls.Add(this.lvPast);
             this.tPast.Location = new System.Drawing.Point(4, 22);
             this.tPast.Name = "tPast";
-            this.tPast.Size = new System.Drawing.Size(835, 450);
+            this.tPast.Size = new System.Drawing.Size(909, 450);
             this.tPast.TabIndex = 6;
             this.tPast.Text = "Sách đã trả";
             this.tPast.UseVisualStyleBackColor = true;
@@ -641,7 +641,7 @@
             this.tbSearchPast.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearchPast.Location = new System.Drawing.Point(59, 5);
             this.tbSearchPast.Name = "tbSearchPast";
-            this.tbSearchPast.Size = new System.Drawing.Size(771, 20);
+            this.tbSearchPast.Size = new System.Drawing.Size(845, 20);
             this.tbSearchPast.TabIndex = 0;
             this.tbSearchPast.TextChanged += new System.EventHandler(this.tbSearchPast_TextChanged);
             // 
@@ -678,7 +678,7 @@
             this.lvPast.Location = new System.Drawing.Point(7, 31);
             this.lvPast.MultiSelect = false;
             this.lvPast.Name = "lvPast";
-            this.lvPast.Size = new System.Drawing.Size(823, 415);
+            this.lvPast.Size = new System.Drawing.Size(897, 415);
             this.lvPast.TabIndex = 1;
             this.lvPast.UseCompatibleStateImageBehavior = false;
             this.lvPast.View = System.Windows.Forms.View.Details;
@@ -741,7 +741,7 @@
             this.tAllBooks.Location = new System.Drawing.Point(4, 22);
             this.tAllBooks.Name = "tAllBooks";
             this.tAllBooks.Padding = new System.Windows.Forms.Padding(3);
-            this.tAllBooks.Size = new System.Drawing.Size(835, 450);
+            this.tAllBooks.Size = new System.Drawing.Size(909, 450);
             this.tAllBooks.TabIndex = 1;
             this.tAllBooks.Text = "Tất cả sách";
             this.tAllBooks.UseVisualStyleBackColor = true;
@@ -753,7 +753,7 @@
             this.tbSearchAll.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbSearchAll.Location = new System.Drawing.Point(58, 6);
             this.tbSearchAll.Name = "tbSearchAll";
-            this.tbSearchAll.Size = new System.Drawing.Size(771, 20);
+            this.tbSearchAll.Size = new System.Drawing.Size(845, 20);
             this.tbSearchAll.TabIndex = 0;
             this.tbSearchAll.TextChanged += new System.EventHandler(this.tbSearchAll_TextChanged);
             // 
@@ -790,7 +790,7 @@
             this.lvBook.Location = new System.Drawing.Point(6, 32);
             this.lvBook.MultiSelect = false;
             this.lvBook.Name = "lvBook";
-            this.lvBook.Size = new System.Drawing.Size(823, 415);
+            this.lvBook.Size = new System.Drawing.Size(897, 415);
             this.lvBook.TabIndex = 1;
             this.lvBook.UseCompatibleStateImageBehavior = false;
             this.lvBook.View = System.Windows.Forms.View.Details;
@@ -871,7 +871,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(12, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(492, 476);
+            this.groupBox2.Size = new System.Drawing.Size(418, 476);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin sách";
@@ -879,7 +879,7 @@
             // bNew
             // 
             this.bNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bNew.Location = new System.Drawing.Point(330, 447);
+            this.bNew.Location = new System.Drawing.Point(256, 447);
             this.bNew.Name = "bNew";
             this.bNew.Size = new System.Drawing.Size(75, 23);
             this.bNew.TabIndex = 8;
@@ -890,7 +890,7 @@
             // bSaveBook
             // 
             this.bSaveBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSaveBook.Location = new System.Drawing.Point(411, 447);
+            this.bSaveBook.Location = new System.Drawing.Point(337, 447);
             this.bSaveBook.Name = "bSaveBook";
             this.bSaveBook.Size = new System.Drawing.Size(75, 23);
             this.bSaveBook.TabIndex = 9;
@@ -909,22 +909,25 @@
             // 
             // tbNotes
             // 
-            this.tbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbNotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbNotes.Location = new System.Drawing.Point(143, 233);
             this.tbNotes.Multiline = true;
             this.tbNotes.Name = "tbNotes";
-            this.tbNotes.Size = new System.Drawing.Size(343, 208);
+            this.tbNotes.Size = new System.Drawing.Size(269, 208);
             this.tbNotes.TabIndex = 7;
             // 
             // tbID
             // 
+            this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbID.Location = new System.Drawing.Point(143, 18);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(343, 20);
+            this.tbID.Size = new System.Drawing.Size(269, 20);
             this.tbID.TabIndex = 0;
             // 
             // label8
@@ -938,32 +941,38 @@
             // 
             // mtbPublishedYear
             // 
+            this.mtbPublishedYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mtbPublishedYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mtbPublishedYear.HidePromptOnLeave = true;
             this.mtbPublishedYear.Location = new System.Drawing.Point(143, 180);
             this.mtbPublishedYear.Mask = "0000";
             this.mtbPublishedYear.Name = "mtbPublishedYear";
-            this.mtbPublishedYear.Size = new System.Drawing.Size(343, 20);
+            this.mtbPublishedYear.Size = new System.Drawing.Size(269, 20);
             this.mtbPublishedYear.TabIndex = 5;
             // 
             // cbPublisher
             // 
+            this.cbPublisher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbPublisher.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbPublisher.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbPublisher.FormattingEnabled = true;
             this.cbPublisher.Location = new System.Drawing.Point(143, 155);
             this.cbPublisher.Name = "cbPublisher";
-            this.cbPublisher.Size = new System.Drawing.Size(343, 21);
+            this.cbPublisher.Size = new System.Drawing.Size(269, 21);
             this.cbPublisher.TabIndex = 4;
             // 
             // cbAuthor
             // 
+            this.cbAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbAuthor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbAuthor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbAuthor.FormattingEnabled = true;
             this.cbAuthor.Location = new System.Drawing.Point(143, 128);
             this.cbAuthor.Name = "cbAuthor";
-            this.cbAuthor.Size = new System.Drawing.Size(343, 21);
+            this.cbAuthor.Size = new System.Drawing.Size(269, 21);
             this.cbAuthor.TabIndex = 3;
             // 
             // label7
@@ -977,10 +986,12 @@
             // 
             // tbLocation
             // 
+            this.tbLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbLocation.Location = new System.Drawing.Point(143, 207);
             this.tbLocation.Name = "tbLocation";
-            this.tbLocation.Size = new System.Drawing.Size(343, 20);
+            this.tbLocation.Size = new System.Drawing.Size(269, 20);
             this.tbLocation.TabIndex = 6;
             // 
             // label6
@@ -994,20 +1005,24 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCategory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(143, 102);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(343, 21);
+            this.cbCategory.Size = new System.Drawing.Size(269, 21);
             this.cbCategory.TabIndex = 2;
             // 
             // tbBookName
             // 
+            this.tbBookName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbBookName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbBookName.Location = new System.Drawing.Point(143, 76);
             this.tbBookName.Name = "tbBookName";
-            this.tbBookName.Size = new System.Drawing.Size(343, 20);
+            this.tbBookName.Size = new System.Drawing.Size(269, 20);
             this.tbBookName.TabIndex = 1;
             // 
             // pTypes
