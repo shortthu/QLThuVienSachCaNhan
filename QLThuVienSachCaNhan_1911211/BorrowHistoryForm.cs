@@ -32,11 +32,6 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void LoadHistory()
         {
-            BorrowBL borrowBL = new BorrowBL();
-            List<Borrow> borrowList = borrowBL.GetAll();
-            BookBL bookBL = new BookBL();
-            List<Book> bookList = bookBL.GetAll();
-
             borrowHistory = borrowHistoryBL.GetAll();
             int count = 1;
             lvHistory.Items.Clear();
