@@ -39,6 +39,7 @@
             this.tbProp2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.bNew = new System.Windows.Forms.Button();
+            this.cbSelectToManage = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbList
@@ -46,9 +47,9 @@
             this.lbList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lbList.FormattingEnabled = true;
-            this.lbList.Location = new System.Drawing.Point(12, 37);
+            this.lbList.Location = new System.Drawing.Point(17, 45);
             this.lbList.Name = "lbList";
-            this.lbList.Size = new System.Drawing.Size(206, 212);
+            this.lbList.Size = new System.Drawing.Size(206, 238);
             this.lbList.TabIndex = 0;
             this.lbList.SelectedIndexChanged += new System.EventHandler(this.lbList_SelectedIndexChanged);
             // 
@@ -58,14 +59,14 @@
             this.lTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTitle.Location = new System.Drawing.Point(12, 9);
             this.lTitle.Name = "lTitle";
-            this.lTitle.Size = new System.Drawing.Size(64, 25);
+            this.lTitle.Size = new System.Drawing.Size(80, 25);
             this.lTitle.TabIndex = 1;
-            this.lTitle.Text = "label1";
+            this.lTitle.Text = "Quản lý";
             // 
             // lID
             // 
             this.lID.AutoSize = true;
-            this.lID.Location = new System.Drawing.Point(224, 37);
+            this.lID.Location = new System.Drawing.Point(229, 49);
             this.lID.Name = "lID";
             this.lID.Size = new System.Drawing.Size(18, 13);
             this.lID.TabIndex = 3;
@@ -76,10 +77,10 @@
             this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbID.Location = new System.Drawing.Point(329, 34);
+            this.tbID.Location = new System.Drawing.Point(329, 47);
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(215, 20);
+            this.tbID.Size = new System.Drawing.Size(258, 20);
             this.tbID.TabIndex = 1;
             // 
             // tbProp1
@@ -87,15 +88,15 @@
             this.tbProp1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbProp1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbProp1.Location = new System.Drawing.Point(329, 60);
+            this.tbProp1.Location = new System.Drawing.Point(329, 73);
             this.tbProp1.Name = "tbProp1";
-            this.tbProp1.Size = new System.Drawing.Size(215, 20);
+            this.tbProp1.Size = new System.Drawing.Size(258, 20);
             this.tbProp1.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(224, 63);
+            this.label2.Location = new System.Drawing.Point(229, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 5;
@@ -103,8 +104,8 @@
             // 
             // bSave
             // 
-            this.bSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bSave.Location = new System.Drawing.Point(389, 226);
+            this.bSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bSave.Location = new System.Drawing.Point(512, 260);
             this.bSave.Name = "bSave";
             this.bSave.Size = new System.Drawing.Size(75, 23);
             this.bSave.TabIndex = 6;
@@ -114,9 +115,9 @@
             // 
             // bDelete
             // 
-            this.bDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.bDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bDelete.ForeColor = System.Drawing.Color.Red;
-            this.bDelete.Location = new System.Drawing.Point(308, 226);
+            this.bDelete.Location = new System.Drawing.Point(431, 260);
             this.bDelete.Name = "bDelete";
             this.bDelete.Size = new System.Drawing.Size(75, 23);
             this.bDelete.TabIndex = 5;
@@ -129,15 +130,15 @@
             this.tbProp2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbProp2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbProp2.Location = new System.Drawing.Point(329, 86);
+            this.tbProp2.Location = new System.Drawing.Point(329, 99);
             this.tbProp2.Name = "tbProp2";
-            this.tbProp2.Size = new System.Drawing.Size(215, 20);
+            this.tbProp2.Size = new System.Drawing.Size(258, 20);
             this.tbProp2.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(224, 89);
+            this.label3.Location = new System.Drawing.Point(229, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 9;
@@ -145,8 +146,8 @@
             // 
             // bNew
             // 
-            this.bNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bNew.Location = new System.Drawing.Point(227, 226);
+            this.bNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bNew.Location = new System.Drawing.Point(350, 260);
             this.bNew.Name = "bNew";
             this.bNew.Size = new System.Drawing.Size(75, 23);
             this.bNew.TabIndex = 4;
@@ -154,11 +155,26 @@
             this.bNew.UseVisualStyleBackColor = true;
             this.bNew.Click += new System.EventHandler(this.bNew_Click);
             // 
+            // cbSelectToManage
+            // 
+            this.cbSelectToManage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSelectToManage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSelectToManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.cbSelectToManage.FormattingEnabled = true;
+            this.cbSelectToManage.Location = new System.Drawing.Point(98, 6);
+            this.cbSelectToManage.Name = "cbSelectToManage";
+            this.cbSelectToManage.Size = new System.Drawing.Size(489, 33);
+            this.cbSelectToManage.TabIndex = 10;
+            this.cbSelectToManage.ValueMember = "0, 1, 2, 3";
+            this.cbSelectToManage.SelectedIndexChanged += new System.EventHandler(this.cbSelectToManage_SelectedIndexChanged);
+            // 
             // OtherStuffManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 261);
+            this.ClientSize = new System.Drawing.Size(599, 295);
+            this.Controls.Add(this.cbSelectToManage);
             this.Controls.Add(this.bNew);
             this.Controls.Add(this.tbProp2);
             this.Controls.Add(this.label3);
@@ -191,5 +207,6 @@
         private System.Windows.Forms.TextBox tbProp2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button bNew;
+        private System.Windows.Forms.ComboBox cbSelectToManage;
     }
 }

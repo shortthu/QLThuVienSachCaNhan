@@ -14,7 +14,7 @@ namespace QLThuVienSachCaNhan_1911211
 {
     public partial class OtherStuffManagement : Form
     {
-        int function;
+        int function = 0;
         // 0: CategoryMan; 1: AuthorMan; 2: PublisherMan; 3: PeopleMan
         List<Category> categoryList = new List<Category>();
         Category selectedCategory;
@@ -39,11 +39,38 @@ namespace QLThuVienSachCaNhan_1911211
             tbProp2.Visible = false;
         }
 
+        private void ShowExtraControls()
+        {
+            label3.Visible = true;
+            tbProp2.Visible = true;
+        }
+
         private void ClearAllControls()
         {
             tbID.Text = null;
             tbProp1.Text = null;
             tbProp2.Text = null;
+        }
+
+        private void LoadFuncSelectCombobox()
+        {
+            cbSelectToManage.DisplayMember = "Text";
+            cbSelectToManage.ValueMember = "Value";
+
+            var items = new[] {
+                new { Text = "thể loại", Value = 0 },
+                new { Text = "tác giả", Value = 1 },
+                new { Text = "nhà xuất bản", Value = 2 },
+                new { Text = "người mượn", Value = 3 }
+            };
+
+            cbSelectToManage.DataSource = items;
+        }
+
+        private void ChangeFunction()
+        {
+            function = Convert.ToInt32(cbSelectToManage.SelectedValue);
+            LoadData();
         }
 
         private void LoadData()
@@ -54,7 +81,6 @@ namespace QLThuVienSachCaNhan_1911211
                     CategoryBL categoryBL = new CategoryBL();
                     categoryList = categoryBL.GetAll();
 
-                    lTitle.Text = "Quản lý thể loại";
                     label2.Text = "Tên thể loại";
                     lbList.DataSource = categoryList;
                     lbList.DisplayMember = "TenTheLoai";
@@ -67,7 +93,6 @@ namespace QLThuVienSachCaNhan_1911211
                     AuthorBL authorBL = new AuthorBL();
                     authorList = authorBL.GetAll();
 
-                    lTitle.Text = "Quản lý tác giả";
                     label2.Text = "Tên tác giả";
                     lbList.DataSource = authorList;
                     lbList.DisplayMember = "TenTacGia";
@@ -80,7 +105,6 @@ namespace QLThuVienSachCaNhan_1911211
                     PublisherBL publisherBL = new PublisherBL();
                     publisherList = publisherBL.GetAll();
 
-                    lTitle.Text = "Quản lý nhà xuất bản";
                     label2.Text = "Tên nhà xuất bản";
                     lbList.DataSource = publisherList;
                     lbList.DisplayMember = "TenNhaXuatBan";
@@ -93,12 +117,13 @@ namespace QLThuVienSachCaNhan_1911211
                     BorrowBL borrowBL = new BorrowBL();
                     borrowList = borrowBL.GetAll();
 
-                    lTitle.Text = "Quản lý người mượn/cho mượn";
                     label2.Text = "Tên";
                     label3.Text = "Số điện thoại";
                     lbList.DataSource = borrowList;
                     lbList.DisplayMember = "Ten";
                     lbList.ValueMember = "ID";
+
+                    ShowExtraControls();
                     break;
             }
         }
@@ -281,6 +306,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void OtherStuffManagement_Load(object sender, EventArgs e)
         {
+            LoadFuncSelectCombobox();
             LoadData();
         }
 
@@ -345,6 +371,11 @@ namespace QLThuVienSachCaNhan_1911211
         private void bNew_Click(object sender, EventArgs e)
         {
             ClearAllControls();
+        }
+
+        private void cbSelectToManage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChangeFunction();
         }
     }
 }
