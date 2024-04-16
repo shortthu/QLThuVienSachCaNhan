@@ -9,8 +9,9 @@ namespace DataAccess
     public class BorrowHistory
     {
         public int ID { get; set; }
-        public int ID_Sach { get; set; }
-        public int ID_Muon { get; set; }
+        public string TenSach { get; set; }
+        public string TenNguoiMuon { get; set; }
+        public string SoDienThoaiMuon { get; set; }
         public int HinhThuc { get; set; }
         public DateTime ThoiGian { get; set; }
     }

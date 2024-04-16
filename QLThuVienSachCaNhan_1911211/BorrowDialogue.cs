@@ -58,6 +58,8 @@ namespace QLThuVienSachCaNhan_1911211
 
         private int UpdateBorrow()
         {
+            BooksProperties booksProperties = new BooksProperties();
+            booksProperties.book = selectedBook;
             BookBL bookBL = new BookBL();
             Book book = new Book();
             book = selectedBook;
@@ -68,8 +70,9 @@ namespace QLThuVienSachCaNhan_1911211
             BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
             BorrowHistory borrowHistory = new BorrowHistory();
             borrowHistory.ID = 0;
-            borrowHistory.ID_Sach = selectedBook.ID;
-            borrowHistory.ID_Muon = Convert.ToInt32(cbName.SelectedValue);
+            borrowHistory.TenSach = booksProperties.Name();
+            borrowHistory.TenNguoiMuon = booksProperties.BorrowName();
+            borrowHistory.SoDienThoaiMuon = booksProperties.BorrowPhoneNum();
             borrowHistory.HinhThuc = function;
             borrowHistory.ThoiGian = DateTime.Now;
             borrowHistoryBL.Insert(borrowHistory);

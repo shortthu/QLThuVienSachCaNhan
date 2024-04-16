@@ -251,12 +251,15 @@ namespace QLThuVienSachCaNhan_1911211
 
         private int HandleBookReturn()
         {
+            BooksProperties booksProperties = new BooksProperties();
+            booksProperties.book = selectedBook;
             BookBL bookBL = new BookBL();
             BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
             BorrowHistory borrowHistory = new BorrowHistory();
             Book book = selectedBook;
-            borrowHistory.ID_Sach = selectedBook.ID;
-            borrowHistory.ID_Muon = (int)selectedBook.ID_Muon;
+            borrowHistory.TenSach = booksProperties.Name();
+            borrowHistory.TenNguoiMuon = booksProperties.BorrowName();
+            borrowHistory.SoDienThoaiMuon = booksProperties.BorrowPhoneNum();
             borrowHistory.ThoiGian = DateTime.Now;
             // 1: Lending books -> change TrangThai to 0 & save history HinhThuc = 2
             // 2: (other ppl) borrowing books -> change TrangThai to 3 & save history HinhThuc = 3

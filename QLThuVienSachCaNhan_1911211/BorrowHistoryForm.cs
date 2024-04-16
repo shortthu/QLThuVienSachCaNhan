@@ -43,9 +43,9 @@ namespace QLThuVienSachCaNhan_1911211
             foreach (var entry in borrowHistory)
             {
                 ListViewItem item = lvHistory.Items.Add(count.ToString());
-                string bookName = bookList.Find(x => x.ID == entry.ID_Sach).TenSach;
-                string person = borrowList.Find(x => x.ID == entry.ID_Muon).Ten;
-                string phoneNum = borrowList.Find(x => x.ID == entry.ID_Muon).SoDienThoai;
+                string bookName = entry.TenSach;
+                string person = entry.TenNguoiMuon;
+                string phoneNum = entry.SoDienThoaiMuon;
                 string type;
                 switch (entry.HinhThuc)
                 {
