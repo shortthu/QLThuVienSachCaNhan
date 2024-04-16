@@ -551,26 +551,6 @@ namespace QLThuVienSachCaNhan_1911211
             LoadHistoryForm();
         }
 
-        private void categoryManagementToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadManagementForm(0);
-        }
-
-        private void authorManagementToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadManagementForm(1);
-        }
-
-        private void publisherManagementToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadManagementForm(2);
-        }
-
-        private void borrowerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadManagementForm(3);
-        }
-
         private void tbSearchAll_TextChanged(object sender, EventArgs e)
         {
             LoadBook(lvBook, SearchBook(allBooksList, tbSearchAll.Text));
@@ -599,6 +579,11 @@ namespace QLThuVienSachCaNhan_1911211
         private void tbSearchWithCategory_TextChanged(object sender, EventArgs e)
         {
             LoadBook(lvBookCategory, SearchBook(booksByCategoryList, tbSearchWithCategory.Text));
+        }
+
+        private void manageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadManagementForm(0);
         }
     }
 }

@@ -152,11 +152,7 @@
             this.borrowingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoryManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.authorManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.publisherManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.borrowerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tCategory.SuspendLayout();
@@ -1132,7 +1128,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quảnLýToolStripMenuItem,
+            this.manageToolStripMenuItem,
             this.borrowHistoryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -1140,44 +1136,12 @@
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // quảnLýToolStripMenuItem
+            // manageToolStripMenuItem
             // 
-            this.quảnLýToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.categoryManagementToolStripMenuItem,
-            this.authorManagementToolStripMenuItem,
-            this.publisherManagementToolStripMenuItem,
-            this.borrowerToolStripMenuItem});
-            this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.quảnLýToolStripMenuItem.Text = "Quản lý";
-            // 
-            // categoryManagementToolStripMenuItem
-            // 
-            this.categoryManagementToolStripMenuItem.Name = "categoryManagementToolStripMenuItem";
-            this.categoryManagementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.categoryManagementToolStripMenuItem.Text = "Thể loại";
-            this.categoryManagementToolStripMenuItem.Click += new System.EventHandler(this.categoryManagementToolStripMenuItem_Click);
-            // 
-            // authorManagementToolStripMenuItem
-            // 
-            this.authorManagementToolStripMenuItem.Name = "authorManagementToolStripMenuItem";
-            this.authorManagementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.authorManagementToolStripMenuItem.Text = "Tác giả";
-            this.authorManagementToolStripMenuItem.Click += new System.EventHandler(this.authorManagementToolStripMenuItem_Click);
-            // 
-            // publisherManagementToolStripMenuItem
-            // 
-            this.publisherManagementToolStripMenuItem.Name = "publisherManagementToolStripMenuItem";
-            this.publisherManagementToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.publisherManagementToolStripMenuItem.Text = "Nhà xuất bản";
-            this.publisherManagementToolStripMenuItem.Click += new System.EventHandler(this.publisherManagementToolStripMenuItem_Click);
-            // 
-            // borrowerToolStripMenuItem
-            // 
-            this.borrowerToolStripMenuItem.Name = "borrowerToolStripMenuItem";
-            this.borrowerToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.borrowerToolStripMenuItem.Text = "Người mượn";
-            this.borrowerToolStripMenuItem.Click += new System.EventHandler(this.borrowerToolStripMenuItem_Click);
+            this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
+            this.manageToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.manageToolStripMenuItem.Text = "Quản lý";
+            this.manageToolStripMenuItem.Click += new System.EventHandler(this.manageToolStripMenuItem_Click);
             // 
             // borrowHistoryToolStripMenuItem
             // 
@@ -1348,11 +1312,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader67;
         private System.Windows.Forms.ColumnHeader columnHeader68;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem categoryManagementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem authorManagementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem publisherManagementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem borrowerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrowHistoryToolStripMenuItem;
     }
 }
