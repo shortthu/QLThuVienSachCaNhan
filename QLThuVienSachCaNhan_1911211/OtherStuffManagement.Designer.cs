@@ -170,7 +170,6 @@
             this.Controls.Add(this.lID);
             this.Controls.Add(this.lTitle);
             this.Controls.Add(this.lbList);
-            this.MinimumSize = new System.Drawing.Size(572, 300);
             this.Name = "OtherStuffManagement";
             this.Text = "Quản lý";
             this.Load += new System.EventHandler(this.OtherStuffManagement_Load);
