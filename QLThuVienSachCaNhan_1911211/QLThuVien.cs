@@ -24,7 +24,6 @@ namespace QLThuVienSachCaNhan_1911211
         List<Book> pastBooksList = new List<Book>();
         List<Author> authorList = new List<Author>();
         List<Category> categoryList = new List<Category>();
-        List<Borrow> borrowList = new List<Borrow>();
         Book selectedBook = new Book();
 
         public QLThuVien()
@@ -51,7 +50,6 @@ namespace QLThuVienSachCaNhan_1911211
             LoadPublisher();
             LoadAuthor();
             LoadCategory();
-            LoadBorrow();
 
             allBooksList = bookBL.GetAll();
             lendingBooksList = bookBL.FilterLending();
@@ -218,19 +216,6 @@ namespace QLThuVienSachCaNhan_1911211
             SetFormsData();
         }
 
-        private void ShowBooksOnSelectedCategory(ListBox categoryList, ListView bookListView)
-        {
-            BookBL bookBL = new BookBL();
-
-            if (categoryList.SelectedItems.Count == 0) return;
-            if (int.TryParse(categoryList.SelectedValue.ToString(), out _))
-            {
-                int selectedCategoryID = Convert.ToInt32(categoryList.SelectedValue);
-                booksByCategoryList = bookBL.FilterBookByCategory(selectedCategoryID);
-                LoadBook(bookListView, booksByCategoryList);
-            }
-        }
-
         private void LoadManagementForm(int function)
         {
             OtherStuffManagement otherStuffManagement = new OtherStuffManagement(function);
@@ -311,17 +296,6 @@ namespace QLThuVienSachCaNhan_1911211
             cbCategory.DisplayMember = "TenTheLoai";
             cbCategory.ValueMember = "ID";
             cbCategory.Text = null;
-
-            lbCategory.DataSource = categoryList.ToList();
-            lbCategory.DisplayMember = "TenTheLoai";
-            lbCategory.ValueMember = "ID";
-            lbCategory.ClearSelected();
-        }
-
-        private void LoadBorrow()
-        {
-            BorrowBL borrowBL = new BorrowBL();
-            borrowList = borrowBL.GetAll();
         }
 
         private void LoadBook(ListView bookListView, List<Book> booksList)
@@ -470,16 +444,6 @@ namespace QLThuVienSachCaNhan_1911211
             DeleteBook();
         }
 
-        private void lbCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ShowBooksOnSelectedCategory(lbCategory, lvBookCategory);
-        }
-
-        private void lvBookCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ShowSelectedBook(lvBookCategory, booksByCategoryList);
-        }
-
         private void lvLending_SelectedIndexChanged(object sender, EventArgs e)
         {
             ShowSelectedBook(lvLending, lendingBooksList);
@@ -509,11 +473,6 @@ namespace QLThuVienSachCaNhan_1911211
                 MessageBox.Show("Trả thành công");
             }
             else MessageBox.Show("Thao tác không thành công");
-        }
-
-        private void lvBookCategory_MouseClick(object sender, MouseEventArgs e)
-        {
-            ShowContextMenu(lvBookCategory, e);
         }
 
         private void lvLending_MouseClick(object sender, MouseEventArgs e)
@@ -574,11 +533,6 @@ namespace QLThuVienSachCaNhan_1911211
         private void tbSearchCurrent_TextChanged(object sender, EventArgs e)
         {
             LoadBook(lvCurrent, SearchBook(currentBooksList, tbSearchCurrent.Text));
-        }
-
-        private void tbSearchWithCategory_TextChanged(object sender, EventArgs e)
-        {
-            LoadBook(lvBookCategory, SearchBook(booksByCategoryList, tbSearchWithCategory.Text));
         }
 
         private void manageToolStripMenuItem_Click(object sender, EventArgs e)
