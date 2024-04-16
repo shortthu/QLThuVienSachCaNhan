@@ -128,6 +128,35 @@ namespace QLThuVienSachCaNhan_1911211
             }
         }
 
+        private void LoadDataToList(ListBox list)
+        {
+            if (list.SelectedItems.Count == 0)
+                return;
+            if (int.TryParse(list.SelectedValue.ToString(), out _))
+            {
+                int currentIndex = Convert.ToInt32(list.SelectedIndex);
+                switch (function)
+                {
+                    case 0:
+                        selectedCategory = categoryList[currentIndex];
+                        LoadDataToControls();
+                        break;
+                    case 1:
+                        selectedAuthor = authorList[currentIndex];
+                        LoadDataToControls();
+                        break;
+                    case 2:
+                        selectedPublisher = publisherList[currentIndex];
+                        LoadDataToControls();
+                        break;
+                    case 3:
+                        selectedBorrow = borrowList[currentIndex];
+                        LoadDataToControls();
+                        break;
+                }
+            }
+        }
+
         private void LoadDataToControls()
         {
             switch (function)
@@ -312,31 +341,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void lbList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbList.SelectedItems.Count == 0)
-                return;
-            if (int.TryParse(lbList.SelectedValue.ToString(), out _))
-            {
-                int currentIndex = Convert.ToInt32(lbList.SelectedIndex);
-                switch (function)
-                {
-                    case 0:
-                        selectedCategory = categoryList[currentIndex];
-                        LoadDataToControls();
-                        break;
-                    case 1:
-                        selectedAuthor = authorList[currentIndex];
-                        LoadDataToControls();
-                        break;
-                    case 2:
-                        selectedPublisher = publisherList[currentIndex];
-                        LoadDataToControls();
-                        break;
-                    case 3:
-                        selectedBorrow = borrowList[currentIndex];
-                        LoadDataToControls();
-                        break;
-                }
-            }
+            LoadDataToList(lbList);
         }
 
         private void bDelete_Click(object sender, EventArgs e)
