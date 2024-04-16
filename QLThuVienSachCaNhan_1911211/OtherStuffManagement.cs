@@ -14,7 +14,7 @@ namespace QLThuVienSachCaNhan_1911211
 {
     public partial class OtherStuffManagement : Form
     {
-        int function = 0;
+        int function;
         // 0: CategoryMan; 1: AuthorMan; 2: PublisherMan; 3: PeopleMan
         List<Category> categoryList = new List<Category>();
         Category selectedCategory;
@@ -29,8 +29,8 @@ namespace QLThuVienSachCaNhan_1911211
 
         public OtherStuffManagement(int func)
         {
-            InitializeComponent();
             function = func;
+            InitializeComponent();
         }
 
         private void HideExtraControls()
@@ -65,6 +65,7 @@ namespace QLThuVienSachCaNhan_1911211
             };
 
             cbSelectToManage.DataSource = items;
+            cbSelectToManage.SelectedValue = function;
         }
 
         private void ChangeFunction()

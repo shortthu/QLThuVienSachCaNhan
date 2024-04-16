@@ -50,7 +50,7 @@
             this.lbList.Location = new System.Drawing.Point(17, 45);
             this.lbList.Name = "lbList";
             this.lbList.Size = new System.Drawing.Size(206, 238);
-            this.lbList.TabIndex = 0;
+            this.lbList.TabIndex = 1;
             this.lbList.SelectedIndexChanged += new System.EventHandler(this.lbList_SelectedIndexChanged);
             // 
             // lTitle
@@ -81,7 +81,7 @@
             this.tbID.Name = "tbID";
             this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(258, 20);
-            this.tbID.TabIndex = 1;
+            this.tbID.TabIndex = 2;
             // 
             // tbProp1
             // 
@@ -91,7 +91,7 @@
             this.tbProp1.Location = new System.Drawing.Point(329, 73);
             this.tbProp1.Name = "tbProp1";
             this.tbProp1.Size = new System.Drawing.Size(258, 20);
-            this.tbProp1.TabIndex = 2;
+            this.tbProp1.TabIndex = 3;
             // 
             // label2
             // 
@@ -108,7 +108,7 @@
             this.bSave.Location = new System.Drawing.Point(512, 260);
             this.bSave.Name = "bSave";
             this.bSave.Size = new System.Drawing.Size(75, 23);
-            this.bSave.TabIndex = 6;
+            this.bSave.TabIndex = 7;
             this.bSave.Text = "Lưu";
             this.bSave.UseVisualStyleBackColor = true;
             this.bSave.Click += new System.EventHandler(this.bSave_Click);
@@ -120,7 +120,7 @@
             this.bDelete.Location = new System.Drawing.Point(431, 260);
             this.bDelete.Name = "bDelete";
             this.bDelete.Size = new System.Drawing.Size(75, 23);
-            this.bDelete.TabIndex = 5;
+            this.bDelete.TabIndex = 6;
             this.bDelete.Text = "Xoá";
             this.bDelete.UseVisualStyleBackColor = true;
             this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
@@ -133,7 +133,7 @@
             this.tbProp2.Location = new System.Drawing.Point(329, 99);
             this.tbProp2.Name = "tbProp2";
             this.tbProp2.Size = new System.Drawing.Size(258, 20);
-            this.tbProp2.TabIndex = 3;
+            this.tbProp2.TabIndex = 4;
             // 
             // label3
             // 
@@ -150,7 +150,7 @@
             this.bNew.Location = new System.Drawing.Point(350, 260);
             this.bNew.Name = "bNew";
             this.bNew.Size = new System.Drawing.Size(75, 23);
-            this.bNew.TabIndex = 4;
+            this.bNew.TabIndex = 5;
             this.bNew.Text = "Mới";
             this.bNew.UseVisualStyleBackColor = true;
             this.bNew.Click += new System.EventHandler(this.bNew_Click);
@@ -165,8 +165,7 @@
             this.cbSelectToManage.Location = new System.Drawing.Point(98, 6);
             this.cbSelectToManage.Name = "cbSelectToManage";
             this.cbSelectToManage.Size = new System.Drawing.Size(489, 33);
-            this.cbSelectToManage.TabIndex = 10;
-            this.cbSelectToManage.ValueMember = "0, 1, 2, 3";
+            this.cbSelectToManage.TabIndex = 0;
             this.cbSelectToManage.SelectedIndexChanged += new System.EventHandler(this.cbSelectToManage_SelectedIndexChanged);
             // 
             // OtherStuffManagement
