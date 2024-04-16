@@ -54,7 +54,7 @@ namespace DataAccess
                 if (result > 0)
                     return (int)cmd.Parameters["@ID"].Value;
             }
-            catch { return -2; }
+            catch (SqlException ex) { Console.WriteLine(ex); return -2; }
             return 0;
         }
     }
