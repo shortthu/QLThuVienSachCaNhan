@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.Label1 = new System.Windows.Forms.Label();
             this.lvHistory = new System.Windows.Forms.ListView();
-            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmHistoryRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.delHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmHistoryRightClick.SuspendLayout();
@@ -58,12 +58,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lvHistory.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader21,
-            this.columnHeader22,
-            this.columnHeader23,
-            this.columnHeader24,
-            this.columnHeader25,
-            this.columnHeader26});
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
             this.lvHistory.FullRowSelect = true;
             this.lvHistory.GridLines = true;
             this.lvHistory.HideSelection = false;
@@ -77,41 +77,41 @@
             this.lvHistory.SelectedIndexChanged += new System.EventHandler(this.lvHistory_SelectedIndexChanged);
             this.lvHistory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvHistory_MouseClick);
             // 
-            // columnHeader21
+            // columnHeader1
             // 
-            this.columnHeader21.Text = "STT";
+            this.columnHeader1.Text = "STT";
             // 
-            // columnHeader22
+            // columnHeader2
             // 
-            this.columnHeader22.Text = "Tên sách";
+            this.columnHeader2.Text = "Tên sách";
             // 
-            // columnHeader23
+            // columnHeader3
             // 
-            this.columnHeader23.Text = "Hình thức";
+            this.columnHeader3.Text = "Hình thức";
             // 
-            // columnHeader24
+            // columnHeader4
             // 
-            this.columnHeader24.Text = "Người mượn/cho mượn";
+            this.columnHeader4.Text = "Người mượn/cho mượn";
             // 
-            // columnHeader25
+            // columnHeader5
             // 
-            this.columnHeader25.Text = "Số điện thoại mượn";
+            this.columnHeader5.Text = "Số điện thoại mượn";
             // 
-            // columnHeader26
+            // columnHeader6
             // 
-            this.columnHeader26.Text = "Ngày";
+            this.columnHeader6.Text = "Ngày";
             // 
             // cmHistoryRightClick
             // 
             this.cmHistoryRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.delHistoryToolStripMenuItem});
             this.cmHistoryRightClick.Name = "cmHistoryRightClick";
-            this.cmHistoryRightClick.Size = new System.Drawing.Size(181, 48);
+            this.cmHistoryRightClick.Size = new System.Drawing.Size(104, 26);
             // 
             // delHistoryToolStripMenuItem
             // 
             this.delHistoryToolStripMenuItem.Name = "delHistoryToolStripMenuItem";
-            this.delHistoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.delHistoryToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.delHistoryToolStripMenuItem.Text = "Xoá...";
             this.delHistoryToolStripMenuItem.Click += new System.EventHandler(this.delHistoryToolStripMenuItem_Click);
             // 
@@ -135,12 +135,12 @@
 
         private System.Windows.Forms.Label Label1;
         private System.Windows.Forms.ListView lvHistory;
-        private System.Windows.Forms.ColumnHeader columnHeader21;
-        private System.Windows.Forms.ColumnHeader columnHeader22;
-        private System.Windows.Forms.ColumnHeader columnHeader23;
-        private System.Windows.Forms.ColumnHeader columnHeader24;
-        private System.Windows.Forms.ColumnHeader columnHeader25;
-        private System.Windows.Forms.ColumnHeader columnHeader26;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ContextMenuStrip cmHistoryRightClick;
         private System.Windows.Forms.ToolStripMenuItem delHistoryToolStripMenuItem;
     }
