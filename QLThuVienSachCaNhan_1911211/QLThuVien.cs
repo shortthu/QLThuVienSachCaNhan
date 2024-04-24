@@ -17,7 +17,6 @@ namespace QLThuVienSachCaNhan_1911211
     {
         List<Publisher> publisherList = new List<Publisher>();
         List<Book> allBooksList = new List<Book>();
-        List<Book> booksByCategoryList = new List<Book>();
         List<Book> lendingBooksList = new List<Book>();
         List<Book> borrowingBooksList = new List<Book>();
         List<Book> currentBooksList = new List<Book>();
