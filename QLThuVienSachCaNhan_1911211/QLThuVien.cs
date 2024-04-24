@@ -235,8 +235,8 @@ namespace QLThuVienSachCaNhan_1911211
 
         private int HandleBookReturn()
         {
-            BooksProperties booksProperties = new BooksProperties();
-            booksProperties.book = selectedBook;
+            BooksProperties booksProperties = new BooksProperties(selectedBook);
+            //booksProperties.book = selectedBook;
             BookBL bookBL = new BookBL();
             BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
             BorrowHistory borrowHistory = new BorrowHistory();
@@ -299,15 +299,13 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void LoadBook(ListView bookListView, List<Book> booksList)
         {
-            BooksProperties booksProperties = new BooksProperties();
-
             int count = 1;
             bookListView.Items.Clear();
 
             foreach (var book in booksList)
             {
+                BooksProperties booksProperties = new BooksProperties(book);
                 ListViewItem item = bookListView.Items.Add(count.ToString());
-                booksProperties.book = book;
 
                 item.SubItems.Add(booksProperties.Name());
                 item.SubItems.Add(booksProperties.Type());

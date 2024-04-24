@@ -58,8 +58,7 @@ namespace QLThuVienSachCaNhan_1911211
 
         private int UpdateBorrow()
         {
-            BooksProperties booksProperties = new BooksProperties();
-            booksProperties.book = selectedBook;
+            BooksProperties booksProperties = new BooksProperties(selectedBook);
             BookBL bookBL = new BookBL();
             Book book = new Book();
             book = selectedBook;

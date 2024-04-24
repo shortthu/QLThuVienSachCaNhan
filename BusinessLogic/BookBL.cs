@@ -29,11 +29,10 @@ namespace BusinessLogic
         public List<Book> Search(List<Book> listToSearch, string key)
         {
             List<Book> searchedBooks = new List<Book>();
-            BooksProperties booksProperties = new BooksProperties();
 
             foreach (var book in listToSearch)
             {
-                booksProperties.book = book;
+                BooksProperties booksProperties = new BooksProperties(book);
                 if (book.ID.ToString().Contains(key)
                     || StringExtensions.Contains(booksProperties.Name(), key, StringComparison.OrdinalIgnoreCase)
                     || StringExtensions.Contains(booksProperties.Type(), key, StringComparison.OrdinalIgnoreCase)

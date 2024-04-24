@@ -9,11 +9,16 @@ namespace BusinessLogic
 {
     public class BooksProperties
     {
-        public Book book = new Book();
-        CategoryBL categoryBL = new CategoryBL();
-        AuthorBL authorBL = new AuthorBL();
-        PublisherBL publisherBL = new PublisherBL();
-        BorrowBL borrowBL = new BorrowBL();
+        private Book book = new Book();
+        private CategoryBL categoryBL = new CategoryBL();
+        private AuthorBL authorBL = new AuthorBL();
+        private PublisherBL publisherBL = new PublisherBL();
+        private BorrowBL borrowBL = new BorrowBL();
+
+        public BooksProperties(Book book)
+        {
+            this.book = book;
+        }
 
         public string Name()
         {
