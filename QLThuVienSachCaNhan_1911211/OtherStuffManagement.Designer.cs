@@ -162,6 +162,11 @@
             this.cbSelectToManage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSelectToManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.cbSelectToManage.FormattingEnabled = true;
+            this.cbSelectToManage.Items.AddRange(new object[] {
+            "thể loại",
+            "tác giả",
+            "nhà xuất bản",
+            "người mượn"});
             this.cbSelectToManage.Location = new System.Drawing.Point(98, 6);
             this.cbSelectToManage.Name = "cbSelectToManage";
             this.cbSelectToManage.Size = new System.Drawing.Size(489, 33);

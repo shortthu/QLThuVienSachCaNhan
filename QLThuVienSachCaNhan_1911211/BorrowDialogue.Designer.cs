@@ -51,18 +51,18 @@
             this.cbName.FormattingEnabled = true;
             this.cbName.Location = new System.Drawing.Point(88, 59);
             this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(291, 21);
+            this.cbName.Size = new System.Drawing.Size(261, 21);
             this.cbName.TabIndex = 2;
             this.cbName.SelectedValueChanged += new System.EventHandler(this.cbName_SelectedValueChanged);
             // 
             // bEditBorrow
             // 
-            this.bEditBorrow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.bEditBorrow.Location = new System.Drawing.Point(15, 112);
+            this.bEditBorrow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bEditBorrow.Location = new System.Drawing.Point(355, 57);
             this.bEditBorrow.Name = "bEditBorrow";
-            this.bEditBorrow.Size = new System.Drawing.Size(75, 23);
+            this.bEditBorrow.Size = new System.Drawing.Size(24, 23);
             this.bEditBorrow.TabIndex = 4;
-            this.bEditBorrow.Text = "Sửa";
+            this.bEditBorrow.Text = "+";
             this.bEditBorrow.UseVisualStyleBackColor = true;
             this.bEditBorrow.Click += new System.EventHandler(this.bEditBorrow_Click);
             // 

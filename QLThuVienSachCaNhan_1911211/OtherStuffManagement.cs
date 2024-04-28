@@ -29,8 +29,8 @@ namespace QLThuVienSachCaNhan_1911211
 
         public OtherStuffManagement(int func)
         {
-            function = func;
             InitializeComponent();
+            function = func;
         }
 
         private void HideExtraControls()
@@ -52,30 +52,15 @@ namespace QLThuVienSachCaNhan_1911211
             tbProp2.Text = null;
         }
 
-        private void LoadFuncSelectCombobox()
-        {
-            cbSelectToManage.DisplayMember = "Text";
-            cbSelectToManage.ValueMember = "Value";
-
-            var items = new[] {
-                new { Text = "thể loại", Value = 0 },
-                new { Text = "tác giả", Value = 1 },
-                new { Text = "nhà xuất bản", Value = 2 },
-                new { Text = "người mượn", Value = 3 }
-            };
-
-            cbSelectToManage.DataSource = items;
-            cbSelectToManage.SelectedValue = function;
-        }
-
         private void ChangeFunction()
         {
-            function = Convert.ToInt32(cbSelectToManage.SelectedValue);
+            function = Convert.ToInt32(cbSelectToManage.SelectedIndex);
             LoadData();
         }
 
         private void LoadData()
         {
+            cbSelectToManage.SelectedIndex = function;
             switch (function)
             {
                 case 0:
@@ -336,7 +321,6 @@ namespace QLThuVienSachCaNhan_1911211
 
         private void OtherStuffManagement_Load(object sender, EventArgs e)
         {
-            LoadFuncSelectCombobox();
             LoadData();
         }
 
