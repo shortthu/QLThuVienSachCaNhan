@@ -192,9 +192,8 @@ GO
 
 CREATE PROCEDURE [dbo].[BorrowHistory_InsertUpdateDelete]
 	@ID int output,
-	@TenSach nvarchar(100),
-	@TenNguoiMuon nvarchar(50),
-	@SoDienThoaiMuon nchar(10),
+	@ID_Sach int,
+	@ID_Muon int,
 	@HinhThuc smallint,
 	@ThoiGian datetime,
 	@Action int
@@ -202,16 +201,16 @@ AS
 -- Thêm
 IF @Action = 0
 BEGIN
-	INSERT INTO [LichSuMuon] ([TenSach], [TenNguoiMuon], [SoDienThoaiMuon], [HinhThuc], [ThoiGian])
-	VALUES (@TenSach, @TenNguoiMuon, @SoDienThoaiMuon, @HinhThuc, @ThoiGian)
+	INSERT INTO [LichSuMuon] ([ID_Sach], [ID_Muon], [HinhThuc], [ThoiGian])
+	VALUES (@ID_Sach, @ID_Muon, @HinhThuc, @ThoiGian)
 
 	SELECT @ID = SCOPE_IDENTITY();
 END
 -- Sửa
 ELSE IF @Action = 1
 BEGIN
-	UPDATE [LichSuMuon] SET [TenSach] = @TenSach, [TenNguoiMuon] = @TenNguoiMuon,
-	[SoDienThoaiMuon] = @SoDienThoaiMuon, [HinhThuc] = @HinhThuc, [ThoiGian] = @ThoiGian
+	UPDATE [LichSuMuon] SET [ID_Sach] = @ID_Sach, [ID_Muon] = @ID_Muon, [HinhThuc] = @HinhThuc,
+	[ThoiGian] = @ThoiGian
 	WHERE ID = @ID
 END
 -- Xoá

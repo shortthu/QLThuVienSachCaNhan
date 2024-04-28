@@ -25,9 +25,8 @@ namespace DataAccess
             {
                 BorrowHistory borrowHistory = new BorrowHistory();
                 borrowHistory.ID = Convert.ToInt32(reader["ID"]);
-                borrowHistory.TenSach = reader["TenSach"].ToString();
-                borrowHistory.TenNguoiMuon = reader["TenNguoiMuon"].ToString();
-                borrowHistory.SoDienThoaiMuon = reader["SoDienThoaiMuon"].ToString();
+                borrowHistory.ID_Sach = Convert.ToInt32(reader["ID_Sach"]);
+                borrowHistory.ID_Muon = Convert.ToInt32(reader["ID_Muon"]);
                 borrowHistory.HinhThuc = Convert.ToInt32(reader["HinhThuc"]);
                 borrowHistory.ThoiGian = Convert.ToDateTime(reader["ThoiGian"]);
                 list.Add(borrowHistory);
@@ -51,9 +50,8 @@ namespace DataAccess
                 IDPara.Direction = ParameterDirection.InputOutput;
 
                 cmd.Parameters.Add(IDPara).Value = borrowHistory.ID;
-                cmd.Parameters.Add("@TenSach", SqlDbType.NVarChar, 100).Value = borrowHistory.TenSach;
-                cmd.Parameters.Add("@TenNguoiMuon", SqlDbType.NVarChar, 50).Value = borrowHistory.TenNguoiMuon;
-                cmd.Parameters.Add("@SoDienThoaiMuon", SqlDbType.NChar, 10).Value = borrowHistory.SoDienThoaiMuon;
+                cmd.Parameters.Add("@ID_Sach", SqlDbType.Int).Value = borrowHistory.ID_Sach;
+                cmd.Parameters.Add("@ID_Muon", SqlDbType.Int).Value = borrowHistory.ID_Muon;
                 cmd.Parameters.Add("@HinhThuc", SqlDbType.SmallInt).Value = borrowHistory.HinhThuc;
                 cmd.Parameters.Add("@ThoiGian", SqlDbType.DateTime).Value = borrowHistory.ThoiGian;
                 cmd.Parameters.Add("@Action", SqlDbType.Int).Value = action;

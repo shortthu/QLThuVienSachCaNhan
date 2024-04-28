@@ -17,6 +17,10 @@ namespace QLThuVienSachCaNhan_1911211
         BorrowHistory selectedHistory = new BorrowHistory();
         BorrowHistoryBL borrowHistoryBL = new BorrowHistoryBL();
         List<BorrowHistory> borrowHistory = new List<BorrowHistory>();
+        List<Book> bookList = new List<Book>();
+        BookBL BookBL = new BookBL();
+        List<Borrow> borrowList = new List<Borrow>();
+        BorrowBL BorrowBL = new BorrowBL();
         public BorrowHistoryForm()
         {
             InitializeComponent();
@@ -33,14 +37,16 @@ namespace QLThuVienSachCaNhan_1911211
         private void LoadHistory()
         {
             borrowHistory = borrowHistoryBL.GetAll();
+            bookList = BookBL.GetAll();
+            borrowList = BorrowBL.GetAll();
             int count = 1;
             lvHistory.Items.Clear();
             foreach (var entry in borrowHistory)
             {
                 ListViewItem item = lvHistory.Items.Add(count.ToString());
-                string bookName = entry.TenSach;
-                string person = entry.TenNguoiMuon;
-                string phoneNum = entry.SoDienThoaiMuon;
+                string bookName = bookList.Find(x => x.ID == entry.ID_Sach).TenSach;
+                string person = borrowList.Find(x => x.ID == entry.ID_Muon).Ten;
+                string phoneNum = borrowList.Find(x => x.ID == entry.ID_Muon).SoDienThoai;
                 string type;
                 switch (entry.HinhThuc)
                 {
