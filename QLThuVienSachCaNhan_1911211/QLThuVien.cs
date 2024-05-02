@@ -175,7 +175,7 @@ namespace QLThuVienSachCaNhan_1911211
             var focusedItem = list.FocusedItem;
             if (e.Button == MouseButtons.Right)
             {
-                if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
+                if (focusedItem != null && focusedItem.Bounds.Contains(e.Location) && selectedBook.TrangThai != 4)
                 {
                     switch (selectedBook.TrangThai)
                     {
@@ -368,13 +368,24 @@ namespace QLThuVienSachCaNhan_1911211
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 BookBL bookBL = new BookBL();
-                if (bookBL.Delete(selectedBook) > 0)
+                Book book = selectedBook;
+                book.TrangThai = 4;
+
+                if (bookBL.Update(book) > 0)
                 {
                     MessageBox.Show("Xoá thành công.");
                     ReloadAllLists();
                     ResetAllFields();
                 }
                 else MessageBox.Show("Xoá không thành công.");
+
+                //if (bookBL.Delete(selectedBook) > 0)
+                //{
+                //    MessageBox.Show("Xoá thành công.");
+                //    ReloadAllLists();
+                //    ResetAllFields();
+                //}
+                //else MessageBox.Show("Xoá không thành công.");
             }
         }
 

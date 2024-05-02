@@ -44,6 +44,8 @@ namespace BusinessLogic
                     return "Đang mượn";
                 case 3:
                     return "Đã trả";
+                case 4:
+                    return "Đã xoá";
                 default:
                     return "Unknown";
             }
